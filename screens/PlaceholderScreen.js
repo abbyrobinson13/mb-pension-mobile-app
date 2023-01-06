@@ -1,28 +1,14 @@
-import {
-  View,
-  Text,
-  Button,
-  ImageBackground,
-  KeyboardAvoidingView,
-} from 'react-native';
-import AppStyles from '../styles/AppStyles';
-import background from '../assets/background.jpg';
+import {getAuth, signOut} from 'firebase/auth';
+import {Button} from 'react-native';
 
-export default function PlaceholderScreen({navigation}) {
-  return (
-    <ImageBackground style={AppStyles.container} source={background}>
-      <KeyboardAvoidingView
-        style={AppStyles.backgroundCover}
-        behavior={Platform.OS === 'ios' ? padding : null}
-        keyboardVerticalOffset={60}
-      >
-        <Text style={AppStyles.lightText}>
-          PLACEHOLDER SCREEN!
-          WHO IS TAKING IT FROM HERE?
-        </Text>
-      </KeyboardAvoidingView>
-    </ImageBackground>
-  );
+const auth = getAuth ();
+
+export default function LoggingOut({navigation}) {
+  let logout = () => {
+    signOut (auth).then (() => {
+      navigation.popToTop ();
+    });
+  };
+
+  return <Button title="Logout" onPress={logout} color={'#01796f'} />;
 }
-
-//TODO: Need to determine the content of this screen
