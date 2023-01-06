@@ -1,4 +1,10 @@
-import {View, Text, Button} from 'react-native';
+import {
+  View,
+  Text,
+  Button,
+  ImageBackground,
+  KeyboardAvoidingView,
+} from 'react-native';
 import AppStyles from '../styles/AppStyles';
 
 export default function EmployeeRegistrationForm({navigation}) {
@@ -14,7 +20,7 @@ export default function EmployeeRegistrationForm({navigation}) {
         <Text style={AppStyles.lightText}>
           Afshin, you need to add the REGISTRATION FORM HERE
         </Text>
-        <Button title="Submit" onPress={signUp} color={'#01796f'} />
+        <Button title="Submit" color={'#01796f'} />
       </KeyboardAvoidingView>
     </ImageBackground>
   );

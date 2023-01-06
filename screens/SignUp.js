@@ -39,12 +39,13 @@ export default function SignUp({navigation}) {
       createUserWithEmailAndPassword (auth, email, password)
         .then (userCredential => {
           sendEmailVerification (auth.currentUser);
-          navigation.navigate ('EmployeeRegistrationForm', {
+          navigation.navigate ('Employee Registration Form', {
             user: userCredential.user,
           });
         })
         .catch (error => {
           setValidationMessage ('login error');
+          console.log(error);
         });
     }
   };
