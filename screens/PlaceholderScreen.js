@@ -1,7 +1,7 @@
 import {View, Text, Button} from 'react-native';
 import AppStyles from '../styles/AppStyles';
 
-export default function TBDForm({navigation}) {
+export default function PlaceholderScreen({navigation}) {
   return (
     <View style={AppStyles.container}>
       <Button title="Placeholder" />

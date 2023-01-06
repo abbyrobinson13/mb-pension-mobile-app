@@ -17,11 +17,11 @@ export default function Login({navigation}) {
   const background = require ('../assets/background.jpg');
 
   if (auth.currentUser) {
-    navigation.navigate ('PlaceholderScreen');
+    navigation.navigate ('Placeholder Screen');
   } else {
     onAuthStateChanged (auth, user => {
       if (user) {
-        navigation.navigate ('PlaceholderScreen');
+        navigation.navigate ('Placeholder Screen');
       }
     });
   }
@@ -34,7 +34,7 @@ export default function Login({navigation}) {
     if (email !== '' && password !== '') {
       signInWithEmailAndPassword (auth, email, password)
         .then (userCredential => {
-          navigation.navigate ('PlaceholderScreen', {
+          navigation.navigate ('Placeholder Screen', {
             user: userCredential.user,
           });
           setErrorMessage ('');
