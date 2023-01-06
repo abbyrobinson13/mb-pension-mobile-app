@@ -11,11 +11,11 @@ import AppStyles from '../styles/AppStyles';
 import React from 'react';
 import InlineTextButton from '../components/InlineTextButton';
 import {
+  getAuth,
   createUserWithEmailAndPassword,
   sendEmailVerification,
 } from 'firebase/auth';
-
-const auth = getAuth ();
+import {auth} from '../firebase';
 
 export default function SignUp({navigation}) {
   const background = require ('../assets/background.jpg');
@@ -44,7 +44,7 @@ export default function SignUp({navigation}) {
           });
         })
         .catch (error => {
-          setValidationMessage (error.message);
+          setValidationMessage ('login error');
         });
     }
   };
