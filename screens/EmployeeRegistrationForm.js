@@ -1,14 +1,32 @@
+import { useEffect, useState } from 'react';
 import {
   View,
   Text,
   Button,
   ImageBackground,
-  KeyboardAvoidingView,
+  KeyboardAvoidingView
 } from 'react-native';
 import AppStyles from '../styles/AppStyles';
 
-export default function EmployeeRegistrationForm({navigation}) {
-  const background = require ('../assets/background.jpg');
+export default function EmployeeRegistrationForm({ navigation }) {
+  const background = require('../assets/background.jpg');
+
+  // const Portal = () => {
+
+  //   const [profile, setProfile] = useState();
+
+  //   useEffect(() => {
+  //     async function fecthProfile() {
+  //       const response = await fetch('/api/profile');
+  //       if (!response.ok) {
+  //         return;
+  //       }
+  //       const profile = await response.json();
+
+  //       setProfile(profile);
+  //     }
+  //   }, []);
+  // };
 
   return (
     <ImageBackground style={AppStyles.container} source={background}>
