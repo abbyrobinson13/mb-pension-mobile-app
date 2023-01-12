@@ -45,7 +45,7 @@ export default function Login({navigation}) {
           setPassword ('');
         })
         .catch (error => {
-          setErrorMessage ('User not found, please, SignUp');
+          setErrorMessage ('User not found. Please, SignUp');
         });
     } else {
       setErrorMessage ('Please, enter an email and password');
