@@ -6,46 +6,46 @@ import {
   Button,
   KeyboardAvoidingView,
   Platform,
-} from "react-native";
-import AppStyles from "../styles/AppStyles";
-import React from "react";
-import InlineTextButton from "../components/InlineTextButton";
+} from 'react-native';
+import AppStyles from '../styles/AppStyles';
+import React from 'react';
+import InlineTextButton from '../components/InlineTextButton';
 import {
   getAuth,
   createUserWithEmailAndPassword,
   sendEmailVerification,
-} from "firebase/auth";
-import { auth } from "../firebase";
+} from 'firebase/auth';
+import {auth} from '../firebase';
 
-export default function SignUp({ navigation }) {
-  const background = require("../assets/background.jpg");
+export default function SignUp({navigation}) {
+  const background = require ('../assets/background.jpg');
 
-  let [email, setEmail] = React.useState("");
-  let [password, setPassword] = React.useState("");
-  let [confirmPassword, setConfirmPassword] = React.useState("");
-  let [validationMessage, setValidationMessage] = React.useState("");
+  let [email, setEmail] = React.useState ('');
+  let [password, setPassword] = React.useState ('');
+  let [confirmPassword, setConfirmPassword] = React.useState ('');
+  let [validationMessage, setValidationMessage] = React.useState ('');
 
   let validateAndSet = (value, valueToCompare, setValue) => {
     if (value !== valueToCompare) {
-      setValidationMessage("Passwords do not match");
+      setValidationMessage ('Passwords do not match');
     } else {
-      setValidationMessage("");
+      setValidationMessage ('');
     }
-    setValue(value);
+    setValue (value);
   };
 
   let signUp = () => {
     if (password === confirmPassword) {
-      createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-          sendEmailVerification(auth.currentUser);
-          navigation.navigate("Employee Registration Form", {
+      createUserWithEmailAndPassword (auth, email, password)
+        .then (userCredential => {
+          sendEmailVerification (auth.currentUser);
+          setValidationMessage ('Successfully signed up with MB Group Ltd.');
+          navigation.navigate ('Employee Registration Form', {
             user: userCredential.user,
           });
         })
-        .catch((error) => {
-          setValidationMessage("login error");
-          console.log(error);
+        .catch (error => {
+          setValidationMessage ('login error');
         });
     }
   };
@@ -53,7 +53,7 @@ export default function SignUp({ navigation }) {
     <ImageBackground style={AppStyles.container} source={background}>
       <KeyboardAvoidingView
         style={AppStyles.backgroundCover}
-        behavior={Platform.OS === "ios" ? "padding" : "height"}
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         keyboardVerticalOffset={60}
       >
         <Text style={AppStyles.lightText}>Sign Up</Text>
@@ -71,9 +71,7 @@ export default function SignUp({ navigation }) {
           placeholderTextColor="#BEBEBE"
           secureTextEntry={true}
           value={password}
-          onChangeText={(value) =>
-            validateAndSet(value, confirmPassword, setPassword)
-          }
+          onChangeText={setPassword}
         />
         <TextInput
           style={AppStyles.textInput}
@@ -81,18 +79,17 @@ export default function SignUp({ navigation }) {
           placeholderTextColor="#BEBEBE"
           secureTextEntry={true}
           value={confirmPassword}
-          onChangeText={(value) =>
-            validateAndSet(value, password, setConfirmPassword)
-          }
+          onChangeText={value =>
+            validateAndSet (value, password, setConfirmPassword)}
         />
         <View style={AppStyles.rowContainer}>
           <Text style={AppStyles.lightText}>Already have an account?</Text>
           <InlineTextButton
             text=" Login"
-            onPress={() => navigation.popToTop("Logout")}
+            onPress={() => navigation.popToTop ('Logout')}
           />
         </View>
-        <Button title="Sign Up" onPress={signUp} color={"#01796f"} />
+        <Button title="Sign Up" onPress={signUp} color={'#01796f'} />
       </KeyboardAvoidingView>
     </ImageBackground>
   );
