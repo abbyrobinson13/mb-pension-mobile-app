@@ -17,10 +17,13 @@ export default function Login({navigation}) {
   const background = require ('../assets/background.jpg');
 
   if (auth.currentUser) {
-    navigation.navigate ('Placeholder Screen');
+    console.log ('first if');
+    navigation.navigate ('Employee Registration Form');
   } else {
+    console.log ('this is else');
     onAuthStateChanged (auth, user => {
       if (user) {
+        console.log ('the second if');
         navigation.navigate ('Placeholder Screen');
       }
     });
@@ -42,7 +45,7 @@ export default function Login({navigation}) {
           setPassword ('');
         })
         .catch (error => {
-          setErrorMessage (error.message);
+          setErrorMessage ('invalid e-mail or password');
         });
     } else {
       setErrorMessage ('Please, enter an email and password');
