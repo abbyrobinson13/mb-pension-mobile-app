@@ -45,7 +45,7 @@ export default function SignUp({navigation}) {
           });
         })
         .catch (error => {
-          setValidationMessage ('login error');
+          setValidationMessage ('invalid registration');
         });
     }
   };
