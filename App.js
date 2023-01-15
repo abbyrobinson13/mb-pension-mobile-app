@@ -29,13 +29,14 @@ export default function App() {
           options={{ headerShown: true }}
         />
         <Stack.Screen
-          name="Employee Registration Form"
-          component={EmployeeRegistrationForm}
-          options={{ headerShown: true }}
-        />
-        <Stack.Screen
           name="Placeholder Screen"
           component={PlaceholderScreen}
+          options={{ headerShown: true }}
+        />
+
+        <Stack.Screen
+          name="Employee Registration Form"
+          component={EmployeeRegistrationForm}
           options={{ headerShown: true }}
         />
       </Stack.Navigator>
