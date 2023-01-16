@@ -10,10 +10,33 @@ const EmployeeRegistrationForm = () => {
   useEffect(() => {
     const getEmployees = async () => {
       try {
-        let response = await fetch(`http://${ipAndPort}/api/employee`);
-        let data = await response.json();
-        console.log(data);
-        setEmployees(data);
+        let response = await fetch(`http://${ipAndPort}/api/employee/`, {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            firstName: 'name1',
+            lastName: 'lastname1',
+            gender: 'female1',
+            dateOfBirth: '1-Feb-1979',
+            email: 'email2@test.com',
+            department: 'department1',
+            position: 'dev1',
+            employmentDate: '1-Feb-2015',
+            dependents: '3',
+            mobile: '403 998-4321',
+            street: '500 Test steet 112 Rd NW',
+            postalCode: 'T3G 4J9',
+            city: 'Calgary',
+            province: 'AB'
+          })
+        });
+
+        let employeeData = await response.json();
+        console.log(employeeData);
+        setEmployees(employeeData);
       } catch (ex) {
         console.error(`Problems fetching:${ex.message}`);
       }
@@ -21,10 +44,10 @@ const EmployeeRegistrationForm = () => {
     getEmployees();
   }, []);
 
-  // const getAllEmployees = async () => {
-  //   const employees = await employees.find();
-  //   return employees;
-  // };
+  const getAllEmployees = async () => {
+    const employees = await employees.find();
+    return employees;
+  };
 
   // const getEmployeeByEmail = async (email) => {
   //   const employee = await employee.findByEmail(email);
@@ -35,7 +58,7 @@ const EmployeeRegistrationForm = () => {
   return (
     <View style={styles.container}>
       {employees ? (
-        employees.map((employees) => <Text>{employees.email}</Text>)
+        employees.map((employees) => <Text>{getAllEmployees}</Text>)
       ) : (
         <Text> "No employees found... yet!"</Text>
       )}

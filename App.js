@@ -5,7 +5,7 @@ import Login from './screens/Login';
 import SignUp from './screens/SignUp';
 import ResetPassword from './screens/ResetPassword';
 import PlaceholderScreen from './screens/PlaceholderScreen';
-import EmployeeRegistrationForm from './components/EmployeeRegistrationForm';
+import EmployeeRegistrationForm from './screens/EmployeeRegistrationForm';
 
 const Stack = createNativeStackNavigator();
 
