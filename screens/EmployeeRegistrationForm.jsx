@@ -21,11 +21,11 @@ const EmployeeRegistrationForm = () => {
             lastName: 'lastname1',
             gender: 'female1',
             dateOfBirth: '1-Feb-1979',
-            email: 'email2@test.com',
+            email: 'email3@test.com',
             department: 'department1',
             position: 'dev1',
             employmentDate: '1-Feb-2015',
-            dependents: '3',
+            dependents: '4',
             mobile: '403 998-4321',
             street: '500 Test steet 112 Rd NW',
             postalCode: 'T3G 4J9',
@@ -44,10 +44,10 @@ const EmployeeRegistrationForm = () => {
     getEmployees();
   }, []);
 
-  const getAllEmployees = async () => {
-    const employees = await employees.find();
-    return employees;
-  };
+  // const getAllEmployees = async () => {
+  //   const employees = await employees.find();
+  //   return employees;
+  // };
 
   // const getEmployeeByEmail = async (email) => {
   //   const employee = await employee.findByEmail(email);
@@ -58,7 +58,7 @@ const EmployeeRegistrationForm = () => {
   return (
     <View style={styles.container}>
       {employees ? (
-        employees.map((employees) => <Text>{getAllEmployees}</Text>)
+        employees.map((employees) => <Text>{employees.body}</Text>)
       ) : (
         <Text> "No employees found... yet!"</Text>
       )}
