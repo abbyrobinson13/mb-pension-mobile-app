@@ -4,8 +4,14 @@ import { Button, TextInput } from 'react-native-paper';
 
 const EmployeeRegistrationForm = () => {
   const [employees, setEmployees] = useState(null);
-  const ipAndPort = '10.0.0.139:5001';
+  const ipAndPort = '10.44.22.29:5001';
   console.log(ipAndPort);
+  const [newEmail, setNewEmail] = useState('');
+
+  function handleEmail(enteredText) {
+    setNewEmail(enteredText);
+    console.log(newEmail);
+  }
 
   useEffect(() => {
     const getEmployees = async () => {
@@ -21,22 +27,22 @@ const EmployeeRegistrationForm = () => {
     getEmployees();
   }, []);
 
-
-  // const getEmployeeByEmail = async (email) => {
-  //   const employee = await employee.findByEmail(email);
-  //   console.log(employee)
-  //   return employee;
-  // };
-
   return (
     <ScrollView>
       <View style={styles.scrollView}>
         {employees ? (
-          employees.map((employees) => <Text>{employees.email}</Text>)
+          employees.map((employees) => <Text>{employees.firstName}</Text>)
         ) : (
           <Text> "No employees found... yet!"</Text>
         )}
-
+        {employees && (
+          <TextInput
+            label="Email"
+            onChangeText={handleEmail}
+            value={newEmail}
+          />
+        )}
+        {!employees && <Text>'No email address'</Text>}
         {employees && <TextInput label="First Name" />}
         {!employees && <Text>'No first name'</Text>}
         {employees && <TextInput label="Last Name" />}
@@ -45,8 +51,6 @@ const EmployeeRegistrationForm = () => {
         {!employees && <Text>'No gender'</Text>}
         {employees && <TextInput label="Date of birth" />}
         {!employees && <Text>'No date of birth'</Text>}
-        {employees && <TextInput label="Email" />}
-        {!employees && <Text>'No email address'</Text>}
         {employees && <TextInput label="Department" />}
         {!employees && <Text>'No department'</Text>}
         {employees && <TextInput label="Position" />}
@@ -92,3 +96,9 @@ const styles = StyleSheet.create({
     fontSize: 42
   }
 });
+
+// const getEmployeeByEmail = async (email) => {
+//   const employee = await employee.findByEmail(email);
+//   console.log(employee)
+//   return employee;
+// };
