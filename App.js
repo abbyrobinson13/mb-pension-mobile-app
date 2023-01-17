@@ -31,6 +31,14 @@ export default function App() {
         <Stack.Screen
           name="Placeholder Screen"
           component={PlaceholderScreen}
+<<<<<<< HEAD
+=======
+          options={{ headerShown: true }}
+        />
+        <Stack.Screen
+          name="Employee Registration Form"
+          component={EmployeeRegistrationForm}
+>>>>>>> main
           options={{ headerShown: true }}
         />
 

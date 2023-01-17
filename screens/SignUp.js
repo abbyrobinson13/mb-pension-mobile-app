@@ -39,13 +39,13 @@ export default function SignUp({navigation}) {
       createUserWithEmailAndPassword (auth, email, password)
         .then (userCredential => {
           sendEmailVerification (auth.currentUser);
+          setValidationMessage ('Successfully signed up with MB Group Ltd.');
           navigation.navigate ('Employee Registration Form', {
             user: userCredential.user,
           });
         })
         .catch (error => {
-          setValidationMessage ('login error');
-          console.log(error);
+          setValidationMessage ('invalid registration');
         });
     }
   };
@@ -53,7 +53,7 @@ export default function SignUp({navigation}) {
     <ImageBackground style={AppStyles.container} source={background}>
       <KeyboardAvoidingView
         style={AppStyles.backgroundCover}
-        behavior={Platform.OS === 'ios' ? padding : null}
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         keyboardVerticalOffset={60}
       >
         <Text style={AppStyles.lightText}>Sign Up</Text>
@@ -71,8 +71,7 @@ export default function SignUp({navigation}) {
           placeholderTextColor="#BEBEBE"
           secureTextEntry={true}
           value={password}
-          onChangeText={value =>
-            validateAndSet (value, confirmPassword, setPassword)}
+          onChangeText={setPassword}
         />
         <TextInput
           style={AppStyles.textInput}
@@ -84,9 +83,7 @@ export default function SignUp({navigation}) {
             validateAndSet (value, password, setConfirmPassword)}
         />
         <View style={AppStyles.rowContainer}>
-          <Text style={AppStyles.lightText}>
-            Already have an account?
-          </Text>
+          <Text style={AppStyles.lightText}>Already have an account?</Text>
           <InlineTextButton
             text=" Login"
             onPress={() => navigation.popToTop ('Logout')}
