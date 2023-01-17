@@ -5,7 +5,7 @@ import Login from './screens/Login';
 import SignUp from './screens/SignUp';
 import ResetPassword from './screens/ResetPassword';
 import PlaceholderScreen from './screens/PlaceholderScreen';
-import EmployeeRegistrationForm from './components/EmployeeRegistrationForm';
+import EmployeeRegistrationForm from './screens/EmployeeRegistrationForm';
 
 const Stack = createNativeStackNavigator();
 
@@ -29,13 +29,13 @@ export default function App() {
           options={{ headerShown: true }}
         />
         <Stack.Screen
-          name="Employee Registration Form"
-          component={EmployeeRegistrationForm}
+          name="Placeholder Screen"
+          component={PlaceholderScreen}
           options={{ headerShown: true }}
         />
         <Stack.Screen
-          name="Placeholder Screen"
-          component={PlaceholderScreen}
+          name="Employee Registration Form"
+          component={EmployeeRegistrationForm}
           options={{ headerShown: true }}
         />
       </Stack.Navigator>

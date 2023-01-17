@@ -21,10 +21,6 @@ const EmployeeRegistrationForm = () => {
     getEmployees();
   }, []);
 
-  // const getAllEmployees = async () => {
-  //   const employees = await employees.find();
-  //   return employees;
-  // };
 
   // const getEmployeeByEmail = async (email) => {
   //   const employee = await employee.findByEmail(email);
@@ -70,7 +66,7 @@ const EmployeeRegistrationForm = () => {
         {employees && <TextInput label="Province" />}
         {!employees && <Text>'No province'</Text>}
 
-        {/* {
+        {
           <Button
             title="Register"
             on
@@ -79,7 +75,7 @@ const EmployeeRegistrationForm = () => {
             {' '}
             "Submit"
           </Button>
-        } */}
+        }
       </View>
     </ScrollView>
   );
