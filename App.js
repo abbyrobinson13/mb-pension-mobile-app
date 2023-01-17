@@ -38,12 +38,6 @@ export default function App() {
           component={EmployeeRegistrationForm}
           options={{ headerShown: true }}
         />
-
-        <Stack.Screen
-          name="Employee Registration Form"
-          component={EmployeeRegistrationForm}
-          options={{ headerShown: true }}
-        />
       </Stack.Navigator>
     </NavigationContainer>
   );
