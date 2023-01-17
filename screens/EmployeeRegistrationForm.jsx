@@ -1,38 +1,56 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import { TextInput } from 'react-native-paper';
+// import NetworkInfo from 'react-native-network-info';
+
+// const getIP = async () => {
+//   try {
+//     const ip = await NetworkInfo.getIPAddress();
+//     console.log('IP Address: ', ip);
+//     return ip;
+//   } catch (error) {
+//     console.error(error);
+//   }
+// };
+// `${ip}:5001`
 
 const EmployeeRegistrationForm = () => {
+
   const [employees, setEmployees] = useState(null);
+
   const ipAndPort = '10.0.0.139:5001';
   console.log(ipAndPort);
 
   useEffect(() => {
     const getEmployees = async () => {
       try {
-        let response = await fetch(`http://${ipAndPort}/api/employee/`, {
-          method: 'POST',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            firstName: 'name1',
-            lastName: 'lastname1',
-            gender: 'female1',
-            dateOfBirth: '1-Feb-1979',
-            email: 'email3@test.com',
-            department: 'department1',
-            position: 'dev1',
-            employmentDate: '1-Feb-2015',
-            dependents: '4',
-            mobile: '403 998-4321',
-            street: '500 Test steet 112 Rd NW',
-            postalCode: 'T3G 4J9',
-            city: 'Calgary',
-            province: 'AB'
-          })
-        });
+
+        let response = await fetch(`http://${ipAndPort}/api/employee/`)
+        // , {
+        //   method: 'POST',
+        //   headers: {
+        //     Accept: 'application/json',
+        //     'Content-Type': 'application/json'
+        //   },
+        //   body: JSON.stringify({
+        //     firstName: 'name1',
+        //     lastName: 'lastname1',
+        //     gender: 'female1',
+        //     dateOfBirth: '1-Feb-1979',
+        //     email: 'email7@test.com',
+        //     department: 'department1',
+        //     position: 'dev1',
+        //     employmentDate: '1-Feb-2015',
+        //     dependents: '4',
+        //     mobile: '403 998-4321',
+        //     street: '500 Test steet 112 Rd NW',
+        //     postalCode: 'T3G 4J9',
+        //     city: 'Calgary',
+        //     province: 'AB',
+        //     occupation: '',
+        //     Industry: ''
+        //   })
+        // });
 
         let employeeData = await response.json();
         console.log(employeeData);
@@ -58,7 +76,7 @@ const EmployeeRegistrationForm = () => {
   return (
     <View style={styles.container}>
       {employees ? (
-        employees.map((employees) => <Text>{employees.body}</Text>)
+        employees.map((employees) => <Text>{employees.email}</Text>)
       ) : (
         <Text> "No employees found... yet!"</Text>
       )}
