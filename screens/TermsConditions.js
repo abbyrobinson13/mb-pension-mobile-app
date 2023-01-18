@@ -2,8 +2,6 @@ import React, {useState} from 'react';
 import {View, Text, Button, ScrollView} from 'react-native';
 
 export default function TermsConditionsForm({navigation}) {
-  const [isChecked, setIsChecked] = React.useState (false);
-
   return (
     <View>
       <Text>Please, read and accept the terms and conditions:</Text>
@@ -11,13 +9,13 @@ export default function TermsConditionsForm({navigation}) {
         <Text>
           ***********************************************************
           [Add Terms and conditions here]
+
           ***********************************************************
         </Text>
       </ScrollView>
       <Button
         title="Accept"
-        onPress={() =>
-          navigation.navigate ('Sign Up', {checkBoxValue: isChecked})}
+        onPress={() => navigation.navigate ('Sign Up', {checkboxValue: true})}
         color={'#9AC6DF'}
       />
       <Button
