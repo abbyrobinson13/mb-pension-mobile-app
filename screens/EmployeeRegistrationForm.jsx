@@ -13,216 +13,313 @@ const EmployeeRegistrationForm = () => {
     setNewEmail(enteredText);
     console.log(email);
   }
-  const [newFirstName, setNewFirstName] = useState('');
+  const [firstName, setNewFirstName] = useState('');
   function handleFirstName(enteredText) {
     setNewFirstName(enteredText);
 
-    console.log(newFirstName);
+    console.log(firstName);
   }
 
-  const [newLastName, setNewLastName] = useState('');
+  const [lastName, setNewLastName] = useState('');
   function handleLastName(enteredText) {
     setNewLastName(enteredText);
-    console.log(newLastName);
+    console.log(lastName);
   }
-  const [newGender, setNewGender] = useState('');
+  const [gender, setNewGender] = useState('');
   function handleGender(enteredText) {
     setNewGender(enteredText);
-    console.log(newGender);
+    console.log(gender);
   }
 
-  const [newDatOfBirth, setNewDateOfBirth] = useState('');
-
+  const [dateOfBirth, setNewDateOfBirth] = useState('');
   function handleDOB(enteredText) {
     setNewDateOfBirth(enteredText);
-    console.log(newDatOfBirth);
+    console.log(dateOfBirth);
   }
-  const [newDepartment, setNewDepartment] = useState('');
-
+  const [department, setNewDepartment] = useState('');
   function handleDepartment(enteredText) {
     setNewDepartment(enteredText);
-    console.log(newDepartment);
+    console.log(department);
   }
+  const [position, setNewPosition] = useState('');
+  function handlePosition(enteredText) {
+    setNewPosition(enteredText);
+    console.log(position);
+  }
+  const [employmentDate, setNewEmployementDate] = useState('');
+  function handleEmployementDate(enteredText) {
+    setNewEmployementDate(enteredText);
+    console.log(employmentDate);
+  }
+  const [dependents, setNewdependents] = useState('');
+  function handleDependents(enteredText) {
+    setNewdependents(enteredText);
+    console.log(dependents);
+  }
+  const [mobile, setNewMobile] = useState('');
+  function handleMobile(enteredText) {
+    setNewMobile(enteredText);
+    console.log(mobile);
+  }
+  const [street, setNewStreet] = useState('');
+  function handleStreet(enteredText) {
+    setNewStreet(enteredText);
+    console.log(street);
+  }
+  const [postalCode, setNewPostalCode] = useState('');
+  function handlePostalCode(enteredText) {
+    setNewPostalCode(enteredText);
+    console.log(postalCode);
+  }
+  const [city, setNewCity] = useState('');
+  function handleCity(enteredText) {
+    setNewCity(enteredText);
+    console.log(city);
 
-  useEffect(() => {
-    const getEmployees = async () => {
-      try {
-        let response = await fetch(`http://${ipAndPort}/api/employee`);
+    const [province, setNewProvince] = useState('');
+    function handleProvince(enteredText) {
+      setNewProvince(enteredText);
+      console.log(province);
+    }
+
+    const [policyNumber, setNewPolicyNumber] = useState('');
+    function handlePolicyNumber(enteredText) {
+      setNewPolicyNumber(enteredText);
+      console.log(policyNumber);
+
+      const [employeeNumber, setNewEmployeeNumber] = useState('');
+      function handleEmployeeNumber(enteredText) {
+        setNewEmployeeNumber(enteredText);
+        console.log(employeeNumber);
+      }
+
+      useEffect(() => {
+        const getEmployees = async () => {
+          try {
+            let response = await fetch(`http://${ipAndPort}/api/employee`);
+            let data = await response.json();
+            console.log(data);
+            setEmployees(data);
+          } catch (ex) {
+            console.error(`Problems fetching:${ex.message}`);
+          }
+        };
+        getEmployees();
+      }, []);
+
+      const handleSubmit = async () => {
+        const employeeData = {
+          email,
+          firstName,
+          lastName,
+          gender,
+          dateOfBirth,
+          department,
+          position,
+          employmentDate,
+          dependents,
+          mobile,
+          street,
+          postalCode,
+          city,
+          province,
+          policyNumber,
+          employeeNumber
+        };
+        let response = await fetch(`http://${ipAndPort}/api/employee`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(employeeData)
+        });
+
         let data = await response.json();
         console.log(data);
-        setEmployees(data);
-      } catch (ex) {
-        console.error(`Problems fetching:${ex.message}`);
-      }
-    };
-    getEmployees();
-  }, []);
+        // navigation.navigate('Login');
+      };
 
-  const handleSubmit = async () => {
-    const employeeData = {
-      email,
-      newFirstName,
-      newLastName,
-      newLastName
-    };
-    let response = await fetch(`http://${ipAndPort}/api/employee`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
+      return (
+        <ScrollView>
+          <View style={styles.scrollView}>
+            {employees && (
+              <TextInput
+                label="Email"
+                onChangeText={handleEmail}
+                value={email}
+              />
+            )}
+
+            {!employees && <Text>'No email address'</Text>}
+
+            {employees && (
+              <TextInput
+                label="First Name"
+                onChangeText={handleFirstName}
+                value={firstName}
+              />
+            )}
+
+            {!employees && <Text>'No first name'</Text>}
+
+            {employees && (
+              <TextInput
+                label="Last Name"
+                onChangeText={handleLastName}
+                value={lastName}
+              />
+            )}
+
+            {!employees && <Text>'No last name'</Text>}
+
+            {employees && (
+              <TextInput
+                label="Gender"
+                onChangeText={handleGender}
+                value={gender}
+              />
+            )}
+            {!employees && <Text>'No gender'</Text>}
+
+            {employees && (
+              <TextInput
+                label="Date of birth"
+                onChangeText={handleDOB}
+                value={dateOfBirth}
+              />
+            )}
+            {!employees && <Text>'No date of birth'</Text>}
+
+            {employees && (
+              <TextInput
+                label="Department"
+                onChangeText={handleDepartment}
+                value={department}
+              />
+            )}
+
+            {!employees && <Text>'No department'</Text>}
+
+            {employees && (
+              <TextInput
+                label="Position"
+                onChangeText={handlePosition}
+                value={position}
+              />
+            )}
+
+            {!employees && <Text>'No position'</Text>}
+
+            {employees && (
+              <TextInput
+                label="Employment Date"
+                onChangeText={handleEmployementDate}
+                value={employmentDate}
+              />
+            )}
+
+            {!employees && <Text>'No employment date'</Text>}
+
+            {employees && (
+              <TextInput
+                label="Dependents"
+                onChangeText={handleDependents}
+                value={dependents}
+              />
+            )}
+
+            {!employees && <Text>'No dependents'</Text>}
+
+            {employees && (
+              <TextInput
+                label="Mobile"
+                onChangeText={handleMobile}
+                value={mobile}
+              />
+            )}
+
+            {!employees && <Text>'No mobile'</Text>}
+
+            {employees && (
+              <TextInput
+                label="Street"
+                onChangeText={handleStreet}
+                value={street}
+              />
+            )}
+            {!employees && <Text>'No street'</Text>}
+
+            {employees && (
+              <TextInput
+                label="Postal Code"
+                onChangeText={handlePostalCode}
+                value={postalCode}
+              />
+            )}
+            {!employees && <Text>'No postal code'</Text>}
+
+            {employees && (
+              <TextInput label="City" onChangeText={handleCity} value={city} />
+            )}
+
+            {!employees && <Text>'No city'</Text>}
+
+            {employees && (
+              <TextInput
+                label="Province"
+                onChangeText={handleProvince}
+                value={province}
+              />
+            )}
+
+            {!employees && <Text>'No province'</Text>}
+
+            {employees && (
+              <TextInput
+                label="Policy Number"
+                onChangeText={handlePolicyNumber}
+                value={policyNumber}
+              />
+            )}
+
+            {!employees && <Text>'No policyNumber'</Text>}
+
+            {employees && (
+              <TextInput
+                label="Employee Number"
+                onChangeText={handleEmployeeNumber}
+                value={employeeNumber}
+              />
+            )}
+
+            {!employees && <Text>'No employeeNumber'</Text>}
+
+            {
+              <Button
+                title="Register"
+                on
+                onPress={() => {
+                  handleSubmit();
+                }}
+              >
+                Submit
+              </Button>
+            }
+          </View>
+        </ScrollView>
+      );
+    }
+
+    
+    const styles = StyleSheet.create({
+      scrollView: {
+        backgroundColor: 'lightblue',
+        marginHorizontal: 20
       },
-      body: JSON.stringify(employeeData)
+      text: {
+        fontSize: 42
+      }
     });
-
-    let data = await response.json();
-    console.log(data);
-    navigation.navigate('Login');
-  };
-
-  return (
-    <ScrollView>
-      <View style={styles.scrollView}>
-        {/* {employees ? (
-          employees.map((employees) => <Text>{employees.firstName}</Text>)
-        ) : (
-          <Text> "No employees found... yet!"</Text>
-        )} */}
-
-        {employees && (
-          <TextInput
-            label="Email"
-            onChangeText={handleEmail}
-            value={email}
-          />
-        )}
-
-        {!employees && <Text>'No email address'</Text>}
-
-        {employees && (
-          <TextInput
-            label="First Name"
-            onChangeText={handleFirstName}
-            value={newFirstName}
-          />
-        )}
-
-        {!employees && <Text>'No first name'</Text>}
-
-        {employees && (
-          <TextInput
-            label="Last Name"
-            onChangeText={handleLastName}
-            value={newLastName}
-          />
-        )}
-
-        {!employees && <Text>'No last name'</Text>}
-
-        {employees && (
-          <TextInput
-            label="Gender"
-            onChangeText={handleGender}
-            value={newGender}
-          />
-        )}
-        {!employees && <Text>'No gender'</Text>}
-
-        {employees && (
-          <TextInput
-            label="Date of birth"
-            onChangeText={handleDOB}
-            value={newDatOfBirth}
-          />
-        )}
-        {!employees && <Text>'No date of birth'</Text>}
-
-        {employees && (
-          <TextInput
-            label="Department"
-            onChangeText={handleDepartment}
-            value={newDepartment}
-          />
-        )}
-
-        {!employees && <Text>'No department'</Text>}
-
-        {employees && <TextInput label="Position" />}
-        {!employees && <Text>'No position'</Text>}
-
-        {employees && <TextInput label="Employment Date" />}
-        {!employees && <Text>'No employment date'</Text>}
-
-        {employees && <TextInput label="Dependents" />}
-        {!employees && <Text>'No dependents'</Text>}
-
-        {employees && <TextInput label="Mobile" />}
-        {!employees && <Text>'No mobile'</Text>}
-
-        {employees && <TextInput label="Street" />}
-        {!employees && <Text>'No street'</Text>}
-
-        {employees && <TextInput label="Postal Code" />}
-        {!employees && <Text>'No postal code'</Text>}
-
-        {employees && <TextInput label="City" />}
-        {!employees && <Text>'No city'</Text>}
-
-        {employees && <TextInput label="Province" />}
-        {!employees && <Text>'No province'</Text>}
-
-        {employees && <TextInput label="Policy Number" />}
-        {!employees && <Text>'No policyNumber'</Text>}
-
-        {employees && <TextInput label="Employee Number" />}
-        {!employees && <Text>'No employeeNumber'</Text>}
-
-        {
-          <Button
-            title="Register"
-            on
-            onPress={() => {
-              handleSubmit();
-            }}
-          >
-            Submit
-          </Button>
-        }
-      </View>
-    </ScrollView>
-  );
-};
-
-export default EmployeeRegistrationForm;
-
-const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: 'lightblue',
-    marginHorizontal: 20
-  },
-  text: {
-    fontSize: 42
   }
-});
-
-// const getEmployeeByEmail = async (email) => {
-//   const employee = await employee.findByEmail(email);
-//   console.log(employee)
-//   return employee;
-// };
-
-//Submit Registration Form
-//  const handleSubmit = async () => {
-
-//     const response = await fetch('http://${ipAndPort}/api/employee', {
-//       method: 'POST',
-//       body:
-//     });
-
-// const answer = await response.json();
-// if (response.ok) {
-//   console.log('ok');
-//   setStatus('success');
-// } else {
-//   console.log('not ok', answer);
-//   setStatus(answer.writeErrors[0].errmsg);
-// }
-// };
+};
+export default EmployeeRegistrationForm;
