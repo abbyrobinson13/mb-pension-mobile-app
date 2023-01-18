@@ -3,7 +3,9 @@ import React, { useEffect, useState } from 'react';
 import { Button, TextInput } from 'react-native-paper';
 
 const EmployeeRegistrationForm = () => {
+
   const [employees, setEmployees] = useState(null);
+  
   const ipAndPort = '10.44.22.29:5001';
   console.log(ipAndPort);
   const [newEmail, setNewEmail] = useState('');
@@ -26,6 +28,12 @@ const EmployeeRegistrationForm = () => {
     };
     getEmployees();
   }, []);
+
+
+
+
+
+
 
   return (
     <ScrollView>
