@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { Button, TextInput } from 'react-native-paper';
 
 const EmployeeRegistrationForm = () => {
+
+
   const [employees, setEmployees] = useState(null);
 
   const ipAndPort = '10.44.22.29:5001';
@@ -75,7 +77,7 @@ const EmployeeRegistrationForm = () => {
   function handleCity(enteredText) {
     setNewCity(enteredText);
     console.log(city);
-
+  }
     const [province, setNewProvince] = useState('');
     function handleProvince(enteredText) {
       setNewProvince(enteredText);
@@ -86,6 +88,7 @@ const EmployeeRegistrationForm = () => {
     function handlePolicyNumber(enteredText) {
       setNewPolicyNumber(enteredText);
       console.log(policyNumber);
+    }
 
       const [employeeNumber, setNewEmployeeNumber] = useState('');
       function handleEmployeeNumber(enteredText) {
@@ -136,12 +139,12 @@ const EmployeeRegistrationForm = () => {
 
         let data = await response.json();
         console.log(data);
-        // navigation.navigate('Login');
+        navigation.navigate('Login');
       };
 
       return (
         <ScrollView>
-          <View style={styles.scrollView}>
+          <View>
             {employees && (
               <TextInput
                 label="Email"
@@ -310,8 +313,7 @@ const EmployeeRegistrationForm = () => {
       );
     }
 
-    
-    const styles = StyleSheet.create({
+const styles = StyleSheet.create({
       scrollView: {
         backgroundColor: 'lightblue',
         marginHorizontal: 20
@@ -320,6 +322,4 @@ const EmployeeRegistrationForm = () => {
         fontSize: 42
       }
     });
-  }
-};
 export default EmployeeRegistrationForm;
