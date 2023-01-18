@@ -7,8 +7,9 @@ import {
   KeyboardAvoidingView,
   Platform,
 } from 'react-native';
+
 import AppStyles from '../styles/AppStyles';
-import React from 'react';
+import React, {useEffect} from 'react';
 import InlineTextButton from '../components/InlineTextButton';
 import {
   getAuth,
@@ -16,14 +17,25 @@ import {
   sendEmailVerification,
 } from 'firebase/auth';
 import {auth} from '../firebase';
+import Checkbox from 'expo-checkbox';
 
-export default function SignUp({navigation}) {
+export default function SignUp({navigation, route}) {
   const background = require ('../assets/background.jpg');
-
   let [email, setEmail] = React.useState ('');
   let [password, setPassword] = React.useState ('');
   let [confirmPassword, setConfirmPassword] = React.useState ('');
   let [validationMessage, setValidationMessage] = React.useState ('');
+  useEffect (
+    () => {
+      if (route?.params?.checkboxValue) {
+        setIsChecked (true);
+      } else {
+        setIsChecked (false);
+      }
+    },
+    [route]
+  );
+  const [isChecked, setIsChecked] = React.useState (false);
 
   let validateAndSet = (value, valueToCompare, setValue) => {
     if (value !== valueToCompare) {
@@ -35,7 +47,7 @@ export default function SignUp({navigation}) {
   };
 
   let signUp = () => {
-    if (password === confirmPassword) {
+    if (password === confirmPassword && isChecked) {
       createUserWithEmailAndPassword (auth, email, password)
         .then (userCredential => {
           sendEmailVerification (auth.currentUser);
@@ -82,6 +94,17 @@ export default function SignUp({navigation}) {
           onChangeText={value =>
             validateAndSet (value, password, setConfirmPassword)}
         />
+        <View style={AppStyles.rowContainer}>
+          <Checkbox
+            value={isChecked}
+            onValueChange={() => setIsChecked (!isChecked)}
+          />
+          <InlineTextButton
+            text="Terms and Conditions"
+            onPress={() => navigation.navigate ('Terms and Conditions')}
+          />
+        </View>
+
         <View style={AppStyles.rowContainer}>
           <Text style={AppStyles.lightText}>Already have an account?</Text>
           <InlineTextButton

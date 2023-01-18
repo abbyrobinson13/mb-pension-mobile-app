@@ -6,6 +6,7 @@ import SignUp from './screens/SignUp';
 import ResetPassword from './screens/ResetPassword';
 import PlaceholderScreen from './screens/PlaceholderScreen';
 import EmployeeRegistrationForm from './screens/EmployeeRegistrationForm';
+import TermsConditionsForm from './screens/TermsConditions';
 
 const Stack = createNativeStackNavigator();
 
@@ -21,6 +22,11 @@ export default function App() {
         <Stack.Screen
           name="Sign Up"
           component={SignUp}
+          options={{ headerShown: true }}
+        />
+         <Stack.Screen
+          name="Terms and Conditions"
+          component={TermsConditionsForm}
           options={{ headerShown: true }}
         />
         <Stack.Screen
