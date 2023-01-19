@@ -21,7 +21,7 @@ import Checkbox from 'expo-checkbox';
 
 export default function CreatePassword({navigation, route}) {
   const background = require ('../assets/background.jpg');
-  let [email, setEmail] = React.useState ('');
+  //let [email, setEmail] = React.useState ('');
   let [password, setPassword] = React.useState ('');
   let [confirmPassword, setConfirmPassword] = React.useState ('');
   let [validationMessage, setValidationMessage] = React.useState ('');
@@ -70,13 +70,13 @@ export default function CreatePassword({navigation, route}) {
       >
         <Text style={AppStyles.lightText}>Create Password</Text>
         <Text style={AppStyles.errorText}>{validationMessage}</Text>
-        <TextInput
+        {/* <TextInput
           style={AppStyles.textInput}
           placeholder="Email"
           placeholderTextColor="#BEBEBE"
           value={email}
           onChangeText={setEmail}
-        />
+        /> */}
         <TextInput
           style={AppStyles.textInput}
           placeholder="Password"
