@@ -18,10 +18,11 @@ import {
 } from 'firebase/auth';
 import {auth} from '../firebase';
 import Checkbox from 'expo-checkbox';
+const ipAndPort='10.44.22.18:5001'
 
 export default function CreatePassword({navigation, route}) {
   const background = require ('../assets/background.jpg');
-  //let [email, setEmail] = React.useState ('');
+  let [email, setEmail] = React.useState ('');
   let [password, setPassword] = React.useState ('');
   let [confirmPassword, setConfirmPassword] = React.useState ('');
   let [validationMessage, setValidationMessage] = React.useState ('');
@@ -46,8 +47,13 @@ export default function CreatePassword({navigation, route}) {
     setValue (value);
   };
 
-  let createPassword = () => {
+  let createPassword = async() => {
+    console.log('line 50');
     if (password === confirmPassword && isChecked) {
+      console.log('line 53');
+      let response = await fetch(`http://${ipAndPort}/api/employee/byEmail/${email}`)
+      if (response.ok) {
+        console.log('line55');
       createUserWithEmailAndPassword (auth, email, password)
         .then (userCredential => {
           sendEmailVerification (auth.currentUser);
@@ -57,8 +63,12 @@ export default function CreatePassword({navigation, route}) {
           });
         })
         .catch (error => {
+          console.log(error)
           setValidationMessage ('invalid registration');
         });
+      } else {
+        setValidationMessage ('Please, contact your employer')
+      }
     }
   };
   return (
@@ -70,13 +80,13 @@ export default function CreatePassword({navigation, route}) {
       >
         <Text style={AppStyles.lightText}>Create Password</Text>
         <Text style={AppStyles.errorText}>{validationMessage}</Text>
-        {/* <TextInput
+        <TextInput
           style={AppStyles.textInput}
           placeholder="Email"
           placeholderTextColor="#BEBEBE"
           value={email}
           onChangeText={setEmail}
-        /> */}
+        />
         <TextInput
           style={AppStyles.textInput}
           placeholder="Password"
