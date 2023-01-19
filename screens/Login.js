@@ -79,7 +79,7 @@ export default function Login({navigation}) {
           </Text>
           <InlineTextButton
             text=" Create password"
-            onPress={() => navigation.navigate ('Sign Up')}
+            onPress={() => navigation.navigate ('Create Password')}
           />
         </View>
         <View style={AppStyles.rowContainer}>

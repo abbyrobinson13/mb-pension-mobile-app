@@ -19,7 +19,7 @@ import {
 import {auth} from '../firebase';
 import Checkbox from 'expo-checkbox';
 
-export default function SignUp({navigation, route}) {
+export default function CreatePassword({navigation, route}) {
   const background = require ('../assets/background.jpg');
   let [email, setEmail] = React.useState ('');
   let [password, setPassword] = React.useState ('');
@@ -46,7 +46,7 @@ export default function SignUp({navigation, route}) {
     setValue (value);
   };
 
-  let signUp = () => {
+  let createPassword = () => {
     if (password === confirmPassword && isChecked) {
       createUserWithEmailAndPassword (auth, email, password)
         .then (userCredential => {
@@ -68,7 +68,7 @@ export default function SignUp({navigation, route}) {
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         keyboardVerticalOffset={60}
       >
-        <Text style={AppStyles.lightText}>Sign Up</Text>
+        <Text style={AppStyles.lightText}>Create Password</Text>
         <Text style={AppStyles.errorText}>{validationMessage}</Text>
         <TextInput
           style={AppStyles.textInput}
@@ -112,7 +112,7 @@ export default function SignUp({navigation, route}) {
             onPress={() => navigation.popToTop ('Logout')}
           />
         </View>
-        <Button title="Sign Up" onPress={signUp} color={'#01796f'} />
+        <Button title="Create Password" onPress={createPassword} color={'#01796f'} />
       </KeyboardAvoidingView>
     </ImageBackground>
   );
