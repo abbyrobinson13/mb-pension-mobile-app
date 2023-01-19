@@ -75,10 +75,10 @@ export default function Login({navigation}) {
         />
         <View style={AppStyles.rowContainer}>
           <Text style={AppStyles.lightText}>
-            Don't have an account?
+            Don't have a password, yet?
           </Text>
           <InlineTextButton
-            text=" Sign Up"
+            text=" Create password"
             onPress={() => navigation.navigate ('Sign Up')}
           />
         </View>
