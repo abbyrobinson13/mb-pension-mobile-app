@@ -24,7 +24,7 @@ export default function App() {
           component={SignUp}
           options={{ headerShown: true }}
         />
-         <Stack.Screen
+        <Stack.Screen
           name="Terms and Conditions"
           component={TermsConditionsForm}
           options={{ headerShown: true }}
@@ -34,14 +34,16 @@ export default function App() {
           component={ResetPassword}
           options={{ headerShown: true }}
         />
-        <Stack.Screen
-          name="Placeholder Screen"
-          component={PlaceholderScreen}
-          options={{ headerShown: true }}
-        />
+
         <Stack.Screen
           name="Employee Registration Form"
           component={EmployeeRegistrationForm}
+          options={{ headerShown: true }}
+        />
+
+        <Stack.Screen
+          name="Placeholder Screen"
+          component={PlaceholderScreen}
           options={{ headerShown: true }}
         />
       </Stack.Navigator>
