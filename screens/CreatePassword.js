@@ -106,7 +106,7 @@ export default function CreatePassword({navigation, route}) {
         </View>
 
         <View style={AppStyles.rowContainer}>
-          <Text style={AppStyles.lightText}>Already have an account?</Text>
+          <Text style={AppStyles.lightText}>Already have a password?</Text>
           <InlineTextButton
             text=" Login"
             onPress={() => navigation.popToTop ('Logout')}
