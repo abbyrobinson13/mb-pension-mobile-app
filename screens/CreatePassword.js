@@ -18,8 +18,9 @@ import {
 } from 'firebase/auth';
 import {auth} from '../firebase';
 import Checkbox from 'expo-checkbox';
+const ipAndPort='10.44.22.18:5001'
 
-export default function SignUp({navigation, route}) {
+export default function CreatePassword({navigation, route}) {
   const background = require ('../assets/background.jpg');
   let [email, setEmail] = React.useState ('');
   let [password, setPassword] = React.useState ('');
@@ -46,8 +47,13 @@ export default function SignUp({navigation, route}) {
     setValue (value);
   };
 
-  let signUp = () => {
+  let createPassword = async() => {
+    console.log('line 50');
     if (password === confirmPassword && isChecked) {
+      console.log('line 53');
+      let response = await fetch(`http://${ipAndPort}/api/employee/byEmail/${email}`)
+      if (response.ok) {
+        console.log('line55');
       createUserWithEmailAndPassword (auth, email, password)
         .then (userCredential => {
           sendEmailVerification (auth.currentUser);
@@ -57,8 +63,12 @@ export default function SignUp({navigation, route}) {
           });
         })
         .catch (error => {
+          console.log(error)
           setValidationMessage ('invalid registration');
         });
+      } else {
+        setValidationMessage ('Please, contact your employer')
+      }
     }
   };
   return (
@@ -68,7 +78,7 @@ export default function SignUp({navigation, route}) {
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         keyboardVerticalOffset={60}
       >
-        <Text style={AppStyles.lightText}>Sign Up</Text>
+        <Text style={AppStyles.lightText}>Create Password</Text>
         <Text style={AppStyles.errorText}>{validationMessage}</Text>
         <TextInput
           style={AppStyles.textInput}
@@ -106,13 +116,13 @@ export default function SignUp({navigation, route}) {
         </View>
 
         <View style={AppStyles.rowContainer}>
-          <Text style={AppStyles.lightText}>Already have an account?</Text>
+          <Text style={AppStyles.lightText}>Already have a password?</Text>
           <InlineTextButton
             text=" Login"
             onPress={() => navigation.popToTop ('Logout')}
           />
         </View>
-        <Button title="Sign Up" onPress={signUp} color={'#01796f'} />
+        <Button title="Create Password" onPress={createPassword} color={'#01796f'} />
       </KeyboardAvoidingView>
     </ImageBackground>
   );
