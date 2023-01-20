@@ -15,7 +15,8 @@ export default function TermsConditionsForm({navigation}) {
       </ScrollView>
       <Button
         title="Accept"
-        onPress={() => navigation.navigate ('Sign Up', {checkboxValue: true})}
+        onPress={() =>
+          navigation.navigate ('Create Password', {checkboxValue: true})}
         color={'#9AC6DF'}
       />
       <Button
