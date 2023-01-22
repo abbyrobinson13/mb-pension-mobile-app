@@ -5,7 +5,7 @@ import { Button, TextInput } from 'react-native-paper';
 const EmployeeRegistrationForm = ({ navigation }) => {
   const [employees, setEmployees] = useState(null);
 
-  const ipAndPort = '10.44.22.29:5001';
+  const ipAndPort = '10.0.0.139:5001';
   console.log(ipAndPort);
 
   const [email, setNewEmail] = useState('');
@@ -141,16 +141,22 @@ const EmployeeRegistrationForm = ({ navigation }) => {
   };
 
   return (
-    <ScrollView>
-      <View>
+    <ScrollView style={styles.container}>
+      <View style={styles.container}>
         {employees && (
-          <TextInput label="Email" onChangeText={handleEmail} value={email} />
+          <TextInput
+            style={styles.textInput}
+            label="Email"
+            onChangeText={handleEmail}
+            value={email}
+          />
         )}
 
         {!employees && <Text>'No email address'</Text>}
 
         {employees && (
           <TextInput
+            style={styles.textInput}
             label="First Name"
             onChangeText={handleFirstName}
             value={firstName}
@@ -161,6 +167,7 @@ const EmployeeRegistrationForm = ({ navigation }) => {
 
         {employees && (
           <TextInput
+            style={styles.textInput}
             label="Last Name"
             onChangeText={handleLastName}
             value={lastName}
@@ -171,6 +178,7 @@ const EmployeeRegistrationForm = ({ navigation }) => {
 
         {employees && (
           <TextInput
+            style={styles.textInput}
             label="Gender"
             onChangeText={handleGender}
             value={gender}
@@ -180,6 +188,7 @@ const EmployeeRegistrationForm = ({ navigation }) => {
 
         {employees && (
           <TextInput
+            style={styles.textInput}
             label="Date of birth"
             onChangeText={handleDOB}
             value={dateOfBirth}
@@ -189,6 +198,7 @@ const EmployeeRegistrationForm = ({ navigation }) => {
 
         {employees && (
           <TextInput
+            style={styles.textInput}
             label="Department"
             onChangeText={handleDepartment}
             value={department}
@@ -199,6 +209,7 @@ const EmployeeRegistrationForm = ({ navigation }) => {
 
         {employees && (
           <TextInput
+            style={styles.textInput}
             label="Position"
             onChangeText={handlePosition}
             value={position}
@@ -209,6 +220,7 @@ const EmployeeRegistrationForm = ({ navigation }) => {
 
         {employees && (
           <TextInput
+            style={styles.textInput}
             label="Employment Date"
             onChangeText={handleEmployementDate}
             value={employmentDate}
@@ -219,6 +231,7 @@ const EmployeeRegistrationForm = ({ navigation }) => {
 
         {employees && (
           <TextInput
+            style={styles.textInput}
             label="Dependents"
             onChangeText={handleDependents}
             value={dependents}
@@ -229,6 +242,7 @@ const EmployeeRegistrationForm = ({ navigation }) => {
 
         {employees && (
           <TextInput
+            style={styles.textInput}
             label="Mobile"
             onChangeText={handleMobile}
             value={mobile}
@@ -239,6 +253,7 @@ const EmployeeRegistrationForm = ({ navigation }) => {
 
         {employees && (
           <TextInput
+            style={styles.textInput}
             label="Street"
             onChangeText={handleStreet}
             value={street}
@@ -248,6 +263,7 @@ const EmployeeRegistrationForm = ({ navigation }) => {
 
         {employees && (
           <TextInput
+            style={styles.textInput}
             label="Postal Code"
             onChangeText={handlePostalCode}
             value={postalCode}
@@ -256,13 +272,19 @@ const EmployeeRegistrationForm = ({ navigation }) => {
         {!employees && <Text>'No postal code'</Text>}
 
         {employees && (
-          <TextInput label="City" onChangeText={handleCity} value={city} />
+          <TextInput
+            style={styles.textInput}
+            label="City"
+            onChangeText={handleCity}
+            value={city}
+          />
         )}
 
         {!employees && <Text>'No city'</Text>}
 
         {employees && (
           <TextInput
+            style={styles.textInput}
             label="Province"
             onChangeText={handleProvince}
             value={province}
@@ -273,6 +295,7 @@ const EmployeeRegistrationForm = ({ navigation }) => {
 
         {employees && (
           <TextInput
+            style={styles.textInput}
             label="Policy Number"
             onChangeText={handlePolicyNumber}
             value={policyNumber}
@@ -283,6 +306,7 @@ const EmployeeRegistrationForm = ({ navigation }) => {
 
         {employees && (
           <TextInput
+            style={styles.textInput}
             label="Employee Number"
             onChangeText={handleEmployeeNumber}
             value={employeeNumber}
@@ -293,12 +317,11 @@ const EmployeeRegistrationForm = ({ navigation }) => {
 
         {
           <Button
+            style={styles.button}
             title="Register"
             onPress={() => {
               handleSubmit();
             }}
-
-            // onPress={() => navigation.navigate ('Placeholder Screen')}
           >
             Submit
           </Button>
@@ -309,12 +332,44 @@ const EmployeeRegistrationForm = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: 'lightblue',
-    marginHorizontal: 20
+  container: {
+    flex: 1,
+    paddingVertical: 1,
+    paddingHorizontal: 10,
+    backgroundColor: '#9AC6DF',
+    position: 'relative'
   },
-  text: {
-    fontSize: 42
+  button: {
+    borderWidth: 3,
+    borderColor: 'white',
+    height: 60,
+    borderRadius: 20,
+    backgroundColor: 'white',
+    paddingHorizontal: 20,
+    marginVertical: 20,
+    borderColor: 'white',
+    elevation: 4,
+    shadowColor: 'white',
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 6,
+    shadowOpacity: 1,
+    justifyContent: 'center'
+  },
+  textInput: {
+    borderWidth: 0,
+    borderColor: 'white',
+    height: 0,
+    borderRadius: 8,
+    backgroundColor: 'lightcyan',
+    paddingHorizontal: 6,
+    marginVertical: 2,
+    borderColor: 'white',
+    elevation: 20,
+    shadowColor: 'white',
+    shadowOffset: { width: 0, height: 0 },
+    shadowRadius: 0,
+    shadowOpacity: 0,
+    justifyContent: 'center'
   }
 });
 export default EmployeeRegistrationForm;
