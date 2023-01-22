@@ -7,7 +7,6 @@ import ResetPassword from './screens/ResetPassword';
 import PlaceholderScreen from './screens/PlaceholderScreen';
 import EmployeeRegistrationForm from './screens/EmployeeRegistrationForm';
 import TermsConditionsForm from './screens/TermsConditions';
-import QuestionaireOne from './screens/QuestionaireOne';
 import QuestionnaireOne from './screens/QuestionnaireOne';
 
 const Stack = createNativeStackNavigator ();
