@@ -9,7 +9,7 @@ import {
 import { Button } from "react-native-paper";
 import { auth } from "../firebase";
 
-const QuestionaireOne = ({ navigation }) => {
+const QuestionnaireOne = ({ navigation }) => {
   const [employees, setEmployees] = useState(null);
   const ipAndPort = "10.0.0.139:5001";
   console.log(ipAndPort);
@@ -128,4 +128,4 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
 });
-export default QuestionaireOne;
+export default QuestionnaireOne;
