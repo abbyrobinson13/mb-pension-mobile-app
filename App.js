@@ -14,11 +14,10 @@ const Stack = createNativeStackNavigator ();
 
 export default function App () {
   return (
-    //added Home Screen
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          name="Home Screen"
+          name="MB Pension and Benefits Group"
           component={HomeScreen}
           options={{headerShown: true}}
         />
@@ -57,7 +56,7 @@ export default function App () {
         <Stack.Screen
           name="Questionnaire One"
           component={QuestionaireOne}
-          options={{ headerShown: true }}
+          options={{headerShown: true}}
         />
       </Stack.Navigator>
     </NavigationContainer>
