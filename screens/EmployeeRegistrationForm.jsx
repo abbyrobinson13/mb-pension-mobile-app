@@ -137,7 +137,7 @@ const EmployeeRegistrationForm = ({ navigation }) => {
 
     let data = await response.json();
     console.log(data);
-    navigation.navigate('Placeholder Screen');
+    navigation.navigate('Questionnaire One');
   };
 
   return (
