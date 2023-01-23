@@ -14,6 +14,7 @@ const Stack = createNativeStackNavigator ();
 
 export default function App () {
   return (
+    //added Home Screen
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
