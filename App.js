@@ -8,6 +8,7 @@ import PlaceholderScreen from './screens/PlaceholderScreen';
 import EmployeeRegistrationForm from './screens/EmployeeRegistrationForm';
 import TermsConditionsForm from './screens/TermsConditions';
 import QuestionaireOne from './screens/QuestionaireOne';
+import HomeScreen from './screens/Home';
 
 const Stack = createNativeStackNavigator ();
 
@@ -15,6 +16,11 @@ export default function App () {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        <Stack.Screen
+          name="Home Screen"
+          component={HomeScreen}
+          options={{headerShown: true}}
+        />
         <Stack.Screen
           name="Login"
           component={Login}
@@ -50,7 +56,7 @@ export default function App () {
         <Stack.Screen
           name="Questionaire One"
           component={QuestionaireOne}
-          options={{ headerShown: true }}
+          options={{headerShown: true}}
         />
       </Stack.Navigator>
     </NavigationContainer>
