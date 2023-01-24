@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
-import {View, Text, Button, ScrollView} from 'react-native';
+import {View, Text, ScrollView, TouchableOpacity} from 'react-native';
+import {Button} from 'react-native-paper';
+import AppStyles from '../styles/AppStyles';
 
 export default function TermsConditionsForm({navigation}) {
   return (
@@ -13,17 +15,29 @@ export default function TermsConditionsForm({navigation}) {
           ***********************************************************
         </Text>
       </ScrollView>
-      <Button
-        title="Accept"
-        onPress={() =>
-          navigation.navigate ('Create Password', {checkboxValue: true})}
-        color={'#9AC6DF'}
-      />
-      <Button
-        title="Decline"
-        onPress={() => navigation.navigate ('Login')}
-        color={'#9AC6DF'}
-      />
+      <View>
+        <TouchableOpacity>
+          <Button
+            style={AppStyles.button}
+            labelStyle={{color: 'black', fontSize: 16, fontWeight: 'bold'}}
+            onPress={() =>
+              navigation.navigate ('Create Password', {checkboxValue: true})}
+          >
+            ACCEPT
+          </Button>
+        </TouchableOpacity>
+      </View>
+      <View>
+        <TouchableOpacity>
+          <Button
+            style={AppStyles.button}
+            labelStyle={{color: 'black', fontSize: 16, fontWeight: 'bold'}}
+            onPress={() => navigation.navigate ('Login')}
+          >
+            DECLINE
+          </Button>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
