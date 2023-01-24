@@ -50,12 +50,15 @@ export default StyleSheet.create ({
     alignSelf: 'stretch',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#000000',
+    backgroundColor: '#9AC6DF',
     opacity: 0.7,
     padding: 16,
   },
   lightText: {
     color: '#fff',
+  },
+  darkText: {
+    color: '#000',
   },
   errorText: {
     color: '#ff0000',
@@ -78,10 +81,10 @@ export default StyleSheet.create ({
     borderBottomColor: '#000000',
   },
   inlineTextButton: {
-    color: '#87F1FF',
+    color: '#fff',
   },
   pressedInlineTextButton: {
-    color: '#87F1FF',
-    opacity: 0.6,
+    color: '#0E65A3',
+    opacity: 3,
   },
 });
