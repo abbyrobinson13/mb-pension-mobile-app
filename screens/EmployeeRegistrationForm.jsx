@@ -1,6 +1,7 @@
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import { Button, TextInput } from 'react-native-paper';
+import { format } from 'date-fns';
 
 const EmployeeRegistrationForm = ({ navigation }) => {
   const [employees, setEmployees] = useState(null);
@@ -94,6 +95,10 @@ const EmployeeRegistrationForm = ({ navigation }) => {
     console.log(employeeNumber);
   }
 
+  // Refactor this so that we only fetch one employee
+  // We want to fetch the current employee
+  // We can get current employee by calling the API endpoints for fetching
+  // employee by email (/byEmail/:email)
   useEffect(() => {
     const getEmployees = async () => {
       try {
@@ -101,6 +106,9 @@ const EmployeeRegistrationForm = ({ navigation }) => {
         let data = await response.json();
         console.log(data);
         setEmployees(data);
+
+        // TODO: set state for each relevant field
+        setNewFirstName(data.firstName);
       } catch (ex) {
         console.error(`Problems fetching:${ex.message}`);
       }
@@ -191,7 +199,8 @@ const EmployeeRegistrationForm = ({ navigation }) => {
             style={styles.textInput}
             label="Date of birth"
             onChangeText={handleDOB}
-            value={dateOfBirth}
+            // value={dateOfBirth}
+            value={dateOfBirth && format(new Date(dateOfBirth), 'yyyy-MM-dd')}
           />
         )}
         {!employees && <Text>'No date of birth'</Text>}
