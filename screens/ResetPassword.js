@@ -36,7 +36,7 @@ export default function ResetPassword({navigation}) {
         behavior={Platform.OS === 'ios' ? padding : null}
         keyboardVerticalOffset={60}
       >
-        <Text style={AppStyles.lightText}>Reset Password</Text>
+        <Text style={AppStyles.darkText}>Reset Password</Text>
         <Text style={AppStyles.errorText}>{errorMessage}</Text>
         <TextInput
           style={AppStyles.textInput}
@@ -46,12 +46,12 @@ export default function ResetPassword({navigation}) {
           onChangeText={setEmail}
         />
         <View style={AppStyles.rowContainer}>
-          <Text style={AppStyles.lightText}>
+          <Text style={AppStyles.darkText}>
             Don't have an account?
           </Text>
           <InlineTextButton
-            text=" Sign Up"
-            onPress={() => navigation.navigate ('Sign Up')}
+            text=" Create password"
+            onPress={() => navigation.navigate ('Create Password')}
           />
         </View>
         <Button
