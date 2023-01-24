@@ -32,10 +32,10 @@ export const AuthProvider = (props) => {
         console.log("Login failed!!");
       }
     } catch (ex) {
-      console.log("AUTH FAILURE", ex.message);
+      console.log("AUTHENTICATION FAILED", ex.message);
     }
   };
-  //https://project3-aln.firebaseapp.com/__/auth/handler
+  
   const logout = async () => {
     await signOut(auth);
   };
