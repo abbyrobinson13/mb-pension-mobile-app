@@ -2,6 +2,7 @@ import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Login from "./screens/Login";
+import HomeScreen from "./screens/Home";
 import CreatePassword from "./screens/CreatePassword";
 import ResetPassword from "./screens/ResetPassword";
 import PlaceholderScreen from "./screens/PlaceholderScreen";
@@ -19,6 +20,11 @@ export default function App() {
       <AuthProvider>
         <NavigationContainer>
           <Stack.Navigator>
+            <Stack.Screen
+              name="MB Pension and Benefits Group"
+              component={HomeScreen}
+              options={{ headerShown: true }}
+            />
             <Stack.Screen
               name="Login"
               component={Login}
