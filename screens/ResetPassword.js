@@ -3,11 +3,12 @@ import {
   View,
   TextInput,
   ImageBackground,
-  Button,
   KeyboardAvoidingView,
   Platform,
+  TouchableOpacity,
 } from 'react-native';
 import AppStyles from '../styles/AppStyles';
+import {Button} from 'react-native-paper';
 import InlineTextButton from '../components/InlineTextButton';
 import React from 'react';
 import {auth} from '../firebase';
@@ -41,7 +42,7 @@ export default function ResetPassword({navigation}) {
         <TextInput
           style={AppStyles.textInput}
           placeholder="Email"
-          placeholderTextColor="#BEBEBE"
+          placeholderTextColor="#FFFFFF"
           value={email}
           onChangeText={setEmail}
         />
@@ -59,6 +60,17 @@ export default function ResetPassword({navigation}) {
           onPress={resetPassword}
           color={'#01796f'}
         />
+        <View>
+          <TouchableOpacity>
+            <Button
+              style={AppStyles.button}
+              labelStyle={{color: 'black', fontSize: 16, fontWeight: 'bold'}}
+              onPress={resetPassword}
+            >
+              Reset Password
+            </Button>
+          </TouchableOpacity>
+        </View>
       </KeyboardAvoidingView>
     </ImageBackground>
   );
