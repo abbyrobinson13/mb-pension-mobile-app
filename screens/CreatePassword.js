@@ -78,7 +78,7 @@ export default function CreatePassword({navigation, route}) {
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         keyboardVerticalOffset={60}
       >
-        <Text style={AppStyles.lightText}>Create Password</Text>
+        <Text style={AppStyles.darkText}>Create Password</Text>
         <Text style={AppStyles.errorText}>{validationMessage}</Text>
         <TextInput
           style={AppStyles.textInput}
@@ -116,7 +116,7 @@ export default function CreatePassword({navigation, route}) {
         </View>
 
         <View style={AppStyles.rowContainer}>
-          <Text style={AppStyles.lightText}>Already have a password?</Text>
+          <Text style={AppStyles.darkText}>Already have a password?</Text>
           <InlineTextButton
             text=" Login"
             onPress={() => navigation.popToTop ('Logout')}

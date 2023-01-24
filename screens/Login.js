@@ -56,25 +56,25 @@ export default function Login({navigation}) {
         behavior={Platform.OS === 'ios' ? padding : null}
         keyboardVerticalOffset={60}
       >
-        <Text style={AppStyles.lightText}>Login</Text>
+        <Text style={AppStyles.darkText}>Login</Text>
         <Text style={AppStyles.errorText}>{errorMessage}</Text>
         <TextInput
           style={AppStyles.textInput}
           placeholder="Email"
-          placeholderTextColor="#BEBEBE"
+          placeholderTextColor="#fff"
           value={email}
           onChangeText={setEmail}
         />
         <TextInput
           style={AppStyles.textInput}
           placeholder="Password"
-          placeholderTextColor="#BEBEBE"
+          placeholderTextColor="#fff"
           secureTextEntry={true}
           value={password}
           onChangeText={setPassword}
         />
         <View style={AppStyles.rowContainer}>
-          <Text style={AppStyles.lightText}>
+          <Text style={AppStyles.darkText}>
             Don't have a password, yet?
           </Text>
           <InlineTextButton
@@ -83,7 +83,7 @@ export default function Login({navigation}) {
           />
         </View>
         <View style={AppStyles.rowContainer}>
-          <Text style={AppStyles.lightText}>
+          <Text style={AppStyles.darkText}>
             Forgotten your password?
           </Text>
           <InlineTextButton
@@ -91,7 +91,7 @@ export default function Login({navigation}) {
             onPress={() => navigation.navigate ('Reset Password')}
           />
         </View>
-        <Button title="Login" onPress={login} color={'#01796f'} />
+        <Button title="Login" onPress={login} color={'#9AC6DF'} />
       </KeyboardAvoidingView>
     </ImageBackground>
   );
