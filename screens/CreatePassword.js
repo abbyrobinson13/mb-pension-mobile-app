@@ -83,14 +83,14 @@ export default function CreatePassword({navigation, route}) {
         <TextInput
           style={AppStyles.textInput}
           placeholder="Email"
-          placeholderTextColor="#BEBEBE"
+          placeholderTextColor="#fff"
           value={email}
           onChangeText={setEmail}
         />
         <TextInput
           style={AppStyles.textInput}
           placeholder="Password"
-          placeholderTextColor="#BEBEBE"
+          placeholderTextColor="#fff"
           secureTextEntry={true}
           value={password}
           onChangeText={setPassword}
@@ -98,7 +98,7 @@ export default function CreatePassword({navigation, route}) {
         <TextInput
           style={AppStyles.textInput}
           placeholder="Confirm Password"
-          placeholderTextColor="#BEBEBE"
+          placeholderTextColor="#fff"
           secureTextEntry={true}
           value={confirmPassword}
           onChangeText={value =>
@@ -118,7 +118,7 @@ export default function CreatePassword({navigation, route}) {
         <View style={AppStyles.rowContainer}>
           <Text style={AppStyles.darkText}>Already have a password?</Text>
           <InlineTextButton
-            text=" Login"
+            text=" Log in"
             onPress={() => navigation.navigate ('Login')}
           />
         </View>
