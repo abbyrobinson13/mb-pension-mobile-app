@@ -81,10 +81,24 @@ export default StyleSheet.create ({
     borderBottomColor: '#000000',
   },
   inlineTextButton: {
-    color: '#fff',
+    color: '#FFFFFF',
   },
   pressedInlineTextButton: {
-    color: '#0E65A3',
-    opacity: 3,
+    color: '#006B76',
+  },
+  button: {
+    backgroundColor: 'white',
+    borderColor: 'black',
+    borderWidth: 1,
+    height: 60,
+    width: 240,
+    borderRadius: 10,
+    marginHorizontal: 60,
+    elevation: 4,
+    shadowColor: 'white',
+    shadowOffset: {width: 0, height: 2},
+    shadowRadius: 6,
+    shadowOpacity: 1,
+    justifyContent: 'center',
   },
 });
