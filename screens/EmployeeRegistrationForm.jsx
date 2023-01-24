@@ -9,34 +9,35 @@ const EmployeeRegistrationForm = ({ navigation }) => {
   const ipAndPort = '10.0.0.139:5001';
   console.log(ipAndPort);
 
-  const [email, setNewEmail] = useState('');
-  function handleEmail(enteredText) {
-    setNewEmail(enteredText);
-    console.log(email);
-  }
-  const [firstName, setNewFirstName] = useState('');
-  function handleFirstName(enteredText) {
-    setNewFirstName(enteredText);
+ //To be added later: 
+  // const [email, setNewEmail] = useState('');
+  // function handleEmail(enteredText) {
+  //   setNewEmail(enteredText);
+  //   console.log(email);
+  // }
+  // const [firstName, setNewFirstName] = useState('');
+  // function handleFirstName(enteredText) {
+  //   setNewFirstName(enteredText);
 
-    console.log(firstName);
-  }
+  //   console.log(firstName);
+  // }
 
-  const [lastName, setNewLastName] = useState('');
-  function handleLastName(enteredText) {
-    setNewLastName(enteredText);
-    console.log(lastName);
-  }
-  const [gender, setNewGender] = useState('');
-  function handleGender(enteredText) {
-    setNewGender(enteredText);
-    console.log(gender);
-  }
+  // const [lastName, setNewLastName] = useState('');
+  // function handleLastName(enteredText) {
+  //   setNewLastName(enteredText);
+  //   console.log(lastName);
+  // }
+  // const [gender, setNewGender] = useState('');
+  // function handleGender(enteredText) {
+  //   setNewGender(enteredText);
+  //   console.log(gender);
+  // }
 
-  const [dateOfBirth, setNewDateOfBirth] = useState('');
-  function handleDOB(enteredText) {
-    setNewDateOfBirth(enteredText);
-    console.log(dateOfBirth);
-  }
+  // const [dateOfBirth, setNewDateOfBirth] = useState('');
+  // function handleDOB(enteredText) {
+  //   setNewDateOfBirth(enteredText);
+  //   console.log(dateOfBirth);
+  // }
   const [department, setNewDepartment] = useState('');
   function handleDepartment(enteredText) {
     setNewDepartment(enteredText);
@@ -108,7 +109,7 @@ const EmployeeRegistrationForm = ({ navigation }) => {
         setEmployees(data);
 
         // TODO: set state for each relevant field
-        setNewFirstName(data.firstName);
+        // setNewFirstName(data.firstName);
       } catch (ex) {
         console.error(`Problems fetching:${ex.message}`);
       }
@@ -118,11 +119,12 @@ const EmployeeRegistrationForm = ({ navigation }) => {
 
   const handleSubmit = async () => {
     const employeeData = {
-      email,
-      firstName,
-      lastName,
-      gender,
-      dateOfBirth,
+      //To be added later:
+      // email,
+      // firstName,
+      // lastName,
+      // gender,
+      // dateOfBirth,
       department,
       position,
       employmentDate,
@@ -132,8 +134,8 @@ const EmployeeRegistrationForm = ({ navigation }) => {
       postalCode,
       city,
       province,
-      policyNumber,
-      employeeNumber
+      // policyNumber,
+      // employeeNumber
     };
     let response = await fetch(`http://${ipAndPort}/api/employee`, {
       method: 'POST',
@@ -151,7 +153,7 @@ const EmployeeRegistrationForm = ({ navigation }) => {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.container}>
-        {employees && (
+        {/* {employees && (
           <TextInput
             style={styles.textInput}
             label="Email"
@@ -203,7 +205,7 @@ const EmployeeRegistrationForm = ({ navigation }) => {
             value={dateOfBirth && format(new Date(dateOfBirth), 'yyyy-MM-dd')}
           />
         )}
-        {!employees && <Text>'No date of birth'</Text>}
+        {!employees && <Text>'No date of birth'</Text>} */}
 
         {employees && (
           <TextInput
@@ -302,7 +304,7 @@ const EmployeeRegistrationForm = ({ navigation }) => {
 
         {!employees && <Text>'No province'</Text>}
 
-        {employees && (
+        {/* {employees && (
           <TextInput
             style={styles.textInput}
             label="Policy Number"
@@ -322,7 +324,7 @@ const EmployeeRegistrationForm = ({ navigation }) => {
           />
         )}
 
-        {!employees && <Text>'No employeeNumber'</Text>}
+        {!employees && <Text>'No employeeNumber'</Text>} */}
 
         {
           <Button
