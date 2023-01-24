@@ -50,12 +50,15 @@ export default StyleSheet.create ({
     alignSelf: 'stretch',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#000000',
+    backgroundColor: '#9AC6DF',
     opacity: 0.7,
     padding: 16,
   },
   lightText: {
     color: '#fff',
+  },
+  darkText: {
+    color: '#000',
   },
   errorText: {
     color: '#ff0000',
@@ -78,10 +81,24 @@ export default StyleSheet.create ({
     borderBottomColor: '#000000',
   },
   inlineTextButton: {
-    color: '#87F1FF',
+    color: '#FFFFFF',
   },
   pressedInlineTextButton: {
-    color: '#87F1FF',
-    opacity: 0.6,
+    color: '#006B76',
+  },
+  button: {
+    backgroundColor: 'white',
+    borderColor: 'black',
+    borderWidth: 1,
+    height: 60,
+    width: 240,
+    borderRadius: 10,
+    marginHorizontal: 60,
+    elevation: 4,
+    shadowColor: 'white',
+    shadowOffset: {width: 0, height: 2},
+    shadowRadius: 6,
+    shadowOpacity: 1,
+    justifyContent: 'center',
   },
 });

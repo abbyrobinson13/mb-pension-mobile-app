@@ -3,11 +3,11 @@ import {
   View,
   TextInput,
   ImageBackground,
-  Button,
   KeyboardAvoidingView,
   Platform,
+  TouchableOpacity,
 } from 'react-native';
-
+import {Button} from 'react-native-paper';
 import AppStyles from '../styles/AppStyles';
 import React, {useEffect} from 'react';
 import InlineTextButton from '../components/InlineTextButton';
@@ -18,7 +18,7 @@ import {
 } from 'firebase/auth';
 import {auth} from '../firebase';
 import Checkbox from 'expo-checkbox';
-const ipAndPort='10.44.22.18:5001'
+const ipAndPort='10.0.0.139:5001'
 
 export default function CreatePassword({navigation, route}) {
   const background = require ('../assets/background.jpg');
@@ -78,19 +78,19 @@ export default function CreatePassword({navigation, route}) {
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         keyboardVerticalOffset={60}
       >
-        <Text style={AppStyles.lightText}>Create Password</Text>
+        <Text style={AppStyles.darkText}>Create Password</Text>
         <Text style={AppStyles.errorText}>{validationMessage}</Text>
         <TextInput
           style={AppStyles.textInput}
           placeholder="Email"
-          placeholderTextColor="#BEBEBE"
+          placeholderTextColor="#fff"
           value={email}
           onChangeText={setEmail}
         />
         <TextInput
           style={AppStyles.textInput}
           placeholder="Password"
-          placeholderTextColor="#BEBEBE"
+          placeholderTextColor="#fff"
           secureTextEntry={true}
           value={password}
           onChangeText={setPassword}
@@ -98,7 +98,7 @@ export default function CreatePassword({navigation, route}) {
         <TextInput
           style={AppStyles.textInput}
           placeholder="Confirm Password"
-          placeholderTextColor="#BEBEBE"
+          placeholderTextColor="#fff"
           secureTextEntry={true}
           value={confirmPassword}
           onChangeText={value =>
@@ -116,13 +116,23 @@ export default function CreatePassword({navigation, route}) {
         </View>
 
         <View style={AppStyles.rowContainer}>
-          <Text style={AppStyles.lightText}>Already have a password?</Text>
+          <Text style={AppStyles.darkText}>Already have a password?</Text>
           <InlineTextButton
-            text=" Login"
-            onPress={() => navigation.popToTop ('Logout')}
+            text=" Log in"
+            onPress={() => navigation.navigate ('Login')}
           />
         </View>
-        <Button title="Create Password" onPress={createPassword} color={'#01796f'} />
+      <View>
+        <TouchableOpacity>
+        <Button
+          style={AppStyles.button}
+          labelStyle={{color: 'black', fontSize: 16, fontWeight: 'bold'}}
+          onPress={createPassword}
+        >
+          Create Password
+        </Button>
+      </TouchableOpacity>
+      </View>
       </KeyboardAvoidingView>
     </ImageBackground>
   );
