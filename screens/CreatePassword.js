@@ -3,11 +3,11 @@ import {
   View,
   TextInput,
   ImageBackground,
-  Button,
   KeyboardAvoidingView,
   Platform,
+  TouchableOpacity,
 } from 'react-native';
-
+import {Button} from 'react-native-paper';
 import AppStyles from '../styles/AppStyles';
 import React, {useEffect} from 'react';
 import InlineTextButton from '../components/InlineTextButton';
@@ -122,7 +122,17 @@ export default function CreatePassword({navigation, route}) {
             onPress={() => navigation.popToTop ('Logout')}
           />
         </View>
-        <Button title="Create Password" onPress={createPassword} color={'#01796f'} />
+      <View>
+        <TouchableOpacity>
+        <Button
+          style={AppStyles.button}
+          labelStyle={{color: 'black', fontSize: 16, fontWeight: 'bold'}}
+          onPress={createPassword}
+        >
+          Create Password
+        </Button>
+      </TouchableOpacity>
+      </View>
       </KeyboardAvoidingView>
     </ImageBackground>
   );
