@@ -18,7 +18,7 @@ import {
 } from 'firebase/auth';
 import {auth} from '../firebase';
 import Checkbox from 'expo-checkbox';
-const ipAndPort='10.44.22.18:5001'
+const ipAndPort='10.0.0.139:5001'
 
 export default function CreatePassword({navigation, route}) {
   const background = require ('../assets/background.jpg');
