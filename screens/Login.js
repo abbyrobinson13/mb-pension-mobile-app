@@ -3,11 +3,12 @@ import {
   View,
   TextInput,
   ImageBackground,
-  Button,
   KeyboardAvoidingView,
   Platform,
+  TouchableOpacity,
 } from 'react-native';
 import AppStyles from '../styles/AppStyles';
+import {Button} from 'react-native-paper';
 import React from 'react';
 import InlineTextButton from '../components/InlineTextButton';
 import {auth} from '../firebase';
@@ -56,7 +57,7 @@ export default function Login({navigation}) {
         behavior={Platform.OS === 'ios' ? padding : null}
         keyboardVerticalOffset={60}
       >
-        <Text style={AppStyles.darkText}>Login</Text>
+        <Text style={AppStyles.darkText}>Log in</Text>
         <Text style={AppStyles.errorText}>{errorMessage}</Text>
         <TextInput
           style={AppStyles.textInput}
@@ -91,7 +92,17 @@ export default function Login({navigation}) {
             onPress={() => navigation.navigate ('Reset Password')}
           />
         </View>
-        <Button title="Login" onPress={login} color={'#9AC6DF'} />
+        <View>
+          <TouchableOpacity>
+            <Button
+              style={AppStyles.button}
+              labelStyle={{color: 'black', fontSize: 16, fontWeight: 'bold'}}
+              onPress={login}
+            >
+              Log in
+            </Button>
+          </TouchableOpacity>
+        </View>
       </KeyboardAvoidingView>
     </ImageBackground>
   );
