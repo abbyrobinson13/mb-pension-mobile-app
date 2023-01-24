@@ -11,6 +11,7 @@ import TermsConditionsForm from "./screens/TermsConditions";
 import QuestionnaireOne from "./screens/QuestionnaireOne";
 import { FireBaseProvider } from "./firebase";
 import { AuthProvider } from "./AuthProvider";
+import QuestionnaireTwo from "./screens/QuestionnaireTwo";
 
 const Stack = createNativeStackNavigator();
 
@@ -59,6 +60,11 @@ export default function App() {
             <Stack.Screen
               name="Questionnaire One"
               component={QuestionnaireOne}
+              options={{ headerShown: true }}
+            />
+            <Stack.Screen
+              name="Questionnaire Two"
+              component={QuestionnaireTwo}
               options={{ headerShown: true }}
             />
           </Stack.Navigator>

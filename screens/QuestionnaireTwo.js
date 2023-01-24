@@ -10,8 +10,7 @@ import { Button } from "react-native-paper";
 import { AuthContext } from "../AuthProvider";
 import { FirebaseContext } from "../firebase";
 
-
-const QuestionnaireOne = ({ navigation }) => {
+const QuestionnaireTwo = ({ navigation }) => {
   const fbContext = useContext(FirebaseContext);
   const app = fbContext.app;
   const auth = fbContext.auth;
@@ -56,13 +55,13 @@ const QuestionnaireOne = ({ navigation }) => {
     );
     const newEmployee = await response.json();
     console.log(newEmployee);
-    navigation.navigate('Questionnaire Two');
   };
 
   return (
     <View style={styles.quizContainer}>
       <View>
-        <Text style={styles.quizTitle}>Why are you here today?</Text>
+        <Text style={styles.quizTitle}>Tell us about your areas of concern:</Text>
+        <Text style={styles.quizTitle}>Click below for more information</Text>
       </View>
       <View>
         <TouchableOpacity>
@@ -141,4 +140,4 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
 });
-export default QuestionnaireOne;
+export default QuestionnaireTwo;
