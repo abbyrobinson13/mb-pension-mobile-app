@@ -42,7 +42,7 @@ export default function Login({navigation}) {
           setPassword ('');
         })
         .catch (error => {
-          setErrorMessage ('User not found. Please, SignUp');
+          setErrorMessage ('User not found. Please, Create a Password');
         });
     } else {
       setErrorMessage ('Please, enter an email and password');
