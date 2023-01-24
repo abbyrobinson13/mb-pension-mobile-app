@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {
   ScrollView,
   StyleSheet,
@@ -7,13 +7,24 @@ import {
   View,
 } from "react-native";
 import { Button } from "react-native-paper";
-import { auth } from "../firebase";
+import { AuthContext } from "../AuthProvider";
+import { FirebaseContext } from "../firebase";
 
 const QuestionnaireOne = ({ navigation }) => {
+  const fbContext = useContext(FirebaseContext);
+  const app = fbContext.app;
+  const auth = fbContext.auth;
+  const authContext = useContext(AuthContext);
+  const user = authContext.user;
+
   const [employees, setEmployees] = useState(null);
-  const ipAndPort = "10.0.0.139:5001";
+  const ipAndPort = "10.44.22.75:5001";
   console.log(ipAndPort);
   console.log(auth);
+  console.log("user", user);
+
+  //to do update to real auth
+  const mockUID = " ";
 
   useEffect(() => {
     const getEmployees = async () => {
@@ -31,7 +42,7 @@ const QuestionnaireOne = ({ navigation }) => {
 
   const onPressHandle = async (reason) => {
     const response = await fetch(
-      `http://${ipAndPort}/api/employee/${auth.currentUser.uid}`,
+      `http://${ipAndPort}/api/employee/byEmail/${user.email}`,
       {
         method: "PUT",
         headers: {
