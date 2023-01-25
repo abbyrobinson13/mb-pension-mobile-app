@@ -67,7 +67,7 @@ const EmployeeRegistrationForm = ({ navigation }) => {
   useEffect(() => {
     const getEmployees = async () => {
       try {
-        let response = await fetch(`http://${ipAndPort}/api/employee`);
+        let response = await fetch(`http://${ipAndPort}/api/employee/byEmail/afshin.sharifnia@gmail.com`);
         let data = await response.json();
         console.log(data);
         setEmployees(data);
@@ -94,16 +94,13 @@ const EmployeeRegistrationForm = ({ navigation }) => {
       city,
       province,
     };
-    let response = await fetch(
-      `http://${ipAndPort}/api/employee/`,
-      {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(employeeData),
-      }
-    );
+    let response = await fetch(`http://${ipAndPort}/api/employee/byEmail/afshin.sharifnia@gmail.com`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(employeeData),
+    });
 
     let data = await response.json();
     console.log(data);
