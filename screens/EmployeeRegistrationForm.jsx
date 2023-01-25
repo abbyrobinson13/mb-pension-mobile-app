@@ -12,11 +12,10 @@ const EmployeeRegistrationForm = ({ navigation }) => {
   const [email, setNewEmail] = useState("");
 
   function handleEmail(enteredText) {
-
     setNewEmail(enteredText);
     console.log(email);
   }
-  
+
   const [department, setNewDepartment] = useState("");
   function handleDepartment(enteredText) {
     setNewDepartment(enteredText);
@@ -65,19 +64,16 @@ const EmployeeRegistrationForm = ({ navigation }) => {
 
   // Refactor this so that we only fetch one employee
   // We want to fetch the current employee
-  // We can get current employee by calling the API endpoints for fetching
-  // employee by email (/byEmail/:email)
+
   useEffect(() => {
     const getEmployees = async () => {
-
       try {
-        let response = await fetch(`http://${ipAndPort}/api/employee/byEmail/${email}`);
+        let response = await fetch(
+          `http://${ipAndPort}/api/employee/byEmail/${email}`
+        );
         let data = await response.json();
         console.log(data);
         setEmployees(data);
-
-        // TODO: set state for each relevant field
-        // setNewFirstName(data.firstName);
       } catch (ex) {
         console.error(`Problems fetching:${ex.message}`);
       }
@@ -98,13 +94,16 @@ const EmployeeRegistrationForm = ({ navigation }) => {
       city,
       province,
     };
-    let response = await fetch(`http://${ipAndPort}/api/employee/byEmail/${email}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(employeeData),
-    });
+    let response = await fetch(
+      `http://${ipAndPort}/api/employee/byEmail/${email}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(employeeData),
+      }
+    );
 
     let data = await response.json();
     console.log(data);
