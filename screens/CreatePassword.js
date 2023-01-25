@@ -6,68 +6,67 @@ import {
   KeyboardAvoidingView,
   Platform,
   TouchableOpacity,
-} from 'react-native';
-import {Button} from 'react-native-paper';
-import AppStyles from '../styles/AppStyles';
-import React, {useEffect} from 'react';
-import InlineTextButton from '../components/InlineTextButton';
+} from "react-native";
+import { Button } from "react-native-paper";
+import AppStyles from "../styles/AppStyles";
+import React, { useEffect } from "react";
+import InlineTextButton from "../components/InlineTextButton";
 import {
   getAuth,
   createUserWithEmailAndPassword,
   sendEmailVerification,
-} from 'firebase/auth';
-import {auth} from '../firebase';
-import Checkbox from 'expo-checkbox';
-const ipAndPort='10.0.0.139:5001'
+} from "firebase/auth";
+import { auth } from "../firebase";
+import Checkbox from "expo-checkbox";
+const ipAndPort = "10.44.22.29:5001";
 
-export default function CreatePassword({navigation, route}) {
-  const background = require ('../assets/background.jpg');
-  let [email, setEmail] = React.useState ('');
-  let [password, setPassword] = React.useState ('');
-  let [confirmPassword, setConfirmPassword] = React.useState ('');
-  let [validationMessage, setValidationMessage] = React.useState ('');
-  useEffect (
-    () => {
-      if (route?.params?.checkboxValue) {
-        setIsChecked (true);
-      } else {
-        setIsChecked (false);
-      }
-    },
-    [route]
-  );
-  const [isChecked, setIsChecked] = React.useState (false);
+export default function CreatePassword({ navigation, route }) {
+  const background = require("../assets/background.jpg");
+  let [email, setEmail] = React.useState("");
+  let [password, setPassword] = React.useState("");
+  let [confirmPassword, setConfirmPassword] = React.useState("");
+  let [validationMessage, setValidationMessage] = React.useState("");
+  useEffect(() => {
+    if (route?.params?.checkboxValue) {
+      setIsChecked(true);
+    } else {
+      setIsChecked(false);
+    }
+  }, [route]);
+  const [isChecked, setIsChecked] = React.useState(false);
 
   let validateAndSet = (value, valueToCompare, setValue) => {
     if (value !== valueToCompare) {
-      setValidationMessage ('Passwords do not match');
+      setValidationMessage("Passwords do not match");
     } else {
-      setValidationMessage ('');
+      setValidationMessage("");
     }
-    setValue (value);
+    setValue(value);
   };
 
-  let createPassword = async() => {
-    console.log('line 50');
+  let createPassword = async () => {
+    console.log("line 50");
     if (password === confirmPassword && isChecked) {
-      console.log('line 53');
-      let response = await fetch(`http://${ipAndPort}/api/employee/byEmail/${email}`)
+      console.log("line 53");
+      let response = await fetch(
+        `http://${ipAndPort}/api/employee/byEmail/${email}`
+      );
       if (response.ok) {
-        console.log('line55');
-      createUserWithEmailAndPassword (auth, email, password)
-        .then (userCredential => {
-          sendEmailVerification (auth.currentUser);
-          setValidationMessage ('Successfully signed up with MB Group Ltd.');
-          navigation.navigate ('Employee Registration Form', {
-            user: userCredential.user,
+        console.log("line55");
+        createUserWithEmailAndPassword(auth, email, password)
+          .then((userCredential) => {
+            sendEmailVerification(auth.currentUser);
+            setValidationMessage("Successfully signed up with MB Group Ltd.");
+            navigation.navigate("Employee Registration Form", {
+              user: userCredential.user,
+            });
+          })
+          .catch((error) => {
+            console.log(error);
+            setValidationMessage("invalid registration");
           });
-        })
-        .catch (error => {
-          console.log(error)
-          setValidationMessage ('invalid registration');
-        });
       } else {
-        setValidationMessage ('Please, contact your employer')
+        setValidationMessage("Please, contact your employer");
       }
     }
   };
@@ -75,7 +74,7 @@ export default function CreatePassword({navigation, route}) {
     <ImageBackground style={AppStyles.container} source={background}>
       <KeyboardAvoidingView
         style={AppStyles.backgroundCover}
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        behavior={Platform.OS === "ios" ? "padding" : "height"}
         keyboardVerticalOffset={60}
       >
         <Text style={AppStyles.darkText}>Create Password</Text>
@@ -101,17 +100,18 @@ export default function CreatePassword({navigation, route}) {
           placeholderTextColor="#fff"
           secureTextEntry={true}
           value={confirmPassword}
-          onChangeText={value =>
-            validateAndSet (value, password, setConfirmPassword)}
+          onChangeText={(value) =>
+            validateAndSet(value, password, setConfirmPassword)
+          }
         />
         <View style={AppStyles.rowContainer}>
           <Checkbox
             value={isChecked}
-            onValueChange={() => setIsChecked (!isChecked)}
+            onValueChange={() => setIsChecked(!isChecked)}
           />
           <InlineTextButton
             text="Terms and Conditions"
-            onPress={() => navigation.navigate ('Terms and Conditions')}
+            onPress={() => navigation.navigate("Terms and Conditions")}
           />
         </View>
 
@@ -119,20 +119,20 @@ export default function CreatePassword({navigation, route}) {
           <Text style={AppStyles.darkText}>Already have a password?</Text>
           <InlineTextButton
             text=" Log in"
-            onPress={() => navigation.navigate ('Login')}
+            onPress={() => navigation.navigate("Login")}
           />
         </View>
-      <View>
-        <TouchableOpacity>
-        <Button
-          style={AppStyles.button}
-          labelStyle={{color: 'black', fontSize: 16, fontWeight: 'bold'}}
-          onPress={createPassword}
-        >
-          Create Password
-        </Button>
-      </TouchableOpacity>
-      </View>
+        <View>
+          <TouchableOpacity>
+            <Button
+              style={AppStyles.button}
+              labelStyle={{ color: "black", fontSize: 16, fontWeight: "bold" }}
+              onPress={createPassword}
+            >
+              Create Password
+            </Button>
+          </TouchableOpacity>
+        </View>
       </KeyboardAvoidingView>
     </ImageBackground>
   );
