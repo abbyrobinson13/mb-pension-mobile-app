@@ -1,4 +1,4 @@
-import { ScrollView, StyleSheet, Text, View } from "react-native";
+import { ScrollView, StyleSheet, Text, View, Alert } from "react-native";
 import React, { useEffect, useState } from "react";
 import { Button, TextInput } from "react-native-paper";
 import { format } from "date-fns";
@@ -6,7 +6,7 @@ import { format } from "date-fns";
 const EmployeeRegistrationForm = ({ navigation }) => {
   const [employees, setEmployees] = useState(null);
 
-  const ipAndPort = "10.0.0.139:5001";
+  const ipAndPort = "10.44.22.29:5001";
   console.log(ipAndPort);
 
   const [email, setNewEmail] = useState("");
@@ -104,10 +104,16 @@ const EmployeeRegistrationForm = ({ navigation }) => {
         body: JSON.stringify(employeeData),
       }
     );
-
-    let data = await response.json();
-    console.log(data);
-    navigation.navigate("Questionnaire One");
+    console.log(response.status)
+    if (response.ok) {
+      let data = await response.json();
+      Alert.alert("Success", " Submitted successfully", [
+        { text: "OK", onPress: () => navigation.navigate("Questionnaire One") },
+      ]);
+      console.log(data);
+    } else {
+      Alert.alert("Error", " Not submitted", [{ text: "OK" }]);
+    }
   };
 
   return (
