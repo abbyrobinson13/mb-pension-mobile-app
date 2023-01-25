@@ -7,7 +7,6 @@ const EmployeeRegistrationForm = ({ navigation }) => {
   const [employees, setEmployees] = useState(null);
 
   const ipAndPort = "10.44.22.29:5001";
-  const ipAndPort = "10.44.22.29:5001";
   console.log(ipAndPort);
 
   const [email, setNewEmail] = useState("");
@@ -23,48 +22,40 @@ const EmployeeRegistrationForm = ({ navigation }) => {
     console.log(department);
   }
   const [position, setNewPosition] = useState("");
-  const [position, setNewPosition] = useState("");
   function handlePosition(enteredText) {
     setNewPosition(enteredText);
     console.log(position);
   }
-  const [employmentDate, setNewEmployementDate] = useState("");
   const [employmentDate, setNewEmployementDate] = useState("");
   function handleEmployementDate(enteredText) {
     setNewEmployementDate(enteredText);
     console.log(employmentDate);
   }
   const [dependents, setNewdependents] = useState("");
-  const [dependents, setNewdependents] = useState("");
   function handleDependents(enteredText) {
     setNewdependents(enteredText);
     console.log(dependents);
   }
-  const [mobile, setNewMobile] = useState("");
   const [mobile, setNewMobile] = useState("");
   function handleMobile(enteredText) {
     setNewMobile(enteredText);
     console.log(mobile);
   }
   const [street, setNewStreet] = useState("");
-  const [street, setNewStreet] = useState("");
   function handleStreet(enteredText) {
     setNewStreet(enteredText);
     console.log(street);
   }
-  const [postalCode, setNewPostalCode] = useState("");
   const [postalCode, setNewPostalCode] = useState("");
   function handlePostalCode(enteredText) {
     setNewPostalCode(enteredText);
     console.log(postalCode);
   }
   const [city, setNewCity] = useState("");
-  const [city, setNewCity] = useState("");
   function handleCity(enteredText) {
     setNewCity(enteredText);
     console.log(city);
   }
-  const [province, setNewProvince] = useState("");
   const [province, setNewProvince] = useState("");
   function handleProvince(enteredText) {
     setNewProvince(enteredText);
@@ -113,7 +104,7 @@ const EmployeeRegistrationForm = ({ navigation }) => {
         body: JSON.stringify(employeeData),
       }
     );
-    console.log(response.status)
+    console.log(response.status);
     if (response.ok) {
       let data = await response.json();
       Alert.alert("Success", " Submitted successfully", [
@@ -293,7 +284,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   text: {
-    fontSize: 42
-  }
+    fontSize: 42,
+  },
 });
 export default EmployeeRegistrationForm;
