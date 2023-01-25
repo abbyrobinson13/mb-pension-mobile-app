@@ -52,11 +52,7 @@ export default function App() {
               component={EmployeeRegistrationForm}
               options={{ headerShown: true }}
             />
-            <Stack.Screen
-              name="Placeholder Screen"
-              component={PlaceholderScreen}
-              options={{ headerShown: true }}
-            />
+        
             <Stack.Screen
               name="Questionnaire One"
               component={QuestionnaireOne}
@@ -65,6 +61,11 @@ export default function App() {
             <Stack.Screen
               name="Questionnaire Two"
               component={QuestionnaireTwo}
+              options={{ headerShown: true }}
+            />
+                <Stack.Screen
+              name="Placeholder Screen"
+              component={PlaceholderScreen}
               options={{ headerShown: true }}
             />
           </Stack.Navigator>
