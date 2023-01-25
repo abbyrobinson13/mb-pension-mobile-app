@@ -9,11 +9,14 @@ const EmployeeRegistrationForm = ({ navigation }) => {
   const ipAndPort = "10.0.0.139:5001";
   console.log(ipAndPort);
 
-  // const [email, setNewEmail] = useState("");
-  // function handleEmail(enteredText) {
-  //   setNewEmail(enteredText);
-  //   console.log(email);
-  // }
+  const [email, setNewEmail] = useState("");
+
+  function handleEmail(enteredText) {
+
+    setNewEmail(enteredText);
+    console.log(email);
+  }
+  
   const [department, setNewDepartment] = useState("");
   function handleDepartment(enteredText) {
     setNewDepartment(enteredText);
@@ -66,8 +69,9 @@ const EmployeeRegistrationForm = ({ navigation }) => {
   // employee by email (/byEmail/:email)
   useEffect(() => {
     const getEmployees = async () => {
+
       try {
-        let response = await fetch(`http://${ipAndPort}/api/employee/byEmail/afshin.sharifnia@gmail.com`);
+        let response = await fetch(`http://${ipAndPort}/api/employee/byEmail/${email}`);
         let data = await response.json();
         console.log(data);
         setEmployees(data);
@@ -83,7 +87,7 @@ const EmployeeRegistrationForm = ({ navigation }) => {
 
   const handleSubmit = async () => {
     const employeeData = {
-      // email,
+      email,
       department,
       position,
       employmentDate,
@@ -94,7 +98,7 @@ const EmployeeRegistrationForm = ({ navigation }) => {
       city,
       province,
     };
-    let response = await fetch(`http://${ipAndPort}/api/employee/byEmail/afshin.sharifnia@gmail.com`, {
+    let response = await fetch(`http://${ipAndPort}/api/employee/byEmail/${email}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -110,7 +114,7 @@ const EmployeeRegistrationForm = ({ navigation }) => {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.container}>
-        {/* {employees && (
+        {employees && (
           <TextInput
             style={styles.textInput}
             label="Email"
@@ -119,7 +123,7 @@ const EmployeeRegistrationForm = ({ navigation }) => {
           />
         )}
 
-        {!employees && <Text>'No email address'</Text>} */}
+        {!employees && <Text>'No email address'</Text>}
 
         {employees && (
           <TextInput
