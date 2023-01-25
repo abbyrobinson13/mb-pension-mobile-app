@@ -1,99 +1,63 @@
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
-import React, { useEffect, useState } from 'react';
-import { Button, TextInput } from 'react-native-paper';
-import { format } from 'date-fns';
+import { ScrollView, StyleSheet, Text, View } from "react-native";
+import React, { useEffect, useState } from "react";
+import { Button, TextInput } from "react-native-paper";
+import { format } from "date-fns";
 
 const EmployeeRegistrationForm = ({ navigation }) => {
   const [employees, setEmployees] = useState(null);
 
-  const ipAndPort = '10.0.0.139:5001';
+  const ipAndPort = "10.0.0.139:5001";
   console.log(ipAndPort);
 
- //To be added later: 
-  // const [email, setNewEmail] = useState('');
+  // const [email, setNewEmail] = useState("");
   // function handleEmail(enteredText) {
   //   setNewEmail(enteredText);
   //   console.log(email);
   // }
-  // const [firstName, setNewFirstName] = useState('');
-  // function handleFirstName(enteredText) {
-  //   setNewFirstName(enteredText);
-
-  //   console.log(firstName);
-  // }
-
-  // const [lastName, setNewLastName] = useState('');
-  // function handleLastName(enteredText) {
-  //   setNewLastName(enteredText);
-  //   console.log(lastName);
-  // }
-  // const [gender, setNewGender] = useState('');
-  // function handleGender(enteredText) {
-  //   setNewGender(enteredText);
-  //   console.log(gender);
-  // }
-
-  // const [dateOfBirth, setNewDateOfBirth] = useState('');
-  // function handleDOB(enteredText) {
-  //   setNewDateOfBirth(enteredText);
-  //   console.log(dateOfBirth);
-  // }
-  const [department, setNewDepartment] = useState('');
+  const [department, setNewDepartment] = useState("");
   function handleDepartment(enteredText) {
     setNewDepartment(enteredText);
     console.log(department);
   }
-  const [position, setNewPosition] = useState('');
+  const [position, setNewPosition] = useState("");
   function handlePosition(enteredText) {
     setNewPosition(enteredText);
     console.log(position);
   }
-  const [employmentDate, setNewEmployementDate] = useState('');
+  const [employmentDate, setNewEmployementDate] = useState("");
   function handleEmployementDate(enteredText) {
     setNewEmployementDate(enteredText);
     console.log(employmentDate);
   }
-  const [dependents, setNewdependents] = useState('');
+  const [dependents, setNewdependents] = useState("");
   function handleDependents(enteredText) {
     setNewdependents(enteredText);
     console.log(dependents);
   }
-  const [mobile, setNewMobile] = useState('');
+  const [mobile, setNewMobile] = useState("");
   function handleMobile(enteredText) {
     setNewMobile(enteredText);
     console.log(mobile);
   }
-  const [street, setNewStreet] = useState('');
+  const [street, setNewStreet] = useState("");
   function handleStreet(enteredText) {
     setNewStreet(enteredText);
     console.log(street);
   }
-  const [postalCode, setNewPostalCode] = useState('');
+  const [postalCode, setNewPostalCode] = useState("");
   function handlePostalCode(enteredText) {
     setNewPostalCode(enteredText);
     console.log(postalCode);
   }
-  const [city, setNewCity] = useState('');
+  const [city, setNewCity] = useState("");
   function handleCity(enteredText) {
     setNewCity(enteredText);
     console.log(city);
   }
-  const [province, setNewProvince] = useState('');
+  const [province, setNewProvince] = useState("");
   function handleProvince(enteredText) {
     setNewProvince(enteredText);
     console.log(province);
-  }
-
-  const [policyNumber, setNewPolicyNumber] = useState('');
-  function handlePolicyNumber(enteredText) {
-    setNewPolicyNumber(enteredText);
-    console.log(policyNumber);
-  }
-
-  const [employeeNumber, setNewEmployeeNumber] = useState('');
-  function handleEmployeeNumber(enteredText) {
-    setNewEmployeeNumber(enteredText);
-    console.log(employeeNumber);
   }
 
   // Refactor this so that we only fetch one employee
@@ -119,12 +83,7 @@ const EmployeeRegistrationForm = ({ navigation }) => {
 
   const handleSubmit = async () => {
     const employeeData = {
-      //To be added later:
       // email,
-      // firstName,
-      // lastName,
-      // gender,
-      // dateOfBirth,
       department,
       position,
       employmentDate,
@@ -134,20 +93,21 @@ const EmployeeRegistrationForm = ({ navigation }) => {
       postalCode,
       city,
       province,
-      // policyNumber,
-      // employeeNumber
     };
-    let response = await fetch(`http://${ipAndPort}/api/employee`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(employeeData)
-    });
+    let response = await fetch(
+      `http://${ipAndPort}/api/employee/`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(employeeData),
+      }
+    );
 
     let data = await response.json();
     console.log(data);
-    navigation.navigate('Questionnaire One');
+    navigation.navigate("Questionnaire One");
   };
 
   return (
@@ -162,50 +122,7 @@ const EmployeeRegistrationForm = ({ navigation }) => {
           />
         )}
 
-        {!employees && <Text>'No email address'</Text>}
-
-        {employees && (
-          <TextInput
-            style={styles.textInput}
-            label="First Name"
-            onChangeText={handleFirstName}
-            value={firstName}
-          />
-        )}
-
-        {!employees && <Text>'No first name'</Text>}
-
-        {employees && (
-          <TextInput
-            style={styles.textInput}
-            label="Last Name"
-            onChangeText={handleLastName}
-            value={lastName}
-          />
-        )}
-
-        {!employees && <Text>'No last name'</Text>}
-
-        {employees && (
-          <TextInput
-            style={styles.textInput}
-            label="Gender"
-            onChangeText={handleGender}
-            value={gender}
-          />
-        )}
-        {!employees && <Text>'No gender'</Text>}
-
-        {employees && (
-          <TextInput
-            style={styles.textInput}
-            label="Date of birth"
-            onChangeText={handleDOB}
-            // value={dateOfBirth}
-            value={dateOfBirth && format(new Date(dateOfBirth), 'yyyy-MM-dd')}
-          />
-        )}
-        {!employees && <Text>'No date of birth'</Text>} */}
+        {!employees && <Text>'No email address'</Text>} */}
 
         {employees && (
           <TextInput
@@ -304,28 +221,6 @@ const EmployeeRegistrationForm = ({ navigation }) => {
 
         {!employees && <Text>'No province'</Text>}
 
-        {/* {employees && (
-          <TextInput
-            style={styles.textInput}
-            label="Policy Number"
-            onChangeText={handlePolicyNumber}
-            value={policyNumber}
-          />
-        )}
-
-        {!employees && <Text>'No policyNumber'</Text>}
-
-        {employees && (
-          <TextInput
-            style={styles.textInput}
-            label="Employee Number"
-            onChangeText={handleEmployeeNumber}
-            value={employeeNumber}
-          />
-        )}
-
-        {!employees && <Text>'No employeeNumber'</Text>} */}
-
         {
           <Button
             style={styles.button}
@@ -347,40 +242,40 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingVertical: 1,
     paddingHorizontal: 10,
-    backgroundColor: '#9AC6DF',
-    position: 'relative'
+    backgroundColor: "#9AC6DF",
+    position: "relative",
   },
   button: {
     borderWidth: 3,
-    borderColor: 'white',
+    borderColor: "white",
     height: 60,
     borderRadius: 20,
-    backgroundColor: 'white',
+    backgroundColor: "white",
     paddingHorizontal: 20,
     marginVertical: 20,
-    borderColor: 'white',
+    borderColor: "white",
     elevation: 4,
-    shadowColor: 'white',
+    shadowColor: "white",
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 6,
     shadowOpacity: 1,
-    justifyContent: 'center'
+    justifyContent: "center",
   },
   textInput: {
     borderWidth: 0,
-    borderColor: 'white',
+    borderColor: "white",
     height: 0,
     borderRadius: 8,
-    backgroundColor: 'lightcyan',
+    backgroundColor: "white",
     paddingHorizontal: 6,
     marginVertical: 2,
-    borderColor: 'white',
+    borderColor: "white",
     elevation: 20,
-    shadowColor: 'white',
+    shadowColor: "white",
     shadowOffset: { width: 0, height: 0 },
     shadowRadius: 0,
     shadowOpacity: 0,
-    justifyContent: 'center'
-  }
+    justifyContent: "center",
+  },
 });
 export default EmployeeRegistrationForm;
