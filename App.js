@@ -12,7 +12,6 @@ import QuestionnaireOne from './screens/QuestionnaireOne';
 import {FireBaseProvider} from './firebase';
 import {AuthProvider} from './AuthProvider';
 import QuestionnaireTwo from './screens/QuestionnaireTwo';
-import LoggingOut from './screens/LoggingOut';
 
 const Stack = createNativeStackNavigator ();
 
