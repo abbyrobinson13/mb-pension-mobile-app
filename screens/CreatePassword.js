@@ -57,6 +57,16 @@ export default function CreatePassword({ navigation, route }) {
           .then((userCredential) => {
             sendEmailVerification(auth.currentUser);
             setValidationMessage("Successfully signed up with MB Group Ltd.");
+            fetch(`http://${ipAndPort}/api/employee/byEmail/${email}`, {
+              method: "PUT",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                uid: auth.currentUser.uid,
+              }),
+            });
+
             navigation.navigate("Employee Registration Form", {
               user: userCredential.user,
             });
