@@ -1,16 +1,17 @@
-import React, { useContext, useEffect, useState } from "react";
-import {
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
-import { Button } from "react-native-paper";
-import { AuthContext } from "../AuthProvider";
-import { FirebaseContext } from "../firebase";
+import { CONCERNS } from "../data/areasOfConcern.js";
+import { Button, FlatList, StyleSheet, Text, View } from "react-native";
+import ConcernGridTile from "../components/ConcernGridTile.js";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../AuthProvider.js";
+import { FirebaseContext } from "../firebase.js";
 
-const QuestionnaireTwo = ({ navigation }) => {
+function renderConcernItem(itemData) {
+  return (
+    <ConcernGridTile title={itemData.item.title} color={itemData.item.color} />
+  );
+}
+
+const QuestionnaireTwo = ({navigation}) => {
   const fbContext = useContext(FirebaseContext);
   const app = fbContext.app;
   const auth = fbContext.auth;
@@ -23,8 +24,7 @@ const QuestionnaireTwo = ({ navigation }) => {
   console.log(auth);
   console.log("user", user);
 
-  //to do update to real auth
-  const mockUID = " ";
+
 
   useEffect(() => {
     const getEmployees = async () => {
@@ -55,91 +55,37 @@ const QuestionnaireTwo = ({ navigation }) => {
     );
     const newEmployee = await response.json();
     console.log(newEmployee);
+    //navigation.navigate('Questionnaire Two');
   };
-
   return (
-    <View style={styles.quizContainer}>
-      <View>
-        <Text style={styles.quizTitle}>
-          Tell us about your areas of concern:
-        </Text>
-        <Text style={styles.quizTitle}>Click below for more information</Text>
-      </View>
-      <View>
-        <TouchableOpacity>
-          <Button
-            style={styles.button}
-            labelStyle={{ color: "black", fontSize: 16, fontWeight: "bold" }}
-            onPress={() => onPressHandle("Prevention")}
-          >
-            Prevention
-          </Button>
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <Button
-            style={styles.button}
-            labelStyle={{ color: "black", fontSize: 16, fontWeight: "bold" }}
-            onPress={() => onPressHandle("Exploring")}
-          >
-            Exploring
-          </Button>
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <Button
-            style={styles.button}
-            labelStyle={{ color: "black", fontSize: 16, fontWeight: "bold" }}
-            onPress={() => onPressHandle("Navigating a mental health network")}
-          >
-            Navigating the mental health network
-          </Button>
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <Button
-            style={styles.button}
-            labelStyle={{ color: "black", fontSize: 16, fontWeight: "bold" }}
-            onPress={() => onPressHandle("Managing a mental illness")}
-          >
-            Managing a mental illness
-          </Button>
-        </TouchableOpacity>
-      </View>
-    </View>
+    
+      <FlatList
+        ListHeaderComponent={() => (
+          <Text style={styles.quizTitle}>
+            Please select from below your mental health concerns:
+          </Text>
+        )}
+        data={CONCERNS}
+        keyExtractor={(item) => item.id}
+        renderItem={renderConcernItem}
+        numColumns={2}
+        style= {{backgroundColor:"orange"}}
+      />
+    
+   
   );
 };
-
 const styles = StyleSheet.create({
-  quizContainer: {
-    flex: 1,
-    paddingVertical: 40,
-    paddingHorizontal: 16,
-    backgroundColor: "#9AC6DF",
-    position: "relative",
-  },
 
-  button: {
-    borderWidth: 3,
-    borderColor: "white",
-    height: 60,
-    borderRadius: 20,
-    backgroundColor: "white",
-    paddingHorizontal: 20,
-    marginVertical: 20,
-    borderColor: "white",
-    elevation: 4,
-    shadowColor: "white",
-    shadowOffset: { width: 0, height: 2 },
-    shadowRadius: 6,
-    shadowOpacity: 1,
-    justifyContent: "center",
-  },
   quizTitle: {
-    color: "black",
-    fontSize: 28,
-    marginTop: 30,
-    marginBottom: 20,
+    color: "",
+    fontSize: 25,
+    marginTop: 35,
+    marginBottom: 25,
     marginLeft: 10,
     padding: 18,
     fontWeight: "bold",
   },
+  
 });
 export default QuestionnaireTwo;
