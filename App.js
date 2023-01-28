@@ -19,6 +19,7 @@ export default function App() {
   return (
     <FireBaseProvider>
       <AuthProvider>
+      <StatusBar style="light"/>
         <NavigationContainer>
           <Stack.Navigator>
             <Stack.Screen
