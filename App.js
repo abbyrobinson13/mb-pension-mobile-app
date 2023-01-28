@@ -12,6 +12,7 @@ import QuestionnaireOne from "./screens/QuestionnaireOne";
 import { FireBaseProvider } from "./firebase";
 import { AuthProvider } from "./AuthProvider";
 import QuestionnaireTwo from "./screens/QuestionnaireTwo";
+import { StatusBar } from "react-native";
 
 const Stack = createNativeStackNavigator();
 
