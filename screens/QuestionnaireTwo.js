@@ -4,6 +4,7 @@ import ConcernGridTile from "../components/ConcernGridTile.js";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../AuthProvider.js";
 import { FirebaseContext } from "../firebase.js";
+import ButtonFlatList from "../shared/ButtonFlatList.js";
 
 function renderConcernItem(itemData) {
   return (
@@ -70,6 +71,7 @@ const QuestionnaireTwo = ({navigation}) => {
         renderItem={renderConcernItem}
         numColumns={2}
         style= {{backgroundColor:"orange"}}
+        ListFooterComponent={() => <ButtonFlatList/> }
       />
     
    
@@ -79,7 +81,7 @@ const styles = StyleSheet.create({
 
   quizTitle: {
     color: "",
-    fontSize: 25,
+    fontSize: 20,
     marginTop: 35,
     marginBottom: 25,
     marginLeft: 10,
