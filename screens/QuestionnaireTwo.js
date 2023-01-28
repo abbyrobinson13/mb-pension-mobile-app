@@ -70,7 +70,7 @@ const QuestionnaireTwo = ({navigation}) => {
         keyExtractor={(item) => item.id}
         renderItem={renderConcernItem}
         numColumns={2}
-        style= {{backgroundColor:"orange"}}
+        style= {{backgroundColor:"#9AC6DF"}}
         ListFooterComponent={() => <ButtonFlatList/> }
       />
     

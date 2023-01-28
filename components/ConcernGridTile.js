@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
   },
   buttonPressed: {
     opacity: 0.5,
-    backgroundColor: "green",
+    backgroundColor: "orange",
     
   },
   innerContainer: {
