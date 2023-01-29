@@ -67,8 +67,11 @@ const QuestionnaireTwo = ({navigation}) => {
       <FlatList
         ListHeaderComponent={() => (
           <Text style={styles.quizTitle}>
-            Please select from below your mental health concerns:
+           What are your areas of concern?
+           {'\n'}
+            Click for more information
           </Text>
+          
         )}
         data={CONCERNS}
         keyExtractor={(item) => item.id}
