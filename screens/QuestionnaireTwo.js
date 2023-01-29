@@ -6,9 +6,13 @@ import { AuthContext } from "../AuthProvider.js";
 import { FirebaseContext } from "../firebase.js";
 import ButtonFlatList from "../shared/ButtonFlatList.js";
 
+function pressHandler() {
+
+}
+
 function renderConcernItem(itemData) {
   return (
-    <ConcernGridTile title={itemData.item.title} color={itemData.item.color} />
+    <ConcernGridTile title={itemData.item.title} color={itemData.item.color} onPress={pressHandler}/>
   );
 }
 
@@ -41,7 +45,7 @@ const QuestionnaireTwo = ({navigation}) => {
     getEmployees();
   }, []);
 
-  const onPressHandle = async (reason) => {
+  const onPressHandle = async (concern) => {
     const response = await fetch(
       `http://${ipAndPort}/api/employee/byEmail/${user.email}`,
       {
@@ -50,7 +54,7 @@ const QuestionnaireTwo = ({navigation}) => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          reasonForTreatment: `${reason}`,
+          areasOfConcern: `${concern}`,
         }),
       }
     );
