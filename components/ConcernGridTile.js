@@ -13,7 +13,7 @@ import Modal from "react-native-modal";
 
 const ConcernGridTile = ({ title, color }) => {
   const [isModalVisible, setModalVisible] = useState(false);
-  const background = require("../assets/information.png");
+  const modalIcon = require("../assets/information.png");
   const modalImage = require("../assets/modal.png");
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
@@ -32,7 +32,7 @@ const ConcernGridTile = ({ title, color }) => {
           <TouchableOpacity onPress={toggleModal}>
             <Image
               style={styles.infoButton}
-              source={background}
+              source={modalIcon}
               size={30}
               color="black"
             />
