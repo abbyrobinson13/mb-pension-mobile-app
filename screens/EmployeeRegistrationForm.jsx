@@ -1,20 +1,28 @@
 import { ScrollView, StyleSheet, Text, View, Alert } from "react-native";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Button, TextInput } from "react-native-paper";
+import { FirebaseContext } from "../firebase";
+import { AuthContext } from "../AuthProvider";
 // import { format } from "date-fns";
 
 const EmployeeRegistrationForm = ({ navigation }) => {
+  const fbContext = useContext(FirebaseContext);
+  const app = fbContext.app;
+  const auth = fbContext.auth;
+  const authContext = useContext(AuthContext);
+  const user = authContext.user;
+
   const [employees, setEmployees] = useState(null);
 
   const ipAndPort = "10.44.22.29:5001";
   console.log(ipAndPort);
 
-  const [email, setNewEmail] = useState("");
+  // const [email, setNewEmail] = useState(user.email);
 
-  function handleEmail(enteredText) {
-    setNewEmail(enteredText);
-    // console.log(email);
-  }
+  // function handleEmail(enteredText) {
+  //   setNewEmail(enteredText);
+  //   // console.log(email);
+  // }
 
   const [department, setNewDepartment] = useState("");
   function handleDepartment(enteredText) {
@@ -69,7 +77,7 @@ const EmployeeRegistrationForm = ({ navigation }) => {
     const getEmployees = async () => {
       try {
         let response = await fetch(
-          `http://${ipAndPort}/api/employee/byEmail/${email}`
+          `http://${ipAndPort}/api/employee/byEmail/${user.email}`
         );
         let data = await response.json();
         console.log(data);
@@ -83,7 +91,7 @@ const EmployeeRegistrationForm = ({ navigation }) => {
 
   const handleSubmit = async () => {
     const employeeData = {
-      email,
+      // email,
       department,
       position,
       employmentDate,
@@ -95,7 +103,7 @@ const EmployeeRegistrationForm = ({ navigation }) => {
       province,
     };
     let response = await fetch(
-      `http://${ipAndPort}/api/employee/byEmail/${email}`,
+      `http://${ipAndPort}/api/employee/byEmail/${user.email}`,
       {
         method: "PUT",
         headers: {
@@ -120,12 +128,12 @@ const EmployeeRegistrationForm = ({ navigation }) => {
     <ScrollView style={styles.container}>
       {employees && (
         <View style={styles.container}>
-          <TextInput
+          {/* <TextInput
             style={styles.textInput}
             label="Email"
             onChangeText={handleEmail}
             value={email}
-          />
+          /> */}
 
           <TextInput
             style={styles.textInput}
