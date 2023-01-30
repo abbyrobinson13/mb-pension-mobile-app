@@ -13,53 +13,53 @@ const EmployeeRegistrationForm = ({ navigation }) => {
 
   function handleEmail(enteredText) {
     setNewEmail(enteredText);
-    console.log(email);
+    // console.log(email);
   }
 
   const [department, setNewDepartment] = useState("");
   function handleDepartment(enteredText) {
     setNewDepartment(enteredText);
-    console.log(department);
+    // console.log(department);
   }
   const [position, setNewPosition] = useState("");
   function handlePosition(enteredText) {
     setNewPosition(enteredText);
-    console.log(position);
+    // console.log(position);
   }
   const [employmentDate, setNewEmployementDate] = useState("");
   function handleEmployementDate(enteredText) {
     setNewEmployementDate(enteredText);
-    console.log(employmentDate);
+    // console.log(employmentDate);
   }
   const [dependents, setNewdependents] = useState("");
   function handleDependents(enteredText) {
     setNewdependents(enteredText);
-    console.log(dependents);
+    // console.log(dependents);
   }
   const [mobile, setNewMobile] = useState("");
   function handleMobile(enteredText) {
     setNewMobile(enteredText);
-    console.log(mobile);
+    // console.log(mobile);
   }
   const [street, setNewStreet] = useState("");
   function handleStreet(enteredText) {
     setNewStreet(enteredText);
-    console.log(street);
+    // console.log(street);
   }
   const [postalCode, setNewPostalCode] = useState("");
   function handlePostalCode(enteredText) {
     setNewPostalCode(enteredText);
-    console.log(postalCode);
+    // console.log(postalCode);
   }
   const [city, setNewCity] = useState("");
   function handleCity(enteredText) {
     setNewCity(enteredText);
-    console.log(city);
+    // console.log(city);
   }
   const [province, setNewProvince] = useState("");
   function handleProvince(enteredText) {
     setNewProvince(enteredText);
-    console.log(province);
+    // console.log(province);
   }
 
   // Refactor this so that we only fetch one employee
@@ -118,116 +118,70 @@ const EmployeeRegistrationForm = ({ navigation }) => {
 
   return (
     <ScrollView style={styles.container}>
-      <View style={styles.container}>
-        {employees && (
+      {employees && (
+        <View style={styles.container}>
           <TextInput
             style={styles.textInput}
             label="Email"
             onChangeText={handleEmail}
             value={email}
           />
-        )}
 
-        {!employees && <Text>'No email address'</Text>}
-
-        {employees && (
           <TextInput
             style={styles.textInput}
             label="Department"
             onChangeText={handleDepartment}
             value={department}
           />
-        )}
-
-        {!employees && <Text>'No department'</Text>}
-
-        {employees && (
           <TextInput
             style={styles.textInput}
             label="Position"
             onChangeText={handlePosition}
             value={position}
           />
-        )}
-
-        {!employees && <Text>'No position'</Text>}
-
-        {employees && (
           <TextInput
             style={styles.textInput}
             label="Employment Date"
             onChangeText={handleEmployementDate}
             value={employmentDate}
           />
-        )}
-
-        {!employees && <Text>'No employment date'</Text>}
-
-        {employees && (
           <TextInput
             style={styles.textInput}
             label="Dependents"
             onChangeText={handleDependents}
             value={dependents}
           />
-        )}
-
-        {!employees && <Text>'No dependents'</Text>}
-
-        {employees && (
           <TextInput
             style={styles.textInput}
             label="Mobile"
             onChangeText={handleMobile}
             value={mobile}
           />
-        )}
-
-        {!employees && <Text>'No mobile'</Text>}
-
-        {employees && (
           <TextInput
             style={styles.textInput}
             label="Street"
             onChangeText={handleStreet}
             value={street}
           />
-        )}
-        {!employees && <Text>'No street'</Text>}
-
-        {employees && (
           <TextInput
             style={styles.textInput}
             label="Postal Code"
             onChangeText={handlePostalCode}
             value={postalCode}
           />
-        )}
-        {!employees && <Text>'No postal code'</Text>}
-
-        {employees && (
           <TextInput
             style={styles.textInput}
             label="City"
             onChangeText={handleCity}
             value={city}
           />
-        )}
-
-        {!employees && <Text>'No city'</Text>}
-
-        {employees && (
           <TextInput
             style={styles.textInput}
             label="Province"
             onChangeText={handleProvince}
             value={province}
           />
-        )}
 
-        {!employees && <Text>'No province'</Text>}
-
-        {
           <Button
             style={styles.button}
             title="Register"
@@ -237,8 +191,8 @@ const EmployeeRegistrationForm = ({ navigation }) => {
           >
             Submit
           </Button>
-        }
-      </View>
+        </View>
+      )}
     </ScrollView>
   );
 };

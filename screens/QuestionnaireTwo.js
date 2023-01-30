@@ -6,17 +6,19 @@ import { AuthContext } from "../AuthProvider.js";
 import { FirebaseContext } from "../firebase.js";
 import ButtonFlatList from "../shared/ButtonFlatList.js";
 
-function pressHandler() {
-
-}
+function pressHandler() {}
 
 function renderConcernItem(itemData) {
   return (
-    <ConcernGridTile title={itemData.item.title} color={itemData.item.color} onPress={pressHandler}/>
+    <ConcernGridTile
+      title={itemData.item.title}
+      color={itemData.item.color}
+      onPress={pressHandler}
+    />
   );
 }
 
-const QuestionnaireTwo = ({navigation}) => {
+const QuestionnaireTwo = ({ navigation }) => {
   const fbContext = useContext(FirebaseContext);
   const app = fbContext.app;
   const auth = fbContext.auth;
@@ -24,12 +26,10 @@ const QuestionnaireTwo = ({navigation}) => {
   const user = authContext.user;
 
   const [employees, setEmployees] = useState(null);
-  const ipAndPort = "10.44.22.29:5001";
+  const ipAndPort = "10.0.0.139:5001";
   console.log(ipAndPort);
   console.log(auth);
   console.log("user", user);
-
-
 
   useEffect(() => {
     const getEmployees = async () => {
@@ -63,29 +63,24 @@ const QuestionnaireTwo = ({navigation}) => {
     //navigation.navigate('Questionnaire Two');
   };
   return (
-    
-      <FlatList
-        ListHeaderComponent={() => (
-          <Text style={styles.quizTitle}>
-           What are your areas of concern?
-           {'\n'}
-            Click for more information
-          </Text>
-          
-        )}
-        data={CONCERNS}
-        keyExtractor={(item) => item.id}
-        renderItem={renderConcernItem}
-        numColumns={2}
-        style= {{backgroundColor:"#9AC6DF"}}
-        ListFooterComponent={() => <ButtonFlatList/> }
-      />
-    
-   
+    <FlatList
+      ListHeaderComponent={() => (
+        <Text style={styles.quizTitle}>
+          What are your areas of concern?
+          {"\n"}
+          Click for more information
+        </Text>
+      )}
+      data={CONCERNS}
+      keyExtractor={(item) => item.id}
+      renderItem={renderConcernItem}
+      numColumns={2}
+      style={{ backgroundColor: "#9AC6DF" }}
+      ListFooterComponent={() => <ButtonFlatList />}
+    />
   );
 };
 const styles = StyleSheet.create({
-
   quizTitle: {
     color: "",
     fontSize: 20,
@@ -95,6 +90,5 @@ const styles = StyleSheet.create({
     padding: 18,
     fontWeight: "bold",
   },
-  
 });
 export default QuestionnaireTwo;
