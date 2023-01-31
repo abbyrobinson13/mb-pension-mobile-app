@@ -10,7 +10,6 @@ import { Button } from "react-native-paper";
 import { AuthContext } from "../AuthProvider";
 import { FirebaseContext } from "../firebase";
 
-
 const QuestionnaireOne = ({ navigation }) => {
   const fbContext = useContext(FirebaseContext);
   const app = fbContext.app;
@@ -19,7 +18,7 @@ const QuestionnaireOne = ({ navigation }) => {
   const user = authContext.user;
 
   const [employees, setEmployees] = useState(null);
-  const ipAndPort = "10.0.0.139:5001";
+  const ipAndPort = "10.44.22.75:5001";
   console.log(ipAndPort);
   console.log(auth);
   console.log("user", user);
@@ -42,21 +41,26 @@ const QuestionnaireOne = ({ navigation }) => {
   }, []);
 
   const onPressHandle = async (reason) => {
-    const response = await fetch(
-      `http://${ipAndPort}/api/employee/byEmail/${user.email}`,
-      {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          reasonForTreatment: `${reason}`,
-        }),
-      }
-    );
-    const newEmployee = await response.json();
-    console.log(newEmployee);
-    navigation.navigate('Questionnaire Two');
+    console.log("the uid", user.uid);
+    try {
+      const response = await fetch(
+        `http://${ipAndPort}/api/employee/byAuthId/${user.uid}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            reasonForTreatment: `${reason}`,
+          }),
+        }
+      );
+      const newEmployee = await response.json();
+      console.log(newEmployee);
+      navigation.navigate("Questionnaire Two");
+    } catch (e) {
+      console.log(e.message);
+    }
   };
 
   return (
