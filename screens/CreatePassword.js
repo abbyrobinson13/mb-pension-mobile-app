@@ -18,7 +18,7 @@ import {
 } from "firebase/auth";
 import { auth } from "../firebase";
 import Checkbox from "expo-checkbox";
-const ipAndPort = "10.0.0.139:5001";
+const ipAndPort = "10.44.22.24:5001";
 
 export default function CreatePassword({ navigation, route }) {
   const background = require("../assets/background.jpg");
@@ -90,6 +90,7 @@ export default function CreatePassword({ navigation, route }) {
         <Text style={AppStyles.darkText}>Create Password</Text>
         <Text style={AppStyles.errorText}>{validationMessage}</Text>
         <TextInput
+          autoCapitalize="none"
           style={AppStyles.textInput}
           placeholder="Email"
           placeholderTextColor="#fff"
@@ -97,6 +98,7 @@ export default function CreatePassword({ navigation, route }) {
           onChangeText={setEmail}
         />
         <TextInput
+          autoCapitalize="none"
           style={AppStyles.textInput}
           placeholder="Password"
           placeholderTextColor="#fff"
