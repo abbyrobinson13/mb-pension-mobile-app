@@ -18,7 +18,7 @@ const QuestionnaireOne = ({ navigation }) => {
   const user = authContext.user;
 
   const [employees, setEmployees] = useState(null);
-  const ipAndPort = "10.44.22.75:5001";
+  const ipAndPort = "10.44.22.24:5001";
   console.log(ipAndPort);
   console.log(auth);
   console.log("user", user);
