@@ -23,9 +23,6 @@ const QuestionnaireOne = ({ navigation }) => {
   console.log(auth);
   console.log("user", user);
 
-  //to do update to real auth
-  const mockUID = " ";
-
   useEffect(() => {
     const getEmployees = async () => {
       try {
