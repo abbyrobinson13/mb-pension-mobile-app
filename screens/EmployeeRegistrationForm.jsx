@@ -14,7 +14,7 @@ const EmployeeRegistrationForm = ({ navigation }) => {
 
   const [employees, setEmployees] = useState(null);
 
-  const ipAndPort = "10.44.22.29:5001";
+  const ipAndPort = "10.0.0.139:5001";
   console.log(ipAndPort);
 
   // const [email, setNewEmail] = useState(user.email);
