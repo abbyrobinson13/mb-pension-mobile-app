@@ -54,12 +54,13 @@ export default function Login({ navigation }) {
     <ImageBackground style={AppStyles.container} source={background}>
       <KeyboardAvoidingView
         style={AppStyles.backgroundCover}
-        behavior={Platform.OS === "ios" ? padding : null}
+        behavior={Platform.OS === "ios" ? "padding" : null}
         keyboardVerticalOffset={60}
       >
         <Text style={AppStyles.darkText}>Log in</Text>
         <Text style={AppStyles.errorText}>{errorMessage}</Text>
         <TextInput
+          autoCapitalize="none"
           style={AppStyles.textInput}
           placeholder="Email"
           placeholderTextColor="#fff"
@@ -67,6 +68,7 @@ export default function Login({ navigation }) {
           onChangeText={setEmail}
         />
         <TextInput
+          autoCapitalize="none"
           style={AppStyles.textInput}
           placeholder="Password"
           placeholderTextColor="#fff"
