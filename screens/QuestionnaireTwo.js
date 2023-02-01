@@ -102,5 +102,33 @@ const styles = StyleSheet.create({
     padding: 18,
     fontWeight: "bold",
   },
+  button: {
+    backgroundColor: "white",
+    borderWidth: 1,
+    height: 60,
+    width: 200,
+    borderRadius: 40,
+    borderColor: "white",
+    marginLeft: 90,
+    marginTop: 30,
+    marginHorizontal: 60,
+    elevation: 4,
+    shadowColor: "white",
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 6,
+    shadowOpacity: 1,
+  },
+
+  text: {
+    fontSize: 18,
+    fontWeight: "bold",
+    letterSpacing: 1,
+    color: "black",
+    textAlign: "center",
+    marginTop: 15,
+    
+    
+  },
+
 });
 export default QuestionnaireTwo;
