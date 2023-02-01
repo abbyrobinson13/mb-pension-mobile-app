@@ -13,19 +13,25 @@ import Modal from "react-native-modal";
 
 const ConcernGridTile = ({ title, color }) => {
   const [isModalVisible, setModalVisible] = useState(false);
+  const [selected, setSelected] = useState(false);
   const modalIcon = require("../assets/information.png");
   const modalImage = require("../assets/modal.png");
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
   };
   return (
-    <View style={styles.gridItem}>
+    <View style={[styles.gridItem, selected ? styles.buttonPressed : styles.button]}>
       <Pressable
-        android_ripple={{ color: "#ccc" }}
+        //android_ripple={{ color: "#ccc" }}
         style={({ pressed }) => [
           styles.button,
           pressed ? styles.buttonPressed : null,
+          
         ]}
+        onPress={() => {
+          setSelected(!selected);
+        }}
+
       >
         <View style={styles.innerContainer}>
           <Text style={styles.title}>{title}</Text>
@@ -72,7 +78,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   buttonPressed: {
-    opacity: 0.5,
+    //opacity: 0.5,
     backgroundColor: "orange",
   },
   innerContainer: {
