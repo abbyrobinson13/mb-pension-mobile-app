@@ -12,8 +12,7 @@ function renderConcernItem(itemData) {
   return (
     <ConcernGridTile
       title={itemData.item.title}
-      color={itemData.item.color}
-      onPress={pressHandler}
+      
     />
   );
 }
@@ -76,7 +75,17 @@ const QuestionnaireTwo = ({ navigation }) => {
       renderItem={renderConcernItem}
       numColumns={2}
       style={{ backgroundColor: "#9AC6DF" }}
-      ListFooterComponent={() => <ButtonFlatList />}
+      ListFooterComponent={() => (
+        <View style={{ padding: 16 }}>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={pressHandler}
+          >
+          <Text style={styles.text}>{buttonText}</Text> 
+          </TouchableOpacity >
+        </View>
+      )}
+
     />
   );
 };
