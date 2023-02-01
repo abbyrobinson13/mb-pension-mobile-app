@@ -1,5 +1,5 @@
 import { CONCERNS } from "../data/areasOfConcern.js";
-import { Button, FlatList, StyleSheet, Text, View } from "react-native";
+import { Button, FlatList, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import ConcernGridTile from "../components/ConcernGridTile.js";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../AuthProvider.js";
@@ -12,7 +12,7 @@ const QuestionnaireTwo = ({ navigation }) => {
   const auth = fbContext.auth;
   const authContext = useContext(AuthContext);
   const user = authContext.user;
-
+const buttonText ="Click next"
   const [employees, setEmployees] = useState(null);
   const ipAndPort = "10.44.22.29:5001";
   console.log(ipAndPort);
