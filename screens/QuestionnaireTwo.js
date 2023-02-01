@@ -6,17 +6,6 @@ import { AuthContext } from "../AuthProvider.js";
 import { FirebaseContext } from "../firebase.js";
 import ButtonFlatList from "../shared/ButtonFlatList.js";
 
-function pressHandler() {}
-
-function renderConcernItem(itemData) {
-  return (
-    <ConcernGridTile
-      title={itemData.item.title}
-      
-    />
-  );
-}
-
 const QuestionnaireTwo = ({ navigation }) => {
   const fbContext = useContext(FirebaseContext);
   const app = fbContext.app;
@@ -30,6 +19,14 @@ const QuestionnaireTwo = ({ navigation }) => {
   console.log(auth);
   console.log("user", user);
 
+  const renderConcernItem =(itemData)=> {
+    return (
+      <ConcernGridTile
+        title={itemData.item.title}
+        
+      />
+    );
+  }
   useEffect(() => {
     const getEmployees = async () => {
       try {
@@ -44,23 +41,28 @@ const QuestionnaireTwo = ({ navigation }) => {
     getEmployees();
   }, []);
 
-  const onPressHandle = async (concern) => {
-    const response = await fetch(
-      `http://${ipAndPort}/api/employee/byEmail/${user.email}`,
-      {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          areasOfConcern: `${concern}`,
-        }),
-      }
-    );
-    const newEmployee = await response.json();
-    console.log(newEmployee);
-    //navigation.navigate('Questionnaire Two');
-  };
+  const pressHandler=() => {
+
+      
+  }
+
+  // // const onPressHandle = async (concern) => {
+  // //   const response = await fetch(
+  // //     `http://${ipAndPort}/api/employee/byEmail/${user.email}`,
+  // //     {
+  // //       method: "PUT",
+  // //       headers: {
+  // //         "Content-Type": "application/json",
+  // //       },
+  // //       body: JSON.stringify({
+  // //         areasOfConcern: `${concern}`,
+  // //       }),
+  // //     }
+  // //   );
+  // //   const newEmployee = await response.json();
+  // //   console.log(newEmployee);
+  // //   //navigation.navigate('Questionnaire Two');
+  // };
   return (
     <FlatList
       ListHeaderComponent={() => (
@@ -89,6 +91,7 @@ const QuestionnaireTwo = ({ navigation }) => {
     />
   );
 };
+
 const styles = StyleSheet.create({
   quizTitle: {
     color: "",
