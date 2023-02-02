@@ -59,7 +59,7 @@ const QuestionnaireTwo = ({ navigation }) => {
   };
 
   const saveConcerns = async (concern) => {
-    console.log("concern", concern)
+    console.log("concern", concern);
     const response = await fetch(
       `http://${ipAndPort}/api/employee/byAuthId/${user.uid}`,
       {
@@ -67,15 +67,15 @@ const QuestionnaireTwo = ({ navigation }) => {
         headers: {
           "Content-Type": "application/json",
         },
-        body:// { areasOfConcern: concern },
-        JSON.stringify({
+        // { areasOfConcern: concern },
+        body: JSON.stringify({
           areasOfConcern: `${concern}`,
         }),
       }
     );
     const newEmployee = await response.json();
     console.log(newEmployee);
-    //navigation.navigate('Questionnaire Two');
+    navigation.navigate('Questionnaire Three');
   };
   return (
     <FlatList
