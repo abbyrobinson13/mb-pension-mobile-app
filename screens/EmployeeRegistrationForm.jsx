@@ -4,7 +4,7 @@ import { Button, TextInput } from "react-native-paper";
 import { FirebaseContext } from "../firebase";
 import { AuthContext } from "../AuthProvider";
 // import { format } from "date-fns";
-
+import { ipAndPort } from "../config";
 const EmployeeRegistrationForm = ({ navigation }) => {
   const fbContext = useContext(FirebaseContext);
   const app = fbContext.app;
@@ -15,7 +15,7 @@ const EmployeeRegistrationForm = ({ navigation }) => {
   const [employees, setEmployees] = useState(null);
   
 
-  const ipAndPort = "10.44.22.29:5001";
+  //const ipAndPort = "10.44.22.29:5001";
   console.log(ipAndPort);
   // console.log("the employee", employees);
 
