@@ -71,8 +71,8 @@ const styles = StyleSheet.create({
   gridItem: {
     flex: 1,
     margin: 10,
-    height: 78,
-    width: 200,
+    height: 100,
+    width:50,
     borderRadius: 6,
     elevation: 4,
     backgroundColor: "white",
@@ -81,6 +81,7 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 8,
     overflow: Platform.OS === "hidden" ? "hidden" : "visible",
+
   },
   button: {
     flex: 1
@@ -99,6 +100,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 16,
     textAlign:"center",
+    //marginRight: 10,
     
    
   },
@@ -113,14 +115,10 @@ const styles = StyleSheet.create({
   },
 
   infoButton: {
-    //position:"absolute",
-    top: 10,
-    //left: 10,
-    bottom: 80,
-    right: 20,
-    border: "none",
-    marginLeft: 180,
-    marginRight: 0,
+     position:"relative",
+    top: 0,
+    left: 0,
+    margin : 10,
   },
 
   modal: {
