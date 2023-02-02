@@ -13,6 +13,7 @@ import { FireBaseProvider } from "./firebase";
 import { AuthProvider } from "./AuthProvider";
 import QuestionnaireTwo from "./screens/QuestionnaireTwo";
 import { StatusBar } from "react-native";
+import QuestionnaireThree from "./screens/QuestionnaireThree";
 
 const Stack = createNativeStackNavigator();
 
@@ -63,6 +64,11 @@ export default function App() {
             <Stack.Screen
               name="Questionnaire Two"
               component={QuestionnaireTwo}
+              options={{ headerShown: true, headerRight: LoggingOut }}
+            />
+            <Stack.Screen
+              name="Questionnaire Three"
+              component={QuestionnaireThree}
               options={{ headerShown: true, headerRight: LoggingOut }}
             />
             <Stack.Screen
