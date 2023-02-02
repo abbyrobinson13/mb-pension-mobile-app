@@ -1,3 +1,4 @@
+import { set } from "date-fns";
 import { useState } from "react";
 import {
   Pressable,
@@ -11,7 +12,7 @@ import {
 } from "react-native";
 import Modal from "react-native-modal";
 
-const ConcernGridTile = ({ title, color }) => {
+const ConcernGridTile = ({ title, picked, setPicked }) => {
   const [isModalVisible, setModalVisible] = useState(false);
   const [selected, setSelected] = useState(false);
   const modalIcon = require("../assets/information.png");
@@ -20,21 +21,26 @@ const ConcernGridTile = ({ title, color }) => {
     setModalVisible(!isModalVisible);
   };
   return (
-    <View style={[styles.gridItem, selected ? styles.buttonPressed : styles.button]}>
+    <View
+      style={[styles.gridItem, selected ? styles.buttonPressed : styles.button]}
+    >
       <Pressable
         //android_ripple={{ color: "#ccc" }}
         style={({ pressed }) => [
           styles.button,
           pressed ? styles.buttonPressed : null,
-          
         ]}
         onPress={() => {
           setSelected(!selected);
+          const choice = !selected;
+          if (choice) {
+            setPicked({ ...picked, [title]: true });
+          } else {
+            setPicked({ ...picked, [title]: false });
+          }
         }}
-
       >
         <View style={styles.innerContainer}>
-          <Text style={styles.title}>{title}</Text>
           <TouchableOpacity onPress={toggleModal}>
             <Image
               style={styles.infoButton}
@@ -53,6 +59,7 @@ const ConcernGridTile = ({ title, color }) => {
               </View>
             </Modal>
           </TouchableOpacity>
+          <Text style={styles.title}>{title}</Text>
         </View>
       </Pressable>
     </View>
@@ -64,7 +71,8 @@ const styles = StyleSheet.create({
   gridItem: {
     flex: 1,
     margin: 10,
-    height: 65,
+    height: 78,
+    width: 200,
     borderRadius: 6,
     elevation: 4,
     backgroundColor: "white",
@@ -75,7 +83,7 @@ const styles = StyleSheet.create({
     overflow: Platform.OS === "hidden" ? "hidden" : "visible",
   },
   button: {
-    flex: 1,
+    flex: 1
   },
   buttonPressed: {
     //opacity: 0.5,
@@ -90,6 +98,9 @@ const styles = StyleSheet.create({
   title: {
     fontWeight: "bold",
     fontSize: 16,
+    textAlign:"center",
+    
+   
   },
   modalContainer: {
     flex: 1,
@@ -102,8 +113,9 @@ const styles = StyleSheet.create({
   },
 
   infoButton: {
-    //position:"left",
+    //position:"absolute",
     top: 10,
+    //left: 10,
     bottom: 80,
     right: 20,
     border: "none",
