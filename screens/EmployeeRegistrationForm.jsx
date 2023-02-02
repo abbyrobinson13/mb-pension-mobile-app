@@ -13,9 +13,11 @@ const EmployeeRegistrationForm = ({ navigation }) => {
   const user = authContext.user;
 
   const [employees, setEmployees] = useState(null);
+  
 
   const ipAndPort = "10.44.22.29:5001";
   console.log(ipAndPort);
+  // console.log("the employee", employees);
 
   // const [email, setNewEmail] = useState(user.email);
 
@@ -23,52 +25,55 @@ const EmployeeRegistrationForm = ({ navigation }) => {
   //   setNewEmail(enteredText);
   //   // console.log(email);
   // }
+  const onHandleChange = (name, e) => {
+    setEmployees({ ...employees, [name]: e });
+  };
 
-  const [department, setNewDepartment] = useState("");
-  function handleDepartment(enteredText) {
-    setNewDepartment(enteredText);
-    // console.log(department);
-  }
-  const [position, setNewPosition] = useState("");
-  function handlePosition(enteredText) {
-    setNewPosition(enteredText);
-    // console.log(position);
-  }
-  const [employmentDate, setNewEmployementDate] = useState("");
-  function handleEmployementDate(enteredText) {
-    setNewEmployementDate(enteredText);
-    // console.log(employmentDate);
-  }
-  const [dependents, setNewdependents] = useState("");
-  function handleDependents(enteredText) {
-    setNewdependents(enteredText);
-    // console.log(dependents);
-  }
-  const [mobile, setNewMobile] = useState("");
-  function handleMobile(enteredText) {
-    setNewMobile(enteredText);
-    // console.log(mobile);
-  }
-  const [street, setNewStreet] = useState("");
-  function handleStreet(enteredText) {
-    setNewStreet(enteredText);
-    // console.log(street);
-  }
-  const [postalCode, setNewPostalCode] = useState("");
-  function handlePostalCode(enteredText) {
-    setNewPostalCode(enteredText);
-    // console.log(postalCode);
-  }
-  const [city, setNewCity] = useState("");
-  function handleCity(enteredText) {
-    setNewCity(enteredText);
-    // console.log(city);
-  }
-  const [province, setNewProvince] = useState("");
-  function handleProvince(enteredText) {
-    setNewProvince(enteredText);
-    // console.log(province);
-  }
+  // const [department, setNewDepartment] = useState("");
+  // function handleDepartment(enteredText) {
+  //   setNewDepartment(enteredText);
+  //   // console.log(department);
+  // }
+  // const [position, setNewPosition] = useState("");
+  // function handlePosition(enteredText) {
+  //   setNewPosition(enteredText);
+  //   // console.log(position);
+  // }
+  // const [employmentDate, setNewEmployementDate] = useState("");
+  // function handleEmployementDate(enteredText) {
+  //   setNewEmployementDate(enteredText);
+  //   // console.log(employmentDate);
+  // }
+  // const [dependents, setNewdependents] = useState("");
+  // function handleDependents(enteredText) {
+  //   setNewdependents(enteredText);
+  //   // console.log(dependents);
+  // }
+  // const [mobile, setNewMobile] = useState("");
+  // function handleMobile(enteredText) {
+  //   setNewMobile(enteredText);
+  //   // console.log(mobile);
+  // }
+  // const [street, setNewStreet] = useState("");
+  // function handleStreet(enteredText) {
+  //   setNewStreet(enteredText);
+  //   // console.log(street);
+  // }
+  // const [postalCode, setNewPostalCode] = useState("");
+  // function handlePostalCode(enteredText) {
+  //   setNewPostalCode(enteredText);
+  //   // console.log(postalCode);
+  // }
+  // const [city, setNewCity] = useState("");
+  // function handleCity(enteredText) {
+  //   setNewCity(enteredText);
+  //   // console.log(city);
+  // }
+  // const [province, setNewProvince] = useState("");
+  // function handleProvince(enteredText) {
+  //   setNewProvince(enteredText);
+  //   // console.log(province);
+  // }
 
   // Refactor this so that we only fetch one employee
   // We want to fetch the current employee
@@ -80,7 +85,8 @@ const EmployeeRegistrationForm = ({ navigation }) => {
           `http://${ipAndPort}/api/employee/byEmail/${user.email}`
         );
         let data = await response.json();
-        console.log(data);
+        console.log("thedata", data);
+
         setEmployees(data);
       } catch (ex) {
         console.error(`Problems fetching:${ex.message}`);
@@ -90,18 +96,18 @@ const EmployeeRegistrationForm = ({ navigation }) => {
   }, []);
 
   const handleSubmit = async () => {
-    const employeeData = {
-      // email,
-      department,
-      position,
-      employmentDate,
-      dependents,
-      mobile,
-      street,
-      postalCode,
-      city,
-      province,
-    };
+    // const employeeData = {
+    //   // email,
+    //   department,
+    //   position,
+    //   employmentDate,
+    //   dependents,
+    //   mobile,
+    //   street,
+    //   postalCode,
+    //   city,
+    //   province,
+    // };
     let response = await fetch(
       `http://${ipAndPort}/api/employee/byEmail/${user.email}`,
       {
@@ -109,7 +115,7 @@ const EmployeeRegistrationForm = ({ navigation }) => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(employeeData),
+        body: JSON.stringify(employees),
       }
     );
     console.log(response.status);
@@ -138,56 +144,65 @@ const EmployeeRegistrationForm = ({ navigation }) => {
           <TextInput
             style={styles.textInput}
             label="Department"
-            onChangeText={handleDepartment}
-            value={department}
+            name="department"
+            onChangeText={(e) => onHandleChange("department", e)}
+            value={employees.department}
           />
           <TextInput
             style={styles.textInput}
             label="Position"
-            onChangeText={handlePosition}
-            value={position}
+            name="position"
+            onChangeText={(e) => onHandleChange("position", e)}
+            value={employees.position}
           />
           <TextInput
             style={styles.textInput}
             label="Employment Date"
-            onChangeText={handleEmployementDate}
-            value={employmentDate}
+            name="employmentDate"
+            onChangeText={(e) => onHandleChange("employmentDate", e)}
+            value={employees.employmentDate}
           />
           <TextInput
             style={styles.textInput}
             label="Dependents"
-            onChangeText={handleDependents}
-            value={dependents}
+            name="dependents"
+            onChangeText={(e) => onHandleChange("dependents", e)}
+            value={employees.dependents}
           />
           <TextInput
             style={styles.textInput}
             label="Mobile"
-            onChangeText={handleMobile}
-            value={mobile}
+            name="mobile"
+            onChangeText={(e) => onHandleChange("mobile", e)}
+            value={employees.mobile}
           />
           <TextInput
             style={styles.textInput}
             label="Street"
-            onChangeText={handleStreet}
-            value={street}
+            name="street"
+            onChangeText={(e) => onHandleChange("street", e)}
+            value={employees.street}
           />
           <TextInput
             style={styles.textInput}
             label="Postal Code"
-            onChangeText={handlePostalCode}
-            value={postalCode}
+            name="postalCode"
+            onChangeText={(e) => onHandleChange("postalCode", e)}
+            value={employees.postalCode}
           />
           <TextInput
             style={styles.textInput}
             label="City"
-            onChangeText={handleCity}
-            value={city}
+            name="city"
+            onChangeText={(e) => onHandleChange("city", e)}
+            value={employees.city}
           />
           <TextInput
             style={styles.textInput}
             label="Province"
-            onChangeText={handleProvince}
-            value={province}
+            name="province"
+            onChangeText={(e) => onHandleChange("province", e)}
+            value={employees.province}
           />
 
           <Button
