@@ -9,7 +9,7 @@ import {
 import { Button } from "react-native-paper";
 import { AuthContext } from "../AuthProvider";
 import { FirebaseContext } from "../firebase";
-
+import { ipAndPort } from "../config";
 const QuestionnaireOne = ({ navigation }) => {
   const fbContext = useContext(FirebaseContext);
   const app = fbContext.app;
@@ -18,7 +18,7 @@ const QuestionnaireOne = ({ navigation }) => {
   const user = authContext.user;
 
   const [employees, setEmployees] = useState(null);
-  const ipAndPort = "10.44.22.29:5001";
+  //const ipAndPort = "10.44.22.29:5001";
   console.log(ipAndPort);
   console.log(auth);
   console.log("user", user);
