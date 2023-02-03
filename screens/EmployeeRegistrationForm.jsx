@@ -13,70 +13,13 @@ const EmployeeRegistrationForm = ({ navigation }) => {
   const user = authContext.user;
 
   const [employees, setEmployees] = useState(null);
-  
 
   //const ipAndPort = "10.44.22.29:5001";
   console.log(ipAndPort);
-  // console.log("the employee", employees);
 
-  // const [email, setNewEmail] = useState(user.email);
-
-  // function handleEmail(enteredText) {
-  //   setNewEmail(enteredText);
-  //   // console.log(email);
-  // }
   const onHandleChange = (name, e) => {
     setEmployees({ ...employees, [name]: e });
   };
-
-  // const [department, setNewDepartment] = useState("");
-  // function handleDepartment(enteredText) {
-  //   setNewDepartment(enteredText);
-  //   // console.log(department);
-  // }
-  // const [position, setNewPosition] = useState("");
-  // function handlePosition(enteredText) {
-  //   setNewPosition(enteredText);
-  //   // console.log(position);
-  // }
-  // const [employmentDate, setNewEmployementDate] = useState("");
-  // function handleEmployementDate(enteredText) {
-  //   setNewEmployementDate(enteredText);
-  //   // console.log(employmentDate);
-  // }
-  // const [dependents, setNewdependents] = useState("");
-  // function handleDependents(enteredText) {
-  //   setNewdependents(enteredText);
-  //   // console.log(dependents);
-  // }
-  // const [mobile, setNewMobile] = useState("");
-  // function handleMobile(enteredText) {
-  //   setNewMobile(enteredText);
-  //   // console.log(mobile);
-  // }
-  // const [street, setNewStreet] = useState("");
-  // function handleStreet(enteredText) {
-  //   setNewStreet(enteredText);
-  //   // console.log(street);
-  // }
-  // const [postalCode, setNewPostalCode] = useState("");
-  // function handlePostalCode(enteredText) {
-  //   setNewPostalCode(enteredText);
-  //   // console.log(postalCode);
-  // }
-  // const [city, setNewCity] = useState("");
-  // function handleCity(enteredText) {
-  //   setNewCity(enteredText);
-  //   // console.log(city);
-  // }
-  // const [province, setNewProvince] = useState("");
-  // function handleProvince(enteredText) {
-  //   setNewProvince(enteredText);
-  //   // console.log(province);
-  // }
-
-  // Refactor this so that we only fetch one employee
-  // We want to fetch the current employee
 
   useEffect(() => {
     const getEmployees = async () => {
@@ -96,18 +39,6 @@ const EmployeeRegistrationForm = ({ navigation }) => {
   }, []);
 
   const handleSubmit = async () => {
-    // const employeeData = {
-    //   // email,
-    //   department,
-    //   position,
-    //   employmentDate,
-    //   dependents,
-    //   mobile,
-    //   street,
-    //   postalCode,
-    //   city,
-    //   province,
-    // };
     let response = await fetch(
       `http://${ipAndPort}/api/employee/byEmail/${user.email}`,
       {
@@ -134,12 +65,7 @@ const EmployeeRegistrationForm = ({ navigation }) => {
     <ScrollView style={styles.container}>
       {employees && (
         <View style={styles.container}>
-          {/* <TextInput
-            style={styles.textInput}
-            label="Email"
-            onChangeText={handleEmail}
-            value={email}
-          /> */}
+         
 
           <TextInput
             style={styles.textInput}
