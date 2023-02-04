@@ -16,7 +16,7 @@ const ConcernGridTile = ({ title, picked, setPicked }) => {
   const [isModalVisible, setModalVisible] = useState(false);
   const [selected, setSelected] = useState(false);
   const modalIcon = require("../assets/information.png");
-  const modalImage = require("../assets/modal.png");
+  const modalImage = require("../assets/TRAUMA.png");
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
   };
