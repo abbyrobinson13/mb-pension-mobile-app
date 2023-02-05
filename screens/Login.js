@@ -62,14 +62,14 @@ export default function Login({ navigation }) {
         <TextInput
           style={AppStyles.textInput}
           placeholder="Email"
-          placeholderTextColor="#fff"
+          placeholderTextColor="darkgreen"
           value={email}
           onChangeText={setEmail}
         />
         <TextInput
           style={AppStyles.textInput}
           placeholder="Password"
-          placeholderTextColor="#fff"
+          placeholderTextColor="darkgreen"
           secureTextEntry={true}
           value={password}
           onChangeText={setPassword}

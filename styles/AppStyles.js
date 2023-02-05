@@ -72,7 +72,7 @@ export default StyleSheet.create ({
     padding: 8,
     borderBottomWidth: 2,
     marginVertical: 8,
-    color: '#ffffff',
+    color: 'black',
   },
   lightTextInput: {
     borderBottomColor: '#ffffff',
@@ -81,7 +81,7 @@ export default StyleSheet.create ({
     borderBottomColor: '#000000',
   },
   inlineTextButton: {
-    color: '#FFFFFF',
+    color: 'green',
   },
   pressedInlineTextButton: {
     color: '#006B76',
