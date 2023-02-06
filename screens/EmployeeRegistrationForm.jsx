@@ -138,14 +138,11 @@ const EmployeeRegistrationForm = ({ navigation }) => {
           >
             <Text
               style={{
-                flex:1,
-                padding: 10,
                 fontSize: 20,
                 color: "green",
                 textAlign: "center",
               }}
             >
-              
               Submit
             </Text>
           </Button>
@@ -183,7 +180,7 @@ const styles = StyleSheet.create({
     borderColor: "white",
     height: 0,
     borderRadius: 8,
-    backgroundColor: "yello",
+    backgroundColor: "white",
     paddingHorizontal: 6,
     marginVertical: 2,
     borderColor: "white",
