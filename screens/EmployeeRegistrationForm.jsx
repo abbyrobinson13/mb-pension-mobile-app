@@ -65,8 +65,6 @@ const EmployeeRegistrationForm = ({ navigation }) => {
     <ScrollView style={styles.container}>
       {employees && (
         <View style={styles.container}>
-         
-
           <TextInput
             style={styles.textInput}
             label="Department"
@@ -138,7 +136,18 @@ const EmployeeRegistrationForm = ({ navigation }) => {
               handleSubmit();
             }}
           >
-            Submit
+            <Text
+              style={{
+                flex:1,
+                padding: 10,
+                fontSize: 20,
+                color: "green",
+                textAlign: "center",
+              }}
+            >
+              
+              Submit
+            </Text>
           </Button>
         </View>
       )}
@@ -156,7 +165,6 @@ const styles = StyleSheet.create({
   },
   button: {
     borderWidth: 3,
-    borderColor: "white",
     height: 60,
     borderRadius: 20,
     backgroundColor: "white",
@@ -175,7 +183,7 @@ const styles = StyleSheet.create({
     borderColor: "white",
     height: 0,
     borderRadius: 8,
-    backgroundColor: "white",
+    backgroundColor: "yello",
     paddingHorizontal: 6,
     marginVertical: 2,
     borderColor: "white",
