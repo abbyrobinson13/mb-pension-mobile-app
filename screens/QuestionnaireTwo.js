@@ -58,8 +58,9 @@ const QuestionnaireTwo = ({ navigation }) => {
     await saveConcerns(selectedConcerns);
   };
 
-  const saveConcerns = async (concern) => {
-    console.log("concern", concern);
+  const saveConcerns = async (concerns) => {
+    const selectedConcerns = concerns.map(c => c);
+    console.log("concern", concerns);
     const response = await fetch(
       `http://${ipAndPort}/api/employee/byAuthId/${user.uid}`,
       {
@@ -67,9 +68,9 @@ const QuestionnaireTwo = ({ navigation }) => {
         headers: {
           "Content-Type": "application/json",
         },
-        // { areasOfConcern: concern },
+        
         body: JSON.stringify({
-          areasOfConcern: `${concern}`,
+          areasOfConcern: selectedConcerns
         }),
       }
     );

@@ -58,8 +58,9 @@ const QuestionnaireThree = ({ navigation }) => {
     await saveImpacts(selectedImpacts);
   };
 
-  const saveImpacts = async (impact) => {
-    console.log("impact", impact)
+  const saveImpacts = async (impacts) => {
+    console.log("impact", impacts)
+    const selectedImpacts = impacts.map(i => i);
     const response = await fetch(
       `http://${ipAndPort}/api/employee/byAuthId/${user.uid}`,
       {
@@ -69,7 +70,7 @@ const QuestionnaireThree = ({ navigation }) => {
         },
         body:
         JSON.stringify({
-         impactOnMentalHealth: `${impact}`,
+         impactOnMentalHealth: selectedImpacts
         }),
       }
     );
