@@ -14,6 +14,8 @@ import { AuthProvider } from "./AuthProvider";
 import QuestionnaireTwo from "./screens/QuestionnaireTwo";
 import { StatusBar } from "react-native";
 import QuestionnaireThree from "./screens/QuestionnaireThree";
+import BottomNavBar from "./screens/BottomNavBar";
+import TopNavBar from "./screens/TopNavBar";
 
 const Stack = createNativeStackNavigator();
 
@@ -21,7 +23,7 @@ export default function App() {
   return (
     <FireBaseProvider>
       <AuthProvider>
-      <StatusBar style="light"/>
+        <StatusBar style="light" />
         <NavigationContainer>
           <Stack.Navigator>
             <Stack.Screen
@@ -75,6 +77,11 @@ export default function App() {
               name="Logging Out"
               component={LoggingOut}
               options={{ headerShown: true, headerRight: LoggingOut }}
+            />
+            <Stack.Screen
+              name="ContentHome"
+              component={BottomNavBar}
+              options={{ headerShown: false }}
             />
           </Stack.Navigator>
         </NavigationContainer>
