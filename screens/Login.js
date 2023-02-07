@@ -54,7 +54,7 @@ export default function Login({ navigation }) {
     <ImageBackground style={AppStyles.container} source={background}>
       <KeyboardAvoidingView
         style={AppStyles.backgroundCover}
-        behavior={Platform.OS === "ios" ? padding : null}
+        behavior={Platform.OS === "ios" ? "padding" : null}
         keyboardVerticalOffset={60}
       >
         <Text style={AppStyles.darkText}>Log in</Text>
