@@ -52,15 +52,14 @@ const QuestionnaireThree = ({ navigation }) => {
   }, []);
 
   const pressHandler = async () => {
-    
     const selectedImpacts = Object.keys(picked).filter((key) => picked[key]);
     console.log(selectedImpacts);
     await saveImpacts(selectedImpacts);
   };
 
   const saveImpacts = async (impacts) => {
-    console.log("impact", impacts)
-    const selectedImpacts = impacts.map(i => i);
+    console.log("impact", impacts);
+    const selectedImpacts = impacts.map((i) => i);
     const response = await fetch(
       `http://${ipAndPort}/api/employee/byAuthId/${user.uid}`,
       {
@@ -68,15 +67,14 @@ const QuestionnaireThree = ({ navigation }) => {
         headers: {
           "Content-Type": "application/json",
         },
-        body:
-        JSON.stringify({
-         impactOnMentalHealth: selectedImpacts
+        body: JSON.stringify({
+          impactOnMentalHealth: selectedImpacts,
         }),
       }
     );
     const newEmployee = await response.json();
     console.log(newEmployee);
-   
+    navigation.navigate("ContentHome");
   };
   return (
     <FlatList
