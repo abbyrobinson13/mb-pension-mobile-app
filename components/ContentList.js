@@ -1,12 +1,10 @@
 import { ScrollView, StyleSheet } from "react-native";
 import React, { useState, useEffect } from "react";
 import { Card, Text, Button, Avatar } from "react-native-paper";
-
-const LeftContent = (props) => <Avatar.Icon {...props} icon="folder" />;
+import { ipAndPort } from "../config";
 
 const ContentList = ({ category }) => {
   const [content, setContent] = useState(null);
-  const ipAndPort = "192.168.68.51:5001";
   console.log(ipAndPort);
 
   useEffect(() => {
