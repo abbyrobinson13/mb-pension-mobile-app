@@ -1,10 +1,10 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
-
+import React, { useState, useEffect } from "react";
+import { View, Text, StyleSheet } from "react-native";
+import ContentList from "../components/ContentList";
 const Services = () => {
   return (
     <View style={styles.container}>
-      <Text>Services</Text>
+      <ContentList />
     </View>
   );
 };
