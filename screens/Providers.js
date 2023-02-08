@@ -1,10 +1,11 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
+import ContentList from "../components/ContentList";
 
 const Providers = () => {
   return (
     <View style={styles.container}>
-      <Text>Providers</Text>
+      <ContentList category="Practitioners" />
     </View>
   );
 };
