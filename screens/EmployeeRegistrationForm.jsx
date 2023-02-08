@@ -63,85 +63,84 @@ const EmployeeRegistrationForm = ({ navigation }) => {
 
   return (
     <ScrollView style={styles.container}>
-      <View style={styles.formContainer}>{employees && (
-        <View style={styles.container}>
-         
+      <View style={styles.formContainer}>
+        {employees && (
+          <View style={styles.container}>
+            <TextInput
+              style={styles.textInput}
+              label="Department"
+              name="department"
+              onChangeText={(e) => onHandleChange("department", e)}
+              value={employees.department}
+            />
+            <TextInput
+              style={styles.textInput}
+              label="Position"
+              name="position"
+              onChangeText={(e) => onHandleChange("position", e)}
+              value={employees.position}
+            />
+            <TextInput
+              style={styles.textInput}
+              label="Employment Date"
+              name="employmentDate"
+              onChangeText={(e) => onHandleChange("employmentDate", e)}
+              value={employees.employmentDate}
+            />
+            <TextInput
+              style={styles.textInput}
+              label="Dependents"
+              name="dependents"
+              onChangeText={(e) => onHandleChange("dependents", e)}
+              value={employees.dependents}
+            />
+            <TextInput
+              style={styles.textInput}
+              label="Mobile"
+              name="mobile"
+              onChangeText={(e) => onHandleChange("mobile", e)}
+              value={employees.mobile}
+            />
+            <TextInput
+              style={styles.textInput}
+              label="Street"
+              name="street"
+              onChangeText={(e) => onHandleChange("street", e)}
+              value={employees.street}
+            />
+            <TextInput
+              style={styles.textInput}
+              label="Postal Code"
+              name="postalCode"
+              onChangeText={(e) => onHandleChange("postalCode", e)}
+              value={employees.postalCode}
+            />
+            <TextInput
+              style={styles.textInput}
+              label="City"
+              name="city"
+              onChangeText={(e) => onHandleChange("city", e)}
+              value={employees.city}
+            />
+            <TextInput
+              style={styles.textInput}
+              label="Province"
+              name="province"
+              onChangeText={(e) => onHandleChange("province", e)}
+              value={employees.province}
+            />
 
-          <TextInput
-            style={styles.textInput}
-            label="Department"
-            name="department"
-            onChangeText={(e) => onHandleChange("department", e)}
-            value={employees.department}
-          />
-          <TextInput
-            style={styles.textInput}
-            label="Position"
-            name="position"
-            onChangeText={(e) => onHandleChange("position", e)}
-            value={employees.position}
-          />
-          <TextInput
-            style={styles.textInput}
-            label="Employment Date"
-            name="employmentDate"
-            onChangeText={(e) => onHandleChange("employmentDate", e)}
-            value={employees.employmentDate}
-          />
-          <TextInput
-            style={styles.textInput}
-            label="Dependents"
-            name="dependents"
-            onChangeText={(e) => onHandleChange("dependents", e)}
-            value={employees.dependents}
-          />
-          <TextInput
-            style={styles.textInput}
-            label="Mobile"
-            name="mobile"
-            onChangeText={(e) => onHandleChange("mobile", e)}
-            value={employees.mobile}
-          />
-          <TextInput
-            style={styles.textInput}
-            label="Street"
-            name="street"
-            onChangeText={(e) => onHandleChange("street", e)}
-            value={employees.street}
-          />
-          <TextInput
-            style={styles.textInput}
-            label="Postal Code"
-            name="postalCode"
-            onChangeText={(e) => onHandleChange("postalCode", e)}
-            value={employees.postalCode}
-          />
-          <TextInput
-            style={styles.textInput}
-            label="City"
-            name="city"
-            onChangeText={(e) => onHandleChange("city", e)}
-            value={employees.city}
-          />
-          <TextInput
-            style={styles.textInput}
-            label="Province"
-            name="province"
-            onChangeText={(e) => onHandleChange("province", e)}
-            value={employees.province}
-          />
-
-          <Button
-            style={styles.button}
-            title="Register"
-            onPress={() => {
-              handleSubmit();
-            }}
-          >
-            <Text style={styles.text}>Submit</Text>
-          </Button>
-        </View>
-      )}
+            <Button
+              style={styles.button}
+              title="Register"
+              onPress={() => {
+                handleSubmit();
+              }}
+            >
+              <Text style={styles.text}>Submit</Text>
+            </Button>
+          </View>
+        )}
       </View>
     </ScrollView>
   );
@@ -154,7 +153,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     //backgroundColor: "#9AC6DF",
     //position: "relative",
-    padding:20,
+    padding: 20,
   },
   button: {
     borderWidth: 3,
@@ -171,7 +170,6 @@ const styles = StyleSheet.create({
     shadowRadius: 6,
     shadowOpacity: 1,
     justifyContent: "center",
-   
   },
   textInput: {
     borderWidth: 0,
@@ -189,14 +187,12 @@ const styles = StyleSheet.create({
     shadowOpacity: 0,
     justifyContent: "center",
     fontSize: 16,
-    fontWeight:"bold",
+    fontWeight: "bold",
   },
   text: {
     fontSize: 16,
     fontWeight: "bold",
-    color:"black"
-    
-
+    color: "black",
   },
   formContainer: {
     backgroundColor: "#fff",
