@@ -1,10 +1,11 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
+import ContentList from "../components/ContentList";
 
 const SelfHelp = () => {
   return (
     <View style={styles.container}>
-      <Text>Self-Help</Text>
+      <ContentList category="SelfHelp" />
     </View>
   );
 };
