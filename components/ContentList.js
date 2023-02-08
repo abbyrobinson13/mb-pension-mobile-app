@@ -1,7 +1,10 @@
-import { StyleSheet, Text, View } from "react-native";
+import { ScrollView, StyleSheet } from "react-native";
 import React, { useState, useEffect } from "react";
+import { Card, Text, Button, Avatar } from "react-native-paper";
 
-const ContentList = () => {
+const LeftContent = (props) => <Avatar.Icon {...props} icon="folder" />;
+
+const ContentList = ({ category }) => {
   const [content, setContent] = useState(null);
   const ipAndPort = "192.168.68.51:5001";
   console.log(ipAndPort);
@@ -21,16 +24,41 @@ const ContentList = () => {
   }, []);
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       {content ? (
-        content.map((row) => <Text>{row.title}</Text>)
+        content
+          .filter((row) => row.category === category)
+          .map((row) => (
+            <Card style={styles.card}>
+              <Card.Content>
+                <Text variant="titleLarge">{row.title}</Text>
+                <Text variant="bodyMedium">{row.description}</Text>
+              </Card.Content>
+              <Card.Cover style={styles.image} source={{ uri: row.img }} />
+              <Card.Actions>
+                <Button>Link</Button>
+                <Button>Save</Button>
+              </Card.Actions>
+            </Card>
+          ))
       ) : (
-        <Text>'No superheroes found...yet!'</Text>
+        <Text>'No content found ... yet'</Text>
       )}
-    </View>
+    </ScrollView>
   );
 };
 
 export default ContentList;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  card: {
+    height: 350,
+    width: 300,
+    margin: 20,
+  },
+  image: {
+    display: "flex",
+    alignContent: "center",
+    margin: 10,
+  },
+});
