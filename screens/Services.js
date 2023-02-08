@@ -4,7 +4,7 @@ import ContentList from "../components/ContentList";
 const Services = () => {
   return (
     <View style={styles.container}>
-      <ContentList />
+      <ContentList category="Services" />
     </View>
   );
 };
