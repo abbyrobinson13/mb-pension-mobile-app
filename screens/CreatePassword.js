@@ -92,6 +92,7 @@ export default function CreatePassword({ navigation, route }) {
         <Text style={AppStyles.errorText}>{validationMessage}</Text>
         <TextInput
           style={AppStyles.textInput}
+          autoCapitalize="none"
           placeholder="Email"
           placeholderTextColor="#fff"
           value={email}
