@@ -63,7 +63,7 @@ const EmployeeRegistrationForm = ({ navigation }) => {
 
   return (
     <ScrollView style={styles.container}>
-      {employees && (
+      <View style={styles.formContainer}>{employees && (
         <View style={styles.container}>
          
 
@@ -138,10 +138,11 @@ const EmployeeRegistrationForm = ({ navigation }) => {
               handleSubmit();
             }}
           >
-            Submit
+            <Text style={styles.text}>Submit</Text>
           </Button>
         </View>
       )}
+      </View>
     </ScrollView>
   );
 };
@@ -149,10 +150,11 @@ const EmployeeRegistrationForm = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingVertical: 1,
+    paddingVertical: 10,
     paddingHorizontal: 10,
-    backgroundColor: "#9AC6DF",
-    position: "relative",
+    //backgroundColor: "#9AC6DF",
+    //position: "relative",
+    padding:20,
   },
   button: {
     borderWidth: 3,
@@ -169,6 +171,7 @@ const styles = StyleSheet.create({
     shadowRadius: 6,
     shadowOpacity: 1,
     justifyContent: "center",
+   
   },
   textInput: {
     borderWidth: 0,
@@ -185,9 +188,27 @@ const styles = StyleSheet.create({
     shadowRadius: 0,
     shadowOpacity: 0,
     justifyContent: "center",
+    fontSize: 16,
+    fontWeight:"bold",
   },
   text: {
-    fontSize: 42,
+    fontSize: 16,
+    fontWeight: "bold",
+    color:"black"
+    
+
+  },
+  formContainer: {
+    backgroundColor: "#fff",
+    padding: 10,
+    borderWidth: 1,
+    borderRadius: 5,
+    borderColor: "#ccc",
+    shadowColor: "#000",
+    shadowOpacity: 0.2,
+    shadowRadius: 5,
+    shadowOffset: { width: 0, height: 2 },
+    backgroundColor: "#9AC6DF",
   },
 });
 export default EmployeeRegistrationForm;
