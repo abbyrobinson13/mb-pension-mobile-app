@@ -5,6 +5,7 @@ import { FirebaseContext } from "../firebase";
 import { AuthContext } from "../AuthProvider";
 // import { format } from "date-fns";
 import { ipAndPort } from "../config";
+
 const EmployeeRegistrationForm = ({ navigation }) => {
   const fbContext = useContext(FirebaseContext);
   const app = fbContext.app;
@@ -30,11 +31,26 @@ const EmployeeRegistrationForm = ({ navigation }) => {
         let data = await response.json();
         console.log("thedata", data);
 
-        setEmployees(data);
+        if (
+          data.department != null ||
+          data.position != null ||
+          data.employmentDate != null ||
+          data.dependents != null ||
+          data.mobile != null ||
+          data.street != null ||
+          data.postalCode != null ||
+          data.city != null ||
+          data.province != null
+        ) {
+          navigation.navigate("Questionnaire One");
+        } else {
+          setEmployees(data);
+        }
       } catch (ex) {
         console.error(`Problems fetching:${ex.message}`);
       }
     };
+
     getEmployees();
   }, []);
 
