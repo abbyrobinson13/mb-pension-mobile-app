@@ -14,6 +14,7 @@ const EmployeeRegistrationForm = ({ navigation }) => {
   const user = authContext.user;
 
   const [employees, setEmployees] = useState(null);
+  const [loading, setLoading] = useState(null);
 
   //const ipAndPort = "10.44.22.29:5001";
   console.log(ipAndPort);
@@ -25,11 +26,13 @@ const EmployeeRegistrationForm = ({ navigation }) => {
   useEffect(() => {
     const getEmployees = async () => {
       try {
+        setLoading(true);
         let response = await fetch(
           `http://${ipAndPort}/api/employee/byEmail/${user.email}`
         );
         let data = await response.json();
         console.log("thedata", data);
+        setLoading(false);
 
         if (
           data.department != null ||
@@ -76,6 +79,10 @@ const EmployeeRegistrationForm = ({ navigation }) => {
       Alert.alert("Error", " Not submitted", [{ text: "OK" }]);
     }
   };
+
+  if (loading) {
+    return <Text>Loading....</Text>;
+  }
 
   return (
     <ScrollView style={styles.container}>
