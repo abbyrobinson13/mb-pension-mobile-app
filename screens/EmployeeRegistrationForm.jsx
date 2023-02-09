@@ -42,7 +42,7 @@ const EmployeeRegistrationForm = ({ navigation }) => {
           data.city != null ||
           data.province != null
         ) {
-          navigation.navigate("Questionnaire One");
+          navigation.navigate("ContentHome");
         } else {
           setEmployees(data);
         }
