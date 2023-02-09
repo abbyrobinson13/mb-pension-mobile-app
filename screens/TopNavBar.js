@@ -20,25 +20,25 @@ const TopNavBar = () => {
       }}
     >
       <TopTab.Screen
-        name="0"
+        name="Services"
         component={Services}
         options={{
-          tabBarLabel: ({ color, size }) => (
+          tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons
               name="room-service"
               color={color}
-              size={30}
+              size={25}
             />
           ),
         }}
       />
 
       <TopTab.Screen
-        name="Providers"
+        name="Provider"
         component={Providers}
         options={{
-          tabBarLabel: ({ color, size }) => (
-            <MaterialCommunityIcons name="doctor" color={color} size={30} />
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="doctor" color={color} size={25} />
           ),
         }}
       />
@@ -46,8 +46,8 @@ const TopNavBar = () => {
         name="Self-Help"
         component={SelfHelp}
         options={{
-          tabBarLabel: ({ color, size }) => (
-            <MaterialCommunityIcons name="book-open" color={color} size={30} />
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="book-open" color={color} size={25} />
           ),
         }}
       />
@@ -55,11 +55,11 @@ const TopNavBar = () => {
         name="Packages"
         component={Packages}
         options={{
-          tabBarLabel: ({ color, size }) => (
+          tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons
               name="package-variant"
               color={color}
-              size={30}
+              size={25}
             />
           ),
         }}
