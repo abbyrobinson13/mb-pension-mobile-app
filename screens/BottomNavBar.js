@@ -21,6 +21,7 @@ const BottomNavBar = () => {
         name="Home"
         component={TopNavBar}
         options={{
+          headerTitle: "",
           tabBarLabel: "Home",
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="home" color={color} size={size} />

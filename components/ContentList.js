@@ -1,4 +1,4 @@
-import { ScrollView, StyleSheet } from "react-native";
+import { ScrollView, StyleSheet, Linking } from "react-native";
 import React, { useState, useEffect } from "react";
 import { Card, Text, Button, Avatar } from "react-native-paper";
 import { ipAndPort } from "../config";
@@ -21,6 +21,10 @@ const ContentList = ({ category }) => {
     getContent();
   }, []);
 
+  const handlePress = (url) => {
+    Linking.openURL(row.url);
+  };
+
   return (
     <ScrollView style={styles.container}>
       {content ? (
@@ -34,7 +38,7 @@ const ContentList = ({ category }) => {
               </Card.Content>
               <Card.Cover style={styles.image} source={{ uri: row.img }} />
               <Card.Actions>
-                <Button>Link</Button>
+                <Button onPress={() => Linking.openURL(row.url)}>Link</Button>
                 <Button>Save</Button>
               </Card.Actions>
             </Card>
