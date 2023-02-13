@@ -1,4 +1,4 @@
-import { ScrollView, StyleSheet, Linking } from "react-native";
+import { ScrollView, StyleSheet, Linking, View } from "react-native";
 import React, { useState, useEffect } from "react";
 import { Card, Text, Button, Avatar } from "react-native-paper";
 import { ipAndPort } from "../config";
@@ -12,7 +12,6 @@ const ContentList = ({ category }) => {
       try {
         let response = await fetch(`http://${ipAndPort}/api/content`);
         let data = await response.json();
-        console.log(data);
         setContent(data);
       } catch (ex) {
         console.error(`Problems fetching: ${ex.message}`);
@@ -38,8 +37,9 @@ const ContentList = ({ category }) => {
               </Card.Content>
               <Card.Cover style={styles.image} source={{ uri: row.img }} />
               <Card.Actions>
-                <Button onPress={() => Linking.openURL(row.url)}>Link</Button>
-                <Button>Save</Button>
+                <View style={styles.button}>
+                  <Button onPress={() => Linking.openURL(row.url)}>Link</Button>
+                </View>
               </Card.Actions>
             </Card>
           ))
@@ -55,8 +55,11 @@ export default ContentList;
 const styles = StyleSheet.create({
   card: {
     height: 350,
-    width: 300,
+    width: 325,
     margin: 20,
+  },
+  button: {
+    paddingBottom: 10,
   },
   image: {
     display: "flex",
