@@ -7,6 +7,8 @@ import Wallet from "./Wallet.js";
 import Profile from "./Profile.js";
 import TopNavBar from "./TopNavBar.js";
 import LoggingOut from "./LoggingOut.js";
+import EmployeeRegistrationForm from "./EmployeeRegistrationForm.jsx";
+
 
 const BottomNavBar = () => {
   const Tab = createBottomTabNavigator();
@@ -41,7 +43,7 @@ const BottomNavBar = () => {
       />
       <Tab.Screen
         name="Profile"
-        component={Profile}
+        component={EmployeeRegistrationForm}
         options={{
           tabBarLabel: "Profile",
           tabBarIcon: ({ color, size }) => (
