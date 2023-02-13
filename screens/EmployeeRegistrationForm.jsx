@@ -17,7 +17,7 @@ const EmployeeRegistrationForm = ({ navigation }) => {
   const [loading, setLoading] = useState(null);
 
   //const ipAndPort = "10.44.22.29:5001";
-  console.log(ipAndPort);
+  // console.log(ipAndPort);
 
   const onHandleChange = (name, e) => {
     setEmployees({ ...employees, [name]: e });
@@ -31,10 +31,15 @@ const EmployeeRegistrationForm = ({ navigation }) => {
           `http://${ipAndPort}/api/employee/byEmail/${user.email}`
         );
         let data = await response.json();
-        console.log("thedata", data);
+        // console.log("thedata", data);
         setLoading(false);
 
-        if (
+// onPress {all values are true? updateBoolean()}
+// const updateBoolean = () => {
+// update doc field (filledOut == true)
+// }
+
+        if ( // user.filledOut === true
           data.department != null ||
           data.position != null ||
           data.employmentDate != null ||
@@ -68,14 +73,19 @@ const EmployeeRegistrationForm = ({ navigation }) => {
         body: JSON.stringify(employees),
       }
     );
-    console.log(response.status);
+    // console.log(response.status);
+
     if (response.ok) {
       let data = await response.json();
+
+
       Alert.alert("Success", " Submitted successfully", [
         { text: "OK", onPress: () => navigation.navigate("Questionnaire One") },
       ]);
-      console.log(data);
-    } else {
+      // console.log(data);
+    } 
+    
+    else {
       Alert.alert("Error", " Not submitted", [{ text: "OK" }]);
     }
   };
@@ -219,8 +229,8 @@ const styles = StyleSheet.create({
   },
   formContainer: {
     backgroundColor: "#fff",
-    padding: 10,
-    borderWidth: 1,
+    padding: 0,
+    borderWidth: 0,
     borderRadius: 5,
     borderColor: "#ccc",
     shadowColor: "#000",

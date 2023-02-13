@@ -6,6 +6,7 @@ import ContentHome from "./ContentHome.js";
 import Wallet from "./Wallet.js";
 import Profile from "./Profile.js";
 import TopNavBar from "./TopNavBar.js";
+import LoggingOut from "./LoggingOut.js";
 
 const BottomNavBar = () => {
   const Tab = createBottomTabNavigator();
@@ -45,6 +46,16 @@ const BottomNavBar = () => {
           tabBarLabel: "Profile",
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="account" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Logout"
+        component={LoggingOut}
+        options={{
+          tabBarLabel: "Log Out",
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="logout-variant" color={color} size={size} />
           ),
         }}
       />
