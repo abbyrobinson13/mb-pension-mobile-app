@@ -16,6 +16,7 @@ import { StatusBar } from "react-native";
 import QuestionnaireThree from "./screens/QuestionnaireThree";
 import BottomNavBar from "./screens/BottomNavBar";
 import TopNavBar from "./screens/TopNavBar";
+import ContentHome from "./screens/ContentHome";
 
 const Stack = createNativeStackNavigator();
 
@@ -34,7 +35,7 @@ export default function App() {
             <Stack.Screen
               name="Login"
               component={Login}
-              options={{ headerShown: true, headerRight: LoggingOut }}
+              options={{ headerShown: true }}
             />
             <Stack.Screen
               name="Create Password"
@@ -44,7 +45,7 @@ export default function App() {
             <Stack.Screen
               name="Terms and Conditions"
               component={TermsConditionsForm}
-              options={{ headerShown: true, headerRight: LoggingOut }}
+              options={{ headerShown: true }}
             />
             <Stack.Screen
               name="Reset Password"
@@ -55,28 +56,28 @@ export default function App() {
             <Stack.Screen
               name="Employee Registration Form"
               component={EmployeeRegistrationForm}
-              options={{ headerShown: true, headerRight: LoggingOut }}
+              options={{ headerShown: true }}
             />
 
             <Stack.Screen
               name="Questionnaire One"
               component={QuestionnaireOne}
-              options={{ headerShown: true, headerRight: LoggingOut }}
+              options={{ headerShown: true }}
             />
             <Stack.Screen
               name="Questionnaire Two"
               component={QuestionnaireTwo}
-              options={{ headerShown: true, headerRight: LoggingOut }}
+              options={{ headerShown: true }}
             />
             <Stack.Screen
               name="Questionnaire Three"
               component={QuestionnaireThree}
-              options={{ headerShown: true, headerRight: LoggingOut }}
+              options={{ headerShown: true }}
             />
             <Stack.Screen
               name="Logging Out"
               component={LoggingOut}
-              options={{ headerShown: true, headerRight: LoggingOut }}
+              options={{ headerShown: true }}
             />
             <Stack.Screen
               name="ContentHome"
