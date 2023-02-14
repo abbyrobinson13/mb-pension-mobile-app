@@ -89,7 +89,14 @@ const QuestionnaireTwo = ({ navigation }) => {
       )}
       data={CONCERNS}
       keyExtractor={(item) => item.id}
-      renderItem={(item) => renderConcernItem(item, picked, setPicked)}
+      renderItem={({ item }) => (
+        <ConcernGridTile
+          title={item.title}
+          picked={picked}
+          setPicked={setPicked}
+          image={item.image}
+        />
+      )}
       numColumns={2}
       style={{ backgroundColor: "#9AC6DF" }}
       ListFooterComponent={() => (
