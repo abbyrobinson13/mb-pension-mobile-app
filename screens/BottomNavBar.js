@@ -8,6 +8,8 @@ import Profile from "./Profile.js";
 import TopNavBar from "./TopNavBar.js";
 import LoggingOut from "./LoggingOut.js";
 
+import UpdateEmployeeProfile from "./UpdateEmployeeProfile"
+
 const BottomNavBar = () => {
   const Tab = createBottomTabNavigator();
 
@@ -41,7 +43,7 @@ const BottomNavBar = () => {
       />
       <Tab.Screen
         name="Profile"
-        component={Profile}
+        component={UpdateEmployeeProfile}
         options={{
           tabBarLabel: "Profile",
           tabBarIcon: ({ color, size }) => (
