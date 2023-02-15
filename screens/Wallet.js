@@ -7,28 +7,45 @@ import {
   ActivityIndicator,
 } from "react-native";
 import { List, MD3Colors } from "react-native-paper";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { ipAndPort } from "../config";
+import { AuthContext } from "../AuthProvider.js";
+import { FirebaseContext } from "../firebase.js";
 
 const Wallet = () => {
   const [expanded, setExpanded] = useState(true);
   const [benefits, setBenefits] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [employees, setEmployees] = useState(null);
+
+  const authContext = useContext(AuthContext);
+  const user = authContext.user;
+
+  console.log(ipAndPort);
+  // console.log(auth);
+  console.log("user", user.uid);
 
   const handlePress = () => setExpanded(!expanded);
 
   useEffect(() => {
-    const getBenefits = async () => {
+    const fetchData = async () => {
       try {
-        let response = await fetch(`http://${ipAndPort}/api/benefits`);
-        let data = await response.json();
-        setBenefits(data);
+        const [benefitsResponse, employeesResponse] = await Promise.all([
+          fetch(`http://${ipAndPort}/api/benefits`),
+          fetch(`http://${ipAndPort}/api/employee`),
+        ]);
+        const [benefitsData, employeesData] = await Promise.all([
+          benefitsResponse.json(),
+          employeesResponse.json(),
+        ]);
+        setBenefits(benefitsData);
+        setEmployees(employeesData);
         setIsLoading(false);
       } catch (ex) {
         console.error(`Problems fetching: ${ex.message}`);
       }
     };
-    getBenefits();
+    fetchData();
   }, []);
 
   if (isLoading) {
@@ -39,8 +56,11 @@ const Wallet = () => {
     );
   }
 
-  const paramedicalList = benefits[0].insuranceCompany.value;
-  console.log(paramedicalList);
+  const userProfile = employees.find((employee) => employee.uid === user.uid);
+  const userBenefits = benefits.find(
+    (plan) => plan.companyName === userProfile.companyName
+  );
+  const paramedicalList = userBenefits.insuranceCompany.value;
 
   return (
     <ScrollView>
@@ -48,7 +68,7 @@ const Wallet = () => {
         <Text style={styles.title}>Paramedical Services</Text>
       </View>
       {paramedicalList.map((para) => (
-        <List.Accordion title={para} style={{ color: "red" }}>
+        <List.Accordion key={para} title={para} style={{ color: "red" }}>
           <List.Item
             title={
               "Annual Maximum Amount: $" +
@@ -69,6 +89,15 @@ const Wallet = () => {
       <View style={styles.titleContainter}>
         <Text style={styles.title}>Wellness Account</Text>
       </View>
+      <List.Accordion title={benefits[0].spendingAccountKind.value}>
+        <List.Item
+          title={
+            "Annual Maximum Amount: $" +
+            benefits[0].spendingAccountsAnnualAmount.value
+          }
+          left={(props) => <List.Icon {...props} icon="percent" />}
+        />
+      </List.Accordion>
     </ScrollView>
   );
 };
