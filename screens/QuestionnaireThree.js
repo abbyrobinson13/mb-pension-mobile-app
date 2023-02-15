@@ -74,7 +74,7 @@ const QuestionnaireThree = ({ navigation }) => {
     );
     const newEmployee = await response.json();
     console.log(newEmployee);
-    navigation.navigate("ContentHome");
+    navigation.navigate("ContentHome", { screen: "Home" });
   };
   return (
     <FlatList
