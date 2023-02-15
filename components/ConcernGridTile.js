@@ -12,11 +12,11 @@ import {
 } from "react-native";
 import Modal from "react-native-modal";
 
-const ConcernGridTile = ({ title, picked, setPicked }) => {
+const ConcernGridTile = ({ title, picked, setPicked, image }) => {
   const [isModalVisible, setModalVisible] = useState(false);
   const [selected, setSelected] = useState(false);
   const modalIcon = require("../assets/information.png");
-  const modalImage = require("../assets/TRAUMA.png");
+  //const modalImage = require("../assets/TRAUMA.png");
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
   };
@@ -54,7 +54,7 @@ const ConcernGridTile = ({ title, picked, setPicked }) => {
               isVisible={isModalVisible}
             >
               <View style={styles.modalInnerContainer}>
-                <Image source={modalImage} size={30} />
+                <Image source={image} size={30} />
                 <Button title="Close" onPress={toggleModal} />
               </View>
             </Modal>
