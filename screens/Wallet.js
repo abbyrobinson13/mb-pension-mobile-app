@@ -60,7 +60,17 @@ const Wallet = () => {
   const userBenefits = benefits.find(
     (plan) => plan.companyName === userProfile.companyName
   );
-  const paramedicalList = userBenefits.insuranceCompany.value;
+
+  const paramedicalList = userBenefits?.insuranceCompany.value;
+
+  if (userBenefits === undefined) {
+    return (
+      <View style={styles.titleContainter}>
+        <Text style={styles.title}>Benefits Wallet</Text>
+        <Text>No benefits ... Please wait for company to add information</Text>
+      </View>
+    );
+  }
 
   return (
     <ScrollView>
@@ -72,14 +82,14 @@ const Wallet = () => {
           <List.Item
             title={
               "Annual Maximum Amount: $" +
-              benefits[0].practitionerAnnualMaxAmount.value
+              userBenefits.practitionerAnnualMaxAmount.value
             }
             left={(props) => <List.Icon {...props} icon="cash" />}
           />
           <List.Item
             title={
               "Percentage of Visit Covered: " +
-              benefits[0].coinsuranceParamedical.value +
+              userBenefits.coinsuranceParamedical.value +
               "%"
             }
             left={(props) => <List.Icon {...props} icon="percent" />}
@@ -89,11 +99,11 @@ const Wallet = () => {
       <View style={styles.titleContainter}>
         <Text style={styles.title}>Wellness Account</Text>
       </View>
-      <List.Accordion title={benefits[0].spendingAccountKind.value}>
+      <List.Accordion title={userBenefits.spendingAccountKind.value}>
         <List.Item
           title={
             "Annual Maximum Amount: $" +
-            benefits[0].spendingAccountsAnnualAmount.value
+            userBenefits.spendingAccountsAnnualAmount.value
           }
           left={(props) => <List.Icon {...props} icon="percent" />}
         />
