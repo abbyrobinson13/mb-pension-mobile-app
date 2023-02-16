@@ -17,6 +17,7 @@ import QuestionnaireThree from "./screens/QuestionnaireThree";
 import BottomNavBar from "./screens/BottomNavBar";
 import TopNavBar from "./screens/TopNavBar";
 import ContentHome from "./screens/ContentHome";
+import UpdateEmployeeProfile from "./screens/UpdateEmployeeProfile";
 
 const Stack = createNativeStackNavigator();
 
@@ -75,13 +76,18 @@ export default function App() {
               options={{ headerShown: true }}
             />
             <Stack.Screen
-              name="Logging Out"
+              name="Log Out"
               component={LoggingOut}
               options={{ headerShown: true }}
             />
             <Stack.Screen
               name="ContentHome"
               component={BottomNavBar}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="Update Profile"
+              component={UpdateEmployeeProfile}
               options={{ headerShown: false }}
             />
           </Stack.Navigator>
