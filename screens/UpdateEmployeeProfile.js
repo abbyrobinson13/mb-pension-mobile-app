@@ -53,7 +53,7 @@ const UpdateEmployeeProfile = ({ navigation }) => {
       let data = await response.json();
 
       Alert.alert("Success", " Submitted successfully", [
-        { text: "OK", onPress: () => navigation.navigate("Questionnaire One") },
+        { text: "OK", onPress: () => navigation.navigate("ContentHome") },
       ]);
       // console.log(data);
     } else {
@@ -137,7 +137,7 @@ const UpdateEmployeeProfile = ({ navigation }) => {
                 handleSubmit();
               }}
             >
-              <Text style={styles.text}>Submit</Text>
+              <Text style={styles.text}>Update Profile</Text>
             </Button>
           </View>
         )}
