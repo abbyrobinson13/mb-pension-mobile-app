@@ -5,6 +5,7 @@ import {
   Image,
   ActivityIndicator,
   TouchableOpacity,
+  ScrollView,
 } from "react-native";
 import { Divider } from "react-native-elements";
 import React, { useContext, useEffect, useState } from "react";
@@ -59,60 +60,62 @@ const Profile = () => {
   console.log(userProfile);
 
   return (
-    <View style={styles.container}>
-      <TouchableOpacity style={styles.imageButton}>
-        <Image
-          source={{ uri: "https://picsum.photos/id/237/200/300" }}
-          style={styles.image}
-        />
-        <View style={styles.changeImageButton}>
-          <Text style={styles.changeImageText}>
-            <Icon name="camera" size={20} color="white" />
-          </Text>
+    <ScrollView>
+      <View style={styles.container}>
+        <TouchableOpacity style={styles.imageButton}>
+          <Image
+            source={{ uri: "https://picsum.photos/id/237/200/300" }}
+            style={styles.image}
+          />
+          <View style={styles.changeImageButton}>
+            <Text style={styles.changeImageText}>
+              <Icon name="camera" size={20} color="white" />
+            </Text>
+          </View>
+        </TouchableOpacity>
+        <Text style={styles.name}>
+          {userProfile.firstName} {userProfile.lastName}
+        </Text>
+        <Divider style={styles.divider} />
+        <View style={styles.detailsContainer}>
+          <View style={styles.detail}>
+            <Text style={styles.label}>Company:</Text>
+            <Text style={styles.value}>{userProfile.companyName}</Text>
+          </View>
+          <View style={styles.detail}>
+            <Text style={styles.label}>Email:</Text>
+            <Text style={styles.value}>{userProfile.email}</Text>
+          </View>
+          <View style={styles.detail}>
+            <Text style={styles.label}>Birthday:</Text>
+            <Text style={styles.value}>{userProfile.dateOfBirth}</Text>
+          </View>
+          <View style={styles.detail}>
+            <Text style={styles.label}>Address:</Text>
+            <Text style={styles.value}>
+              {userProfile.street}, {userProfile.city}
+            </Text>
+          </View>
+          <View style={styles.detail}>
+            <Text style={styles.label}>Phone:</Text>
+            <Text style={styles.value}>(555) 555-1234</Text>
+          </View>
         </View>
-      </TouchableOpacity>
-      <Text style={styles.name}>
-        {userProfile.firstName} {userProfile.lastName}
-      </Text>
-      <Divider style={styles.divider} />
-      <View style={styles.detailsContainer}>
-        <View style={styles.detail}>
-          <Text style={styles.label}>Company:</Text>
-          <Text style={styles.value}>{userProfile.companyName}</Text>
-        </View>
-        <View style={styles.detail}>
-          <Text style={styles.label}>Email:</Text>
-          <Text style={styles.value}>{userProfile.email}</Text>
-        </View>
-        <View style={styles.detail}>
-          <Text style={styles.label}>Birthday:</Text>
-          <Text style={styles.value}>{userProfile.dateOfBirth}</Text>
-        </View>
-        <View style={styles.detail}>
-          <Text style={styles.label}>Address:</Text>
-          <Text style={styles.value}>
-            {userProfile.street}, {userProfile.city}
-          </Text>
-        </View>
-        <View style={styles.detail}>
-          <Text style={styles.label}>Phone:</Text>
-          <Text style={styles.value}>(555) 555-1234</Text>
-        </View>
-      </View>
-      <Divider style={styles.divider} />
+        <Divider style={styles.divider} />
 
-      <View style={styles.buttonsContainer}>
-        <TouchableOpacity style={styles.button} onPress={handleUpdate}>
-          <Text style={styles.buttonText}>Update</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={handleRetake}>
-          <Text style={styles.buttonText}>Retake Quiz</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={handleLogout}>
-          <Text style={styles.buttonText}>Log Out</Text>
-        </TouchableOpacity>
+        <View style={styles.buttonsContainer}>
+          <TouchableOpacity style={styles.button} onPress={handleUpdate}>
+            <Text style={styles.buttonText}>Update</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.button} onPress={handleRetake}>
+            <Text style={styles.buttonText}>Retake Quiz</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.button} onPress={handleLogout}>
+            <Text style={styles.buttonText}>Log Out</Text>
+          </TouchableOpacity>
+        </View>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 
