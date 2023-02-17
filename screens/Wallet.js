@@ -73,18 +73,28 @@ const Wallet = () => {
   }
 
   return (
-    <ScrollView>
+    <ScrollView style={{ backgroundColor: "#FAF5f3" }}>
       <View style={styles.titleContainter}>
         <Text style={styles.title}>Paramedical Services</Text>
       </View>
       {paramedicalList.map((para) => (
-        <List.Accordion key={para} title={para} style={{ color: "red" }}>
+        <List.Accordion
+          key={para}
+          title={para}
+          titleStyle={{
+            color: "#0f1a4d",
+            fontWeight: "bold",
+          }}
+        >
           <List.Item
             title={
               "Annual Maximum Amount: $" +
               userBenefits.practitionerAnnualMaxAmount.value
             }
-            left={(props) => <List.Icon {...props} icon="cash" />}
+            titleStyle={{ color: "#0f1a4d" }}
+            left={(props) => (
+              <List.Icon {...props} icon="cash" color="#0f1a4d" />
+            )}
           />
           <List.Item
             title={
@@ -92,19 +102,31 @@ const Wallet = () => {
               userBenefits.coinsuranceParamedical.value +
               "%"
             }
-            left={(props) => <List.Icon {...props} icon="percent" />}
+            titleStyle={{ color: "#0f1a4d" }}
+            left={(props) => (
+              <List.Icon {...props} icon="percent" color="#0f1a4d" />
+            )}
           />
         </List.Accordion>
       ))}
       <View style={styles.titleContainter}>
         <Text style={styles.title}>Wellness Account</Text>
       </View>
-      <List.Accordion title={userBenefits.spendingAccountKind.value}>
+      <List.Accordion
+        title={userBenefits.spendingAccountKind.value}
+        titleStyle={{
+          color: "#0f1a4d",
+          fontWeight: "bold",
+        }}
+      >
         <List.Item
           title={
             "Annual Maximum Amount: $" +
             userBenefits.spendingAccountsAnnualAmount.value
           }
+          titleStyle={{
+            color: "#0f1a4d",
+          }}
           left={(props) => <List.Icon {...props} icon="percent" />}
         />
       </List.Accordion>
@@ -123,13 +145,16 @@ const styles = StyleSheet.create({
   // },
   title: {
     fontSize: 25,
-    color: "black",
+    color: "white",
   },
   titleContainter: {
     justifyContent: "center",
     alignItems: "center",
     display: "flex",
     justifyContent: "center",
-    backgroundColor: "#D2E3EC",
+    padding: 5,
+    margin: 20,
+    backgroundColor: "#E1705D",
+    borderRadius: "30%",
   },
 });
