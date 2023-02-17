@@ -15,8 +15,8 @@ const TopNavBar = () => {
     <TopTab.Navigator
       tabBarLayout="wrap"
       screenOptions={{
-        tabBarStyle: { backgroundColor: "#D2E3EC" },
-        tabBarActiveTintColor: "black",
+        tabBarStyle: { backgroundColor: "#0F1A4D" },
+        tabBarActiveTintColor: "#F4f5f3",
       }}
     >
       <TopTab.Screen
