@@ -72,7 +72,7 @@ const ContentList = ({ category }) => {
                     .length > 0 && (
                     <Drawer.Item
                       style={{
-                        backgroundColor: "#e8e68a",
+                        backgroundColor: "#e1705D",
                         height: 30,
                         marginLeft: 0,
                         width: 300,
@@ -108,6 +108,7 @@ const styles = StyleSheet.create({
     height: 400,
     width: 325,
     margin: 20,
+    backgroundColor: "#FAF5F3",
   },
   button: {
     paddingBottom: 10,
