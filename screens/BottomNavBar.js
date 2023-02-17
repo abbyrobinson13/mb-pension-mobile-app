@@ -17,7 +17,7 @@ const BottomNavBar = () => {
     <Tab.Navigator
       initialRouteName="Feed"
       screenOptions={{
-        tabBarActiveTintColor: "#2a11ed",
+        tabBarActiveTintColor: "#e1705d",
       }}
     >
       <Tab.Screen
