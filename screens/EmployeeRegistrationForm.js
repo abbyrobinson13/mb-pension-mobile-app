@@ -172,6 +172,8 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingVertical: 10,
     paddingHorizontal: 10,
+    backgroundColor: "#9AC6DF",
+    position: "relative",
 
     padding: 20,
   },
