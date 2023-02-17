@@ -124,7 +124,7 @@ export default Profile;
 const styles = StyleSheet.create({
   container: {
     alignItems: "center",
-    margin: 20,
+    backgroundColor: "#faf5f3",
   },
   image: {
     width: 200,
@@ -138,7 +138,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   changeImageButton: {
-    backgroundColor: "#4f96c9",
+    backgroundColor: "#e1705d",
     borderRadius: 15,
     marginLeft: 10,
     paddingHorizontal: 10,
@@ -148,6 +148,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   name: {
+    color: "#0f1a4d",
     fontSize: 24,
     fontWeight: "bold",
     marginBottom: 10,
@@ -161,19 +162,21 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   label: {
+    color: "#0f1a4d",
     fontWeight: "bold",
     marginBottom: 5,
   },
   value: {
+    color: "#0f1a4d",
     fontSize: 16,
   },
   buttonsContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
-    marginTop: 10,
+    margin: 20,
   },
   button: {
-    backgroundColor: "#4f96c9",
+    backgroundColor: "#e1705d",
     padding: 10,
     borderRadius: 5,
     width: "30%",
@@ -187,7 +190,7 @@ const styles = StyleSheet.create({
   divider: {
     height: 1,
     width: "100%",
-    backgroundColor: "#ccc",
+    backgroundColor: "#0f1a4d",
     marginVertical: 5,
   },
 });
