@@ -19,7 +19,7 @@ const QuestionnaireThree = ({ navigation }) => {
   const auth = fbContext.auth;
   const authContext = useContext(AuthContext);
   const user = authContext.user;
-  const buttonText = "Click next";
+  const buttonText = "Next";
   const [employees, setEmployees] = useState(null);
   //const ipAndPort = "10.44.22.75:5001";
   console.log(ipAndPort);
@@ -87,7 +87,7 @@ const QuestionnaireThree = ({ navigation }) => {
       keyExtractor={(item) => item.id}
       renderItem={(item) => renderImpactItem(item, picked, setPicked)}
       numColumns={2}
-      style={{ backgroundColor: "#9AC6DF" }}
+      style={{ backgroundColor: "white" }}
       ListFooterComponent={() => (
         <View style={{ padding: 16 }}>
           <TouchableOpacity style={styles.button} onPress={pressHandler}>
@@ -101,7 +101,7 @@ const QuestionnaireThree = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   quizTitle: {
-    color: "",
+    color: "#0f1a4d",
     fontSize: 20,
     marginTop: 35,
     marginBottom: 25,
@@ -110,14 +110,15 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   button: {
-    backgroundColor: "white",
+    backgroundColor: "#e1705d",
     borderWidth: 1,
     height: 60,
-    width: 200,
+    width: 350,
     borderRadius: 40,
     borderColor: "white",
-    marginLeft: 90,
-    marginTop: 30,
+    marginLeft:"auto",
+    marginRight: "auto",
+    marginTop: 20,
     marginHorizontal: 60,
     elevation: 4,
     shadowColor: "white",
@@ -130,7 +131,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "bold",
     letterSpacing: 1,
-    color: "black",
+    color: "white",
     textAlign: "center",
     marginTop: 15,
   },
