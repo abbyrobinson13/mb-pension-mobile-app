@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
   gridItem: {
     flex: 1,
     margin: 10,
-    height: 110,
+    height: 109,
     width: 50,
     borderRadius: 30,
     elevation: 4,
