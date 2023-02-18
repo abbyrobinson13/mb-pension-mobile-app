@@ -106,6 +106,9 @@ const styles = StyleSheet.create({
     marginTop: 35,
     marginBottom: 25,
     marginLeft: 10,
+    marginLeft: "auto",
+    marginRight: "auto",
+  
     padding: 18,
     fontWeight: "bold",
   },
