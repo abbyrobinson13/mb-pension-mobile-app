@@ -2,7 +2,7 @@ import Concern from '../models/Concern.js';
 
 
 export const CONCERNS = [
-  new Concern('c1', 'ADHD',require ('../assets/adhdd.png')),
+  new Concern('c1', 'ADHD',require ('../assets/adhd.png')),
   new Concern('c2', 'Addiction',require ('../assets/addiction.png')),
   new Concern('c3', 'Anxiety',require ('../assets/anxiety.png')),
   new Concern('c4', 'Insomnia',require ('../assets/modal.png')),
