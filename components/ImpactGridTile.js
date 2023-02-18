@@ -55,7 +55,8 @@ const styles = StyleSheet.create({
     margin: 10,
     height: 100,
     width:50,
-    borderRadius: 6,
+    borderRadius: 30,
+    borderColor: "blue",
     elevation: 4,
     backgroundColor: "white",
     shadowColor: "black",
@@ -66,11 +67,17 @@ const styles = StyleSheet.create({
 
   },
   button: {
-    flex: 1
+    flex: 1,
+    borderColor: "grey",
+    //borderWidth: 1,
   },
   buttonPressed: {
-    //opacity: 0.5,
-    backgroundColor: "orange",
+   
+    backgroundColor: "#FAF5F3",
+    borderColor:"#e1705d",
+    borderWidth: 1,
+    
+    
   },
   innerContainer: {
     flex: 1,
@@ -82,6 +89,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 16,
     textAlign:"center",
+    color: "#0f1a4d"
     //marginRight: 10,
     
    

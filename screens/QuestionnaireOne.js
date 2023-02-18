@@ -69,7 +69,7 @@ const QuestionnaireOne = ({ navigation }) => {
         <TouchableOpacity>
           <Button
             style={styles.button}
-            labelStyle={{ color: "black", fontSize: 16, fontWeight: "bold" }}
+            labelStyle={{ color: "white", fontSize: 16, fontWeight: "bold" }}
             onPress={() => onPressHandle("Prevention")}
           >
             Prevention
@@ -78,7 +78,7 @@ const QuestionnaireOne = ({ navigation }) => {
         <TouchableOpacity>
           <Button
             style={styles.button}
-            labelStyle={{ color: "black", fontSize: 16, fontWeight: "bold" }}
+            labelStyle={{ color: "white", fontSize: 16, fontWeight: "bold" }}
             onPress={() => onPressHandle("Exploring")}
           >
             Exploring
@@ -87,7 +87,7 @@ const QuestionnaireOne = ({ navigation }) => {
         <TouchableOpacity>
           <Button
             style={styles.button}
-            labelStyle={{ color: "black", fontSize: 16, fontWeight: "bold" }}
+            labelStyle={{ color: "white", fontSize: 16, fontWeight: "bold" }}
             onPress={() => onPressHandle("Navigating a mental health network")}
           >
             Navigating the mental health network
@@ -96,7 +96,7 @@ const QuestionnaireOne = ({ navigation }) => {
         <TouchableOpacity>
           <Button
             style={styles.button}
-            labelStyle={{ color: "black", fontSize: 16, fontWeight: "bold" }}
+            labelStyle={{ color: "white", fontSize: 16, fontWeight: "bold" }}
             onPress={() => onPressHandle("Managing a mental illness")}
           >
             Managing a mental illness
@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingVertical: 40,
     paddingHorizontal: 16,
-    backgroundColor: "#9AC6DF",
+    backgroundColor: "white",
     position: "relative",
   },
 
@@ -121,19 +121,20 @@ const styles = StyleSheet.create({
     borderColor: "white",
     height: 60,
     borderRadius: 20,
-    backgroundColor: "white",
+    backgroundColor: "#e1705d",
     paddingHorizontal: 20,
     marginVertical: 20,
-    borderColor: "white",
+    borderColor: "#e1705d",
     elevation: 4,
     shadowColor: "white",
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 6,
     shadowOpacity: 1,
     justifyContent: "center",
+   
   },
   quizTitle: {
-    color: "black",
+   color: "#0f1a4d",
     fontSize: 28,
     marginTop: 30,
     marginBottom: 20,
