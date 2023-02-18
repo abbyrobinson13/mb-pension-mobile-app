@@ -1,48 +1,49 @@
-import { set } from "date-fns";
-import { useState } from "react";
+import React, { useState } from "react";
 import {
-  Pressable,
   Text,
   View,
   StyleSheet,
   Platform,
-  Button,
   Image,
   TouchableOpacity,
+  TouchableNativeFeedback,
+  Button
 } from "react-native";
 import Modal from "react-native-modal";
+
+const Touchable = Platform.select({
+  ios: () => TouchableOpacity,
+  android: () => TouchableNativeFeedback,
+})();
 
 const ConcernGridTile = ({ title, picked, setPicked, image }) => {
   const [isModalVisible, setModalVisible] = useState(false);
   const [selected, setSelected] = useState(false);
   const modalIcon = require("../assets/information.png");
   const [iconTapped, setIconTapped] = useState(false);
-  //const modalImage = require("../assets/TRAUMA.png");
+
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
     if (isModalVisible) {
       setIconTapped(false);
     }
   };
+
+  const onPress = () => {
+    setSelected(!selected);
+    const choice = !selected;
+    if (choice) {
+      setPicked({ ...picked, [title]: true });
+    } else {
+      setPicked({ ...picked, [title]: false });
+    }
+  };
+
   return (
-    <View
-      style={[styles.gridItem, selected ? styles.buttonPressed : styles.button]}
-    >
-      <Pressable
-        //android_ripple={{ color: "#ccc" }}
-        style={({ pressed }) => [
-          styles.button,
-          pressed ? styles.buttonPressed : null,
-        ]}
-        onPress={() => {
-          setSelected(!selected);
-          const choice = !selected;
-          if (choice) {
-            setPicked({ ...picked, [title]: true });
-          } else {
-            setPicked({ ...picked, [title]: false });
-          }
-        }}
+    <View style={[styles.gridItem, selected ? styles.buttonPressed : styles.button]}>
+      <Touchable
+        onPress={onPress}
+        background={TouchableNativeFeedback.Ripple("#d9d9d9", false)}
       >
         <View style={styles.innerContainer}>
           <TouchableOpacity
@@ -67,19 +68,26 @@ const ConcernGridTile = ({ title, picked, setPicked, image }) => {
             >
               <View style={styles.modalInnerContainer}>
                 <Image source={image} size={30} />
-                <Button title="Close" onPress={toggleModal} color="#e1705d" style={{ borderRadius: 200, width: 50, marginTop: 20}}/>
+                <Button
+                  title="Close"
+                  onPress={toggleModal}
+                  color="#e1705d"
+                  style={{ borderRadius: 200, width: 50, marginTop: 20 }}
+                />
               </View>
             </Modal>
           </TouchableOpacity>
           <Text style={[styles.title, { color: "#0f1a4d" }]}>{title}</Text>
         </View>
-      </Pressable>
+      </Touchable>
     </View>
   );
 };
+
 export default ConcernGridTile;
 
 const styles = StyleSheet.create({
+
   gridItem: {
     flex: 1,
     margin: 10,
@@ -98,19 +106,13 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-  //   borderRadius: 6,
-  //   borderWidth: 1,
-  // borderColor: "#0f1a4d"
+    borderColor: "grey",
+    borderWidth: 1,
   },
   buttonPressed: {
-  
     backgroundColor: "#FAF5F3",
-    borderColor:"#e1705d",
-    borderWidth: 1,
-    
-    
-   
-    
+    borderColor: "#e1705d",
+    borderWidth: 2,
   },
   innerContainer: {
     flex: 1,

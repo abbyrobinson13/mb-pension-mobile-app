@@ -9,41 +9,38 @@ import {
   Button,
   Image,
   TouchableOpacity,
+  TouchableNativeFeedback,
+ 
 } from "react-native";
-import Modal from "react-native-modal";
+
+const Touchable = Platform.select({
+  ios: () => TouchableOpacity,
+  android: () => TouchableNativeFeedback,
+})();
 
 const ImpactGridTile = ({ title, picked, setPicked }) => {
-  const [isModalVisible, setModalVisible] = useState(false);
   const [selected, setSelected] = useState(false);
-  const modalIcon = require("../assets/information.png");
-  const modalImage = require("../assets/modal.png");
-  const toggleModal = () => {
-    setModalVisible(!isModalVisible);
+  const onPress = () => {
+    setSelected(!selected);
+    const choice = !selected;
+    if (choice) {
+      setPicked({ ...picked, [title]: true });
+    } else {
+      setPicked({ ...picked, [title]: false });
+    }
   };
+ 
   return (
     <View
-      style={[styles.gridItem, selected ? styles.buttonPressed : styles.button]}
+      style={[styles.gridItem, selected ? styles.buttonPressed : styles.button]}>
+      <Touchable
+        onPress={onPress}
+        background={TouchableNativeFeedback.Ripple("#d9d9d9", false)}
     >
-      <Pressable
-        //android_ripple={{ color: "#ccc" }}
-        style={({ pressed }) => [
-          styles.button,
-          pressed ? styles.buttonPressed : null,
-        ]}
-        onPress={() => {
-          setSelected(!selected);
-          const choice = !selected;
-          if (choice) {
-            setPicked({ ...picked, [title]: true });
-          } else {
-            setPicked({ ...picked, [title]: false });
-          }
-        }}
-      >
         <View style={styles.innerContainer}>
-          <Text style={styles.title}>{title}</Text>
+        <Text style={[styles.title, { color: "#0f1a4d" }]}>{title}</Text>
         </View>
-      </Pressable>
+      </Touchable>
     </View>
   );
 };
@@ -54,9 +51,8 @@ const styles = StyleSheet.create({
     flex: 1,
     margin: 10,
     height: 100,
-    width:50,
+    width: 50,
     borderRadius: 30,
-    borderColor: "blue",
     elevation: 4,
     backgroundColor: "white",
     shadowColor: "black",
@@ -64,20 +60,18 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 8,
     overflow: Platform.OS === "hidden" ? "hidden" : "visible",
-
   },
   button: {
     flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
     borderColor: "grey",
-    //borderWidth: 1,
+    borderWidth: 1,
   },
   buttonPressed: {
-   
     backgroundColor: "#FAF5F3",
-    borderColor:"#e1705d",
-    borderWidth: 1,
-    
-    
+    borderColor: "#e1705d",
+    borderWidth: 2,
   },
   innerContainer: {
     flex: 1,
