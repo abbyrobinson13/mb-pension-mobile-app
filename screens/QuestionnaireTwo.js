@@ -19,7 +19,7 @@ const QuestionnaireTwo = ({ navigation }) => {
   const auth = fbContext.auth;
   const authContext = useContext(AuthContext);
   const user = authContext.user;
-  const buttonText = "Click next";
+  const buttonText = "Next";
   const [employees, setEmployees] = useState(null);
   //const ipAndPort = "10.44.22.75:5001";
   console.log(ipAndPort);
@@ -81,11 +81,12 @@ const QuestionnaireTwo = ({ navigation }) => {
   return (
     <FlatList
       ListHeaderComponent={() => (
-        <Text style={styles.quizTitle}>
+        <View style = {styles.quizTitle}>
+        <Text style= {styles.heading} >
           What are you looking for help with?
-          {"\n"}
-          Click for more information
         </Text>
+        <Text style = {styles.tapForMore}>Tap for more information. </Text>
+        </View>
       )}
       data={CONCERNS}
       keyExtractor={(item) => item.id}
@@ -98,7 +99,7 @@ const QuestionnaireTwo = ({ navigation }) => {
         />
       )}
       numColumns={2}
-      style={{ backgroundColor: "#9AC6DF" }}
+      style={{ backgroundColor: "white" }}
       ListFooterComponent={() => (
         <View style={{ padding: 16 }}>
           <TouchableOpacity style={styles.button} onPress={pressHandler}>
@@ -112,38 +113,54 @@ const QuestionnaireTwo = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   quizTitle: {
-    color: "",
-    fontSize: 20,
+    color: "#0f1a4d",
+    fontSize: 50,
     marginTop: 35,
     marginBottom: 25,
-    marginLeft: 10,
+    marginLeft: "auto",
+    marginRight: "auto",
     padding: 18,
     fontWeight: "bold",
+    textAlign: "center",
   },
   button: {
-    backgroundColor: "white",
+    backgroundColor: "#e1705d",
     borderWidth: 1,
     height: 60,
-    width: 200,
+    width: 350,
     borderRadius: 40,
     borderColor: "white",
-    marginLeft: 90,
-    marginTop: 30,
+    marginLeft:"auto",
+    marginRight: "auto",
+    marginTop: 20,
     marginHorizontal: 60,
     elevation: 4,
     shadowColor: "white",
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 6,
     shadowOpacity: 1,
+    justifyContent: "center",
+  alignItems: "center",
   },
 
   text: {
     fontSize: 18,
     fontWeight: "bold",
     letterSpacing: 1,
-    color: "black",
+    color: "white",
     textAlign: "center",
-    marginTop: 15,
   },
+  tapForMore: {
+    color: "#e1705d",
+    fontWeight: "bold",
+    fontSize: 20,
+    marginLeft:40
+  },
+  heading: {
+    fontSize: 20,
+    color: "#0f1a4d",
+    fontWeight: "bold",
+
+  }
 });
 export default QuestionnaireTwo;
