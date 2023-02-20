@@ -51,7 +51,7 @@ export default function Login({ navigation }) {
   };
 
   return (
-    <ImageBackground style={AppStyles.container} source={background}>
+    <ImageBackground style={AppStyles.container} >
       <KeyboardAvoidingView
         style={AppStyles.backgroundCover}
         behavior={Platform.OS === "ios" ? "padding" : null}
@@ -63,7 +63,7 @@ export default function Login({ navigation }) {
           style={AppStyles.textInput}
           placeholder="Email"
           autoCapitalize="none"
-          placeholderTextColor="white"
+          placeholderTextColor="0F1A4D"
           value={email}
           onChangeText={setEmail}
         />
@@ -71,7 +71,7 @@ export default function Login({ navigation }) {
           style={AppStyles.textInput}
           placeholder="Password"
           autoCapitalize="none"
-          placeholderTextColor="white"
+          placeholderTextColor="0F1A4D"
           secureTextEntry={true}
           value={password}
           onChangeText={setPassword}
@@ -85,7 +85,7 @@ export default function Login({ navigation }) {
         </View>
         <View style={AppStyles.rowContainer}>
           <Text style={AppStyles.darkText}>Forgotten your password?</Text>
-          <InlineTextButton
+          <InlineTextButton 
             text=" Reset"
             onPress={() => navigation.navigate("Reset Password")}
           />
@@ -94,7 +94,7 @@ export default function Login({ navigation }) {
           <TouchableOpacity>
             <Button
               style={AppStyles.button}
-              labelStyle={{ color: "black", fontSize: 16, fontWeight: "bold" }}
+              labelStyle={{ color: "white", fontSize: 16, fontWeight: "bold" }}
               onPress={login}
             >
               Log in

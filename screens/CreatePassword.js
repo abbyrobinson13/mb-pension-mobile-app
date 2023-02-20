@@ -82,7 +82,7 @@ export default function CreatePassword({ navigation, route }) {
     }
   };
   return (
-    <ImageBackground style={AppStyles.container} source={background}>
+    <ImageBackground style={AppStyles.container} >
       <KeyboardAvoidingView
         style={AppStyles.backgroundCover}
         behavior={Platform.OS === "ios" ? "padding" : "height"}
@@ -94,14 +94,14 @@ export default function CreatePassword({ navigation, route }) {
           style={AppStyles.textInput}
           autoCapitalize="none"
           placeholder="Email"
-          placeholderTextColor="#fff"
+          placeholderTextColor="#0F1A4D"
           value={email}
           onChangeText={setEmail}
         />
         <TextInput
           style={AppStyles.textInput}
           placeholder="Password"
-          placeholderTextColor="#fff"
+          placeholderTextColor="#0F1A4D"
           secureTextEntry={true}
           value={password}
           onChangeText={setPassword}
@@ -109,7 +109,7 @@ export default function CreatePassword({ navigation, route }) {
         <TextInput
           style={AppStyles.textInput}
           placeholder="Confirm Password"
-          placeholderTextColor="#fff"
+          placeholderTextColor="#0F1A4D"
           secureTextEntry={true}
           value={confirmPassword}
           onChangeText={(value) =>
@@ -138,7 +138,7 @@ export default function CreatePassword({ navigation, route }) {
           <TouchableOpacity>
             <Button
               style={AppStyles.button}
-              labelStyle={{ color: "black", fontSize: 16, fontWeight: "bold" }}
+              labelStyle={{ color: "white", fontSize: 16, fontWeight: "bold" }}
               onPress={createPassword}
             >
               Create Password
