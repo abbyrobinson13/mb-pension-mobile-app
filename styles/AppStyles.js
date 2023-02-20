@@ -9,7 +9,7 @@ export default StyleSheet.create ({
   },
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'FAF5F3',
     alignItems: 'center',
     justifyContent: 'center',
     padding: 16,
@@ -50,7 +50,7 @@ export default StyleSheet.create ({
     alignSelf: 'stretch',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#9AC6DF',
+    backgroundColor: 'white',
     opacity: 0.7,
     padding: 16,
   },
@@ -58,7 +58,7 @@ export default StyleSheet.create ({
     color: '#fff',
   },
   darkText: {
-    color: '#000',
+    color: '#0F1A4D',
   },
   errorText: {
     color: '#ff0000',
@@ -72,13 +72,13 @@ export default StyleSheet.create ({
     padding: 8,
     borderBottomWidth: 2,
     marginVertical: 8,
-    color: 'black',
+    color:"0F1A4D" ,
   },
   lightTextInput: {
     borderBottomColor: '#ffffff',
   },
   darkTextInput: {
-    borderBottomColor: '#000000',
+    borderBottomColor: '#0F1A4D',
   },
   inlineTextButton: {
     color: 'green',
@@ -87,8 +87,8 @@ export default StyleSheet.create ({
     color: '#006B76',
   },
   button: {
-    backgroundColor: 'white',
-    borderColor: 'black',
+    backgroundColor:'#E1705D',
+    borderColor: 'white',
     borderWidth: 1,
     height: 60,
     width: 240,
@@ -100,5 +100,24 @@ export default StyleSheet.create ({
     shadowRadius: 6,
     shadowOpacity: 1,
     justifyContent: 'center',
+    
   },
+
+  terms: {
+    flex: 1,
+    //paddingVertical: 20,
+    //paddingHorizontal: 10,
+    backgroundColor: "FAF5F3",
+    position: "relative",
+    padding: 20,
+    
+  },
+
+  termsText: {
+    color: "#0F1A4D"
+  },
+
+  reset: {
+color: "orange"
+  }
 });
