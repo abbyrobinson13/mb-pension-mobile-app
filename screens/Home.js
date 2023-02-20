@@ -14,28 +14,31 @@ const Separator = () => <View style={styles.separator} />;
 const HomeScreen = ({navigation}) => (
   <SafeAreaView style={styles.container}>
     <View>
-      <Text style={styles.title}>
+    <Text style={styles.title}>
         WELCOME
       </Text>
-    </View>
-    <View>
+   
+    
       <Image
         style={styles.brain}
-        source={require ('../assets/HomeScreenBrain.png')}
+        resizeMode="contain"
+        source={require ('../assets/bblogo.png')}
+        
       />
-    </View>
-    <Separator />
-    <View>
+      
       <Text style={styles.textSize16}>
         Mental health prevention starts here.
       </Text>
-    </View>
+    
+    
+   </View>
+   
     <Separator />
     <View>
       <TouchableOpacity>
         <Button
           style={styles.button}
-          labelStyle={{color: 'black', fontSize: 16, fontWeight: 'bold'}}
+          labelStyle={{color: "#0F1A4D", fontSize: 16, fontWeight: 'bold'}}
           onPress={() => navigation.navigate ('Login')}
         >
           Log in
@@ -47,7 +50,7 @@ const HomeScreen = ({navigation}) => (
       <TouchableOpacity>
         <Button
           style={styles.button}
-          labelStyle={{color: 'black', fontSize: 16, fontWeight: 'bold'}}
+          labelStyle={{color: "#0F1A4D", fontSize: 16, fontWeight: 'bold'}}
           onPress={() => navigation.navigate ('Create Password')}
         >
           Create Password
@@ -62,43 +65,61 @@ const styles = StyleSheet.create ({
   container: {
     flex: 1,
     justifyContent: 'center',
-    marginHorizontal: 16,
-    backgroundColor: '#9AC6DF',
+    //marginHorizontal: 16,
+    backgroundColor: "#0F1A4D",
+ marginTop: 0
+    
   },
   title: {
     textAlign: 'center',
     marginVertical: 4,
-    fontSize: 40,
+    fontSize: 50,
     fontWeight: 'bold',
+    color: "white",
+    marginLeft: 1,
+    marginBottom:80,
+    paddingTop: 0,
+    //fontStyle: "italic"
+   
   },
   textSize16: {
     textAlign: 'center',
-    fontSize: 16,
-    fontWeight: 'bold',
+    fontSize: 20,
+    //fontWeight: 'bold',
+    color: "#e1705d",
+    marginBottom:20,
+    marginTop: 0,
+    fontStyle: "italic"
   },
   separator: {
     marginVertical: 8,
     borderBottomColor: '#000000',
   },
   brain: {
-    height: 300,
-    width: 350,
-    resizeMode: 'center',
+    height: 200,
+    width: 380,
+    resizeMode: 'contain',
+    marginLeft : 10,
+    marginTop: 0,
+    marginBottom: 20,
+    
+    
   },
   button: {
     backgroundColor: 'white',
-    borderColor: 'black',
-    borderWidth: 1,
+    borderColor: 'white',
+    borderWidth: 5,
     height: 60,
-    width: 240,
+    width: 270,
     borderRadius: 10,
-    marginHorizontal: 60,
+    marginHorizontal: 70,
     elevation: 4,
     shadowColor: 'white',
     shadowOffset: {width: 0, height: 2},
     shadowRadius: 6,
     shadowOpacity: 1,
     justifyContent: 'center',
+  
   },
 });
 
