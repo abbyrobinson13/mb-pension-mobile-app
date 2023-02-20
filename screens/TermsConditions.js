@@ -1,14 +1,14 @@
 import React, {useState} from 'react';
-import {View, Text, ScrollView, TouchableOpacity} from 'react-native';
+import {View, Text, ScrollView, TouchableOpacity,StyleSheet} from 'react-native';
 import {Button} from 'react-native-paper';
 import AppStyles from '../styles/AppStyles';
 
 export default function TermsConditionsForm({navigation}) {
   return (
-    <View>
-      <Text>Please, read and accept the terms and conditions:</Text>
+    <View style= {AppStyles.terms}>
+      <Text style= {AppStyles.termsText}>Please, read and accept the terms and conditions:</Text>
       <ScrollView>
-        <Text>
+        <Text style= {AppStyles.termsText}>
           ***********************************************************
           [Add Terms and conditions here]
 
@@ -19,7 +19,7 @@ export default function TermsConditionsForm({navigation}) {
         <TouchableOpacity>
           <Button
             style={AppStyles.button}
-            labelStyle={{color: 'black', fontSize: 16, fontWeight: 'bold'}}
+            labelStyle={{color: 'white', fontSize: 16, fontWeight: 'bold'}}
             onPress={() =>
               navigation.navigate ('Create Password', {checkboxValue: true})}
           >
@@ -27,11 +27,12 @@ export default function TermsConditionsForm({navigation}) {
           </Button>
         </TouchableOpacity>
       </View>
+     
       <View>
         <TouchableOpacity>
           <Button
             style={AppStyles.button}
-            labelStyle={{color: 'black', fontSize: 16, fontWeight: 'bold'}}
+            labelStyle={{color: 'white', fontSize: 16, fontWeight: 'bold'}}
             onPress={() => navigation.navigate ('Login')}
           >
             DECLINE
