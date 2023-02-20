@@ -14,10 +14,10 @@ const Separator = () => <View style={styles.separator} />;
 const HomeScreen = ({navigation}) => (
   <SafeAreaView style={styles.container}>
     <View>
-    <Text style={styles.title}>
+    {/* <Text style={styles.title}>
         WELCOME
       </Text>
-   
+    */}
     
       <Image
         style={styles.brain}
