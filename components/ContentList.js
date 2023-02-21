@@ -83,13 +83,25 @@ const ContentList = ({ category }) => {
                       label={row.provider + " You're covered"}
                     />
                   )}
-                <Text variant="titleLarge">{row.title}</Text>
-                <Text variant="bodyMedium">{row.description}</Text>
+                <Text variant="titleLarge" style={styles.title}>
+                  {row.title}
+                </Text>
+                <Text variant="bodyMedium" style={styles.description}>
+                  {row.description}
+                </Text>
               </Card.Content>
               <Card.Cover style={styles.image} source={{ uri: row.img }} />
               <Card.Actions>
                 <View style={styles.button}>
-                  <Button onPress={() => Linking.openURL(row.url)}>Link</Button>
+                  <Button
+                    mode="contained"
+                    buttonColor="#e1705D"
+                    labelStyle={{ color: "white" }}
+                    onPress={() => Linking.openURL(row.url)}
+                    marginTop="20%"
+                  >
+                    Link
+                  </Button>
                 </View>
               </Card.Actions>
             </Card>
@@ -117,5 +129,12 @@ const styles = StyleSheet.create({
     display: "flex",
     alignContent: "center",
     margin: 10,
+  },
+  title: {
+    color: "#0f1a4d",
+    fontWeight: "bold",
+  },
+  description: {
+    color: "#0f1a4d",
   },
 });
