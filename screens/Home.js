@@ -22,12 +22,12 @@ const HomeScreen = ({navigation}) => (
       <Image
         style={styles.brain}
         resizeMode="contain"
-        source={require ('../assets/bblogo.png')}
+        source={require ('../assets/IF-logo.png')}
         
       />
       
       <Text style={styles.textSize16}>
-        Mental health prevention starts here.
+       Connection to mental health resources for women starts here
       </Text>
     
     
@@ -84,9 +84,9 @@ const styles = StyleSheet.create ({
   },
   textSize16: {
     textAlign: 'center',
-    fontSize: 23,
+    fontSize: 20,
     //fontWeight: 'bold',
-    color: "#e1705d",
+    color: "white",
     marginBottom:20,
     marginTop: 0,
     fontStyle: "italic"
