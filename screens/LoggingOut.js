@@ -15,5 +15,5 @@ export default function LoggingOut({ navigation }) {
     });
   };
 
-  return <Button title="Logout" onPress={logout} color={"#01796f"} />;
+  return <Button title="Logout" onPress={logout} color={"#e1705d"} />;
 }
