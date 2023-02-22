@@ -131,11 +131,10 @@ const styles = StyleSheet.create({
     shadowRadius: 6,
     shadowOpacity: 1,
     justifyContent: "center",
-   
   },
   quizTitle: {
-   color: "#0f1a4d",
-    fontSize: 28,
+    color: "#0f1a4d",
+    fontSize: 26,
     marginTop: 30,
     marginBottom: 20,
     marginLeft: 10,
