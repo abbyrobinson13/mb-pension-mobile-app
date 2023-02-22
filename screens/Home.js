@@ -66,7 +66,7 @@ const styles = StyleSheet.create ({
     flex: 1,
     justifyContent: 'center',
     //marginHorizontal: 16,
-    backgroundColor: "#0F1A4D",
+    backgroundColor:  "#e1705d",
  marginTop: 0
     
   },
@@ -85,7 +85,7 @@ const styles = StyleSheet.create ({
   textSize16: {
     textAlign: 'center',
     fontSize: 20,
-    //fontWeight: 'bold',
+    fontWeight: 'bold',
     color: "white",
     marginBottom:20,
     marginTop: 0,
@@ -97,7 +97,7 @@ const styles = StyleSheet.create ({
   },
   brain: {
     height: 200,
-    width: 380,
+    width: 360,
     resizeMode: 'contain',
     marginLeft : 10,
     marginTop: 0,
