@@ -5,8 +5,8 @@ import AppStyles from '../styles/AppStyles';
 
 export default function TermsConditionsForm({navigation}) {
   return (
-    <View>
-      <Text> Please, read and accept the terms and conditions:</Text>
+    <View style= {AppStyles.terms}>
+      <Text style= {AppStyles.termsText}> Please, read and accept the terms and conditions:</Text>
       <ScrollView>
         <Text style= {AppStyles.termsText}>
           **********************************************************
@@ -42,7 +42,7 @@ engaging in any data mining, data harvesting, data extracting or any other simil
         <TouchableOpacity>
           <Button
             style={AppStyles.button}
-            labelStyle={{color: '#50C878', fontSize: 18}}
+            labelStyle={{color: 'white', fontSize: 16, fontWeight: 'bold' }}
             onPress={() =>
               navigation.navigate ('Create Password', {checkboxValue: true})}
           >
@@ -55,7 +55,7 @@ engaging in any data mining, data harvesting, data extracting or any other simil
         <TouchableOpacity>
           <Button
             style={AppStyles.button}
-            labelStyle={{ color: '#FF0000', fontSize: 18 }}
+            labelStyle={{ color: 'white', fontSize: 16, fontWeight: 'bold' }}
             onPress={() => navigation.navigate ('Login')}
           >
             DECLINE
