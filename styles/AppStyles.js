@@ -3,13 +3,13 @@ import {StyleSheet} from 'react-native';
 export default StyleSheet.create ({
   imageContainer: {
     flex: 1,
-    backgroundColor: '#E1705D',
+    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
   },
   container: {
     flex: 1,
-    backgroundColor: '#E1705D',
+    backgroundColor: '#FAF5F3',
     alignItems: 'center',
     justifyContent: 'center',
     padding: 16,
@@ -50,29 +50,28 @@ export default StyleSheet.create ({
     alignSelf: 'stretch',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#E1705D',
+    backgroundColor: '#white',
     opacity: 0.7,
     padding: 16,
   },
-  lightText28: {
-    color: '#FAF5F3',
-    fontSize: 28,
-  },
-  lightText16: {
-    color: '#FAF5F3',
+  // lightText28: {
+  //   color: '#FAF5F3',
+  //   fontSize: 28,
+  // },
+  lightText: {
+    color: '#fff',
     fontSize: 16,
   },
-  darkText28: {
+  // darkText28: {
+  //   color: '#0F1A4D',
+  //   fontSize: 28,
+  // },
+  darkText: {
     color: '#0F1A4D',
-    fontSize: 28,
-  },
-  darkText18: {
-    color: '#0F1A4D',
-    fontSize: 18,
   },
   errorText: {
-    color: '#FF0000',
-    fontSize: 18,
+    color: '#ff0000',
+    // fontSize: 18,
   },
   header: {
     fontSize: 20,
@@ -92,14 +91,14 @@ export default StyleSheet.create ({
     borderBottomColor: '#0F1A4D',
   },
   inlineTextButton: {
-    color: 'FAF5F3',
+    color: 'green',
   },
   pressedInlineTextButton: {
     color: '#006B76',
   },
   button: {
-    backgroundColor:'#FAF5F3',
-    borderColor: 'E1705D',
+    backgroundColor:'#E1705D',
+    borderColor: 'white',
     borderWidth: 1,
     height: 60,
     width: 240,
@@ -111,23 +110,23 @@ export default StyleSheet.create ({
     shadowRadius: 6,
     shadowOpacity: 1,
     justifyContent: 'center',
-    fontSize: 20,
+    // fontSize: 20,
     
   },
 
-  // terms: {
-  //   flex: 1,
-  //   //paddingVertical: 20,
-  //   //paddingHorizontal: 10,
-  //   backgroundColor: "FAF5F3",
-  //   position: "relative",
-  //   padding: 20,
+  terms: {
+    flex: 1,
+    //paddingVertical: 20,
+    //paddingHorizontal: 10,
+    backgroundColor: "FAF5F3",
+    position: "relative",
+    padding: 20,
     
-  // },
+  },
 
-  // termsText: {
-  //   color: "#0F1A4D"
-  // },
+  termsText: {
+    color: "#0F1A4D"
+  },
 
   reset: {
 color: "orange"
