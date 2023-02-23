@@ -3,6 +3,7 @@ import {
   ScrollView,
   StyleSheet,
   Text,
+  Image,
   View,
   ActivityIndicator,
 } from "react-native";
@@ -23,7 +24,7 @@ const Wallet = () => {
 
   console.log(ipAndPort);
   // console.log(auth);
-  console.log("user", user.uid);
+  console.log("user", user?.uid);
 
   const handlePress = () => setExpanded(!expanded);
 
@@ -56,7 +57,7 @@ const Wallet = () => {
     );
   }
 
-  const userProfile = employees.find((employee) => employee.uid === user.uid);
+  const userProfile = employees.find((employee) => employee.uid === user?.uid);
   const userBenefits = benefits.find(
     (plan) => plan.companyName === userProfile.companyName
   );
@@ -81,6 +82,39 @@ const Wallet = () => {
         <List.Accordion
           key={para}
           title={para}
+          left={(props) => (
+            <Image
+              {...props}
+              source={
+                para === "Acupunture"
+                  ? require(`../assets/images/paramedical-icons/Acupuncture.png`)
+                  : para === "Osteopath"
+                  ? require("../assets/images/paramedical-icons/Osteopath.png")
+                  : para === "Chiropractor"
+                  ? require("../assets/images/paramedical-icons/Chiropractor.png")
+                  : para === "Physiotherapy"
+                  ? require("../assets/images/paramedical-icons/Physiotherapy.png")
+                  : para === "Naturopath"
+                  ? require("../assets/images/paramedical-icons/Naturopath.png")
+                  : para === "Podiatrist"
+                  ? require("../assets/images/paramedical-icons/Podiatrist.png")
+                  : para === "Psychologist"
+                  ? require("../assets/images/paramedical-icons/Psychologist.png")
+                  : para === "Audiology"
+                  ? require("../assets/images/paramedical-icons/Audiology.png")
+                  : para === "Occupational Therapy"
+                  ? require("../assets/images/paramedical-icons/Occupational-Therapy.png")
+                  : para === "Massage Therapy"
+                  ? require("../assets/images/paramedical-icons/Massage-Therapy.png")
+                  : para === "Speech Therapy"
+                  ? require("../assets/images/paramedical-icons/Speech-Therapist.png")
+                  : para === "Dietician"
+                  ? require("../assets/images/paramedical-icons/Dietician.png")
+                  : require("../assets/images/paramedical-icons/Acupuncture.png")
+              }
+              style={{ width: 24, height: 24, marginRight: 16 }}
+            />
+          )}
           titleStyle={{
             color: "#0f1a4d",
             fontWeight: "bold",
