@@ -3,13 +3,13 @@ import {StyleSheet} from 'react-native';
 export default StyleSheet.create ({
   imageContainer: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#FAF5F3',
     alignItems: 'center',
     justifyContent: 'center',
   },
   container: {
     flex: 1,
-    backgroundColor: 'FAF5F3',
+    backgroundColor: '#E1705D',
     alignItems: 'center',
     justifyContent: 'center',
     padding: 16,
@@ -50,18 +50,29 @@ export default StyleSheet.create ({
     alignSelf: 'stretch',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'white',
+    backgroundColor: '#E1705D',
     opacity: 0.7,
     padding: 16,
   },
-  lightText: {
-    color: '#fff',
+  lightText28: {
+    color: '#FAF5F3',
+    fontSize: 28,
   },
-  darkText: {
+  lightText16: {
+    color: '#FAF5F3',
+    fontSize: 16,
+  },
+  darkText28: {
     color: '#0F1A4D',
+    fontSize: 28,
+  },
+  darkText18: {
+    color: '#0F1A4D',
+    fontSize: 18,
   },
   errorText: {
-    color: '#ff0000',
+    color: '#FF0000',
+    fontSize: 18,
   },
   header: {
     fontSize: 20,
@@ -87,7 +98,7 @@ export default StyleSheet.create ({
     color: '#006B76',
   },
   button: {
-    backgroundColor:'#E1705D',
+    backgroundColor:'#FAF5F3',
     borderColor: 'white',
     borderWidth: 1,
     height: 60,
@@ -100,6 +111,7 @@ export default StyleSheet.create ({
     shadowRadius: 6,
     shadowOpacity: 1,
     justifyContent: 'center',
+    fontSize: 20,
     
   },
 

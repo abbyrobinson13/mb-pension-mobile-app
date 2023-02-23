@@ -77,7 +77,7 @@ export default function Login({ navigation }) {
           onChangeText={setPassword}
         />
         <View style={AppStyles.rowContainer}>
-          <Text style={AppStyles.darkText16}>Don't have a password, yet?</Text>
+          <Text style={AppStyles.darkText18}>Don't have a password, yet?</Text>
           <InlineTextButton
             text=" Create password"
             color="#FAF5F3"
@@ -86,7 +86,7 @@ export default function Login({ navigation }) {
           />
         </View>
         <View style={AppStyles.rowContainer}>
-          <Text style={AppStyles.darkText16}>Forgotten your password?</Text>
+          <Text style={AppStyles.darkText18}>Forgotten your password?</Text>
           <InlineTextButton 
             text=" Reset"
             color="#FAF5F3"

@@ -47,7 +47,7 @@ export default function ResetPassword({navigation}) {
           onChangeText={setEmail}
         />
         <View style={AppStyles.rowContainer}>
-          <Text style={AppStyles.darkText16}>
+          <Text style={AppStyles.darkText18}>
             Don't have an account?
           </Text>
           <InlineTextButton
@@ -67,7 +67,7 @@ export default function ResetPassword({navigation}) {
           <TouchableOpacity>
             <Button
               style={AppStyles.button}
-              labelStyle={{color: '#0F1A4D', fontSize: 20, fontWeight: 'bold'}}
+              labelStyle={{color: '#0F1A4D', fontSize: 20}}
               onPress={resetPassword}
             >
               Reset Password
