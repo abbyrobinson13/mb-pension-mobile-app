@@ -51,19 +51,19 @@ export default function Login({ navigation }) {
   };
 
   return (
-    <ImageBackground style={AppStyles.container} >
+    <ImageBackground style={AppStyles.imageContainer} >
       <KeyboardAvoidingView
         style={AppStyles.backgroundCover}
         behavior={Platform.OS === "ios" ? "padding" : null}
         keyboardVerticalOffset={60}
       >
-        <Text style={AppStyles.darkText}>Log in</Text>
+        <Text style={AppStyles.darkText28} fontSize= "20">Log in</Text>
         <Text style={AppStyles.errorText}>{errorMessage}</Text>
         <TextInput
           style={AppStyles.textInput}
           placeholder="Email"
           autoCapitalize="none"
-          placeholderTextColor="0F1A4D"
+          placeholderTextColor="#FAF5F3"
           value={email}
           onChangeText={setEmail}
         />
@@ -71,22 +71,26 @@ export default function Login({ navigation }) {
           style={AppStyles.textInput}
           placeholder="Password"
           autoCapitalize="none"
-          placeholderTextColor="0F1A4D"
+          placeholderTextColor="#FAF5F3"
           secureTextEntry={true}
           value={password}
           onChangeText={setPassword}
         />
         <View style={AppStyles.rowContainer}>
-          <Text style={AppStyles.darkText}>Don't have a password, yet?</Text>
+          <Text style={AppStyles.darkText16}>Don't have a password, yet?</Text>
           <InlineTextButton
             text=" Create password"
+            color="#FAF5F3"
+            fontSize="16"
             onPress={() => navigation.navigate("Create Password")}
           />
         </View>
         <View style={AppStyles.rowContainer}>
-          <Text style={AppStyles.darkText}>Forgotten your password?</Text>
+          <Text style={AppStyles.darkText16}>Forgotten your password?</Text>
           <InlineTextButton 
             text=" Reset"
+            color="#FAF5F3"
+            fontSize= "16"
             onPress={() => navigation.navigate("Reset Password")}
           />
         </View>
@@ -94,7 +98,7 @@ export default function Login({ navigation }) {
           <TouchableOpacity>
             <Button
               style={AppStyles.button}
-              labelStyle={{ color: "white", fontSize: 16, fontWeight: "bold" }}
+              labelStyle={{ color: "0F1A4D", fontSize: 24 }}
               onPress={login}
             >
               Log in
