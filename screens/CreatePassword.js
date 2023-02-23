@@ -82,26 +82,26 @@ export default function CreatePassword({ navigation, route }) {
     }
   };
   return (
-    <ImageBackground style={AppStyles.imageContainer} >
+    <ImageBackground style={AppStyles.container} >
       <KeyboardAvoidingView
         style={AppStyles.backgroundCover}
         behavior={Platform.OS === "ios" ? "padding" : "height"}
         keyboardVerticalOffset={60}
       >
-        <Text style={AppStyles.darkText28}>Create Password</Text>
+        <Text style={AppStyles.darkText}>Create Password</Text>
         <Text style={AppStyles.errorText}>{validationMessage}</Text>
         <TextInput
           style={AppStyles.textInput}
           autoCapitalize="none"
           placeholder="Email"
-          placeholderTextColor="#FAF5F3"
+          placeholderTextColor="#0F1A4D"
           value={email}
           onChangeText={setEmail}
         />
         <TextInput
           style={AppStyles.textInput}
           placeholder="Password"
-          placeholderTextColor="#FAF5F3"
+          placeholderTextColor="#0F1A4D"
           secureTextEntry={true}
           value={password}
           onChangeText={setPassword}
@@ -124,18 +124,18 @@ export default function CreatePassword({ navigation, route }) {
           />
           <InlineTextButton
             text="   Terms and Conditions"
-            color="#FAF5F3"
-            fontSize= "16"
+            // color="#FAF5F3"
+            // fontSize= "16"
             onPress={() => navigation.navigate("Terms and Conditions")}
           />
         </View>
 
         <View style={AppStyles.rowContainer}>
-          <Text style={AppStyles.darkText18}>Already have a password?</Text>
+          <Text style={AppStyles.darkText}>Already have a password?</Text>
           <InlineTextButton
             text="  Log in"
-            color="#FAF5F3"
-            fontSize= "16"
+            // color="#FAF5F3"
+            // fontSize= "16"
             onPress={() => navigation.navigate("Login")}
           />
         </View>
@@ -143,7 +143,7 @@ export default function CreatePassword({ navigation, route }) {
           <TouchableOpacity>
             <Button
               style={AppStyles.button}
-              labelStyle={{ color: "0F1A4D", fontSize: 20 }}
+              labelStyle={{ color: "white", fontSize: 16, fontWeight: "bold" }}
               onPress={createPassword}
             >
               Create Password
