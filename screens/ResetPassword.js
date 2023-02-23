@@ -37,22 +37,22 @@ export default function ResetPassword({navigation}) {
         behavior={Platform.OS === 'ios' ? padding : null}
         keyboardVerticalOffset={60}
       >
-        <Text style={AppStyles.darkText28}>Reset Password</Text>
+        <Text style={AppStyles.darkText}>Reset Password</Text>
         <Text style={AppStyles.errorText}>{errorMessage}</Text>
         <TextInput
           style={AppStyles.textInput}
           placeholder="Email"
-          placeholderTextColor="#FAF5F3"
+          placeholderTextColor="#0F1A4D"
           value={email}
           onChangeText={setEmail}
         />
         <View style={AppStyles.rowContainer}>
-          <Text style={AppStyles.darkText18}>
-            Don't have an account?
+          <Text style={AppStyles.darkText}>
+            Don't have an account, yet?
           </Text>
           <InlineTextButton
             text=" Create password"
-            color={'#FAF5F3'}
+            // color={'#FAF5F3'}
             fontSize="16"
             onPress={() => navigation.navigate ('Create Password')}
           />
@@ -67,7 +67,7 @@ export default function ResetPassword({navigation}) {
           <TouchableOpacity>
             <Button
               style={AppStyles.button}
-              labelStyle={{color: '#0F1A4D', fontSize: 20}}
+              labelStyle={{color: 'white', fontSize: 16, fontWeight: "bold"}}
               onPress={resetPassword}
             >
               Reset Password
