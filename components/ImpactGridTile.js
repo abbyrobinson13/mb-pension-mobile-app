@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     elevation: 4,
     backgroundColor: "white",
     shadowColor: "black",
-    shadowOpacity: 1,
+    shadowOpacity: 0.2,
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 8,
     overflow: Platform.OS === "hidden" ? "hidden" : "visible",
