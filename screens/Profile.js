@@ -56,7 +56,7 @@ const Profile = () => {
     );
   }
 
-  const userProfile = employee.find((e) => e.uid === user.uid);
+  const userProfile = employee.find((e) => e.uid === user?.uid);
   console.log(userProfile);
 
   return (

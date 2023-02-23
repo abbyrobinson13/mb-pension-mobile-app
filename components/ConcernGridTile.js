@@ -7,12 +7,12 @@ import {
   Image,
   TouchableOpacity,
   TouchableNativeFeedback,
-  Button
+  Button,
 } from "react-native";
 import Modal from "react-native-modal";
 
 const Touchable = Platform.select({
-  ios: () => TouchableOpacity,
+  ios: () => TouchableNativeFeedback,
   android: () => TouchableNativeFeedback,
 })();
 
@@ -40,7 +40,9 @@ const ConcernGridTile = ({ title, picked, setPicked, image }) => {
   };
 
   return (
-    <View style={[styles.gridItem, selected ? styles.buttonPressed : styles.button]}>
+    <View
+      style={[styles.gridItem, selected ? styles.buttonPressed : styles.button]}
+    >
       <Touchable
         onPress={onPress}
         background={TouchableNativeFeedback.Ripple("#d9d9d9", false)}
@@ -87,7 +89,6 @@ const ConcernGridTile = ({ title, picked, setPicked, image }) => {
 export default ConcernGridTile;
 
 const styles = StyleSheet.create({
-
   gridItem: {
     flex: 1,
     margin: 10,
@@ -97,7 +98,7 @@ const styles = StyleSheet.create({
     elevation: 4,
     backgroundColor: "white",
     shadowColor: "black",
-    shadowOpacity: 1,
+    shadowOpacity: 0.2,
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 8,
     overflow: Platform.OS === "hidden" ? "hidden" : "visible",
@@ -135,11 +136,10 @@ const styles = StyleSheet.create({
   modalInnerContainer: {
     backgroundColor: "white",
     borderRadius: 10,
-    
-  // padding: 5,
-  // alignItems: "center",
-  // justifyContent: "center",
-  
+
+    // padding: 5,
+    // alignItems: "center",
+    // justifyContent: "center",
   },
 
   infoButton: {
@@ -153,6 +153,5 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     flexDirection: "column",
     alignItems: "center",
-    
   },
 });

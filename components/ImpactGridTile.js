@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import {
   Pressable,
@@ -10,11 +9,10 @@ import {
   Image,
   TouchableOpacity,
   TouchableNativeFeedback,
- 
 } from "react-native";
 
 const Touchable = Platform.select({
-  ios: () => TouchableOpacity,
+  ios: () => TouchableNativeFeedback,
   android: () => TouchableNativeFeedback,
 })();
 
@@ -29,16 +27,17 @@ const ImpactGridTile = ({ title, picked, setPicked }) => {
       setPicked({ ...picked, [title]: false });
     }
   };
- 
+
   return (
     <View
-      style={[styles.gridItem, selected ? styles.buttonPressed : styles.button]}>
+      style={[styles.gridItem, selected ? styles.buttonPressed : styles.button]}
+    >
       <Touchable
         onPress={onPress}
         background={TouchableNativeFeedback.Ripple("#d9d9d9", false)}
-    >
+      >
         <View style={styles.innerContainer}>
-        <Text style={[styles.title, { color: "#0f1a4d" }]}>{title}</Text>
+          <Text style={[styles.title, { color: "#0f1a4d" }]}>{title}</Text>
         </View>
       </Touchable>
     </View>
@@ -56,7 +55,7 @@ const styles = StyleSheet.create({
     elevation: 4,
     backgroundColor: "white",
     shadowColor: "black",
-    shadowOpacity: 1,
+    shadowOpacity: 0.2,
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 8,
     overflow: Platform.OS === "hidden" ? "hidden" : "visible",
@@ -82,11 +81,8 @@ const styles = StyleSheet.create({
   title: {
     //fontWeight: "bold",
     fontSize: 16,
-    textAlign:"center",
-    color: "#0f1a4d"
+    textAlign: "center",
+    color: "#0f1a4d",
     //marginRight: 10,
-    
-   
   },
-  
 });

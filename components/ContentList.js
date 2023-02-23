@@ -18,7 +18,7 @@ const ContentList = ({ category }) => {
 
   const authContext = useContext(AuthContext);
   const user = authContext.user;
-  console.log(user.uid);
+  console.log(user?.uid);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -52,7 +52,7 @@ const ContentList = ({ category }) => {
     );
   }
 
-  const userProfile = employees.find((employee) => employee.uid === user.uid);
+  const userProfile = employees.find((employee) => employee.uid === user?.uid);
   const userBenefits = benefits.find(
     (plan) => plan.companyName === userProfile.companyName
   );
@@ -83,6 +83,7 @@ const ContentList = ({ category }) => {
                       label={row.provider + " You're covered"}
                     />
                   )}
+
                 <Text variant="titleLarge" style={styles.title}>
                   {row.title}
                 </Text>
