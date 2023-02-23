@@ -99,7 +99,7 @@ export default StyleSheet.create ({
   },
   button: {
     backgroundColor:'#FAF5F3',
-    borderColor: 'white',
+    borderColor: 'E1705D',
     borderWidth: 1,
     height: 60,
     width: 240,
@@ -115,19 +115,19 @@ export default StyleSheet.create ({
     
   },
 
-  terms: {
-    flex: 1,
-    //paddingVertical: 20,
-    //paddingHorizontal: 10,
-    backgroundColor: "FAF5F3",
-    position: "relative",
-    padding: 20,
+  // terms: {
+  //   flex: 1,
+  //   //paddingVertical: 20,
+  //   //paddingHorizontal: 10,
+  //   backgroundColor: "FAF5F3",
+  //   position: "relative",
+  //   padding: 20,
     
-  },
+  // },
 
-  termsText: {
-    color: "#0F1A4D"
-  },
+  // termsText: {
+  //   color: "#0F1A4D"
+  // },
 
   reset: {
 color: "orange"
