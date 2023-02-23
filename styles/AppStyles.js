@@ -3,7 +3,7 @@ import {StyleSheet} from 'react-native';
 export default StyleSheet.create ({
   imageContainer: {
     flex: 1,
-    backgroundColor: '#FAF5F3',
+    backgroundColor: '#E1705D',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -92,7 +92,7 @@ export default StyleSheet.create ({
     borderBottomColor: '#0F1A4D',
   },
   inlineTextButton: {
-    color: 'green',
+    color: 'FAF5F3',
   },
   pressedInlineTextButton: {
     color: '#006B76',
