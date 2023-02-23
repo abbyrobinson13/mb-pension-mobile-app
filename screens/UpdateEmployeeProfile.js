@@ -4,6 +4,7 @@ import { Button, TextInput } from "react-native-paper";
 import { FirebaseContext } from "../firebase";
 import { AuthContext } from "../AuthProvider";
 import { ipAndPort } from "../config";
+import { color } from "react-native-elements/dist/helpers";
 
 const UpdateEmployeeProfile = ({ navigation }) => {
   const fbContext = useContext(FirebaseContext);
@@ -62,68 +63,78 @@ const UpdateEmployeeProfile = ({ navigation }) => {
   };
 
   return (
-    <ScrollView style={styles.container}>
-      <View style={styles.formContainer}>
+    <ScrollView style={styles.Container}>
+      <View color={"green"}>
         {employees && (
-          <View style={styles.container}>
+          <View>
             <TextInput
-              style={styles.textInput}
+              style={styles.TextInput}
+              textColor="#0F1A4D"
               label="Department"
               name="department"
               onChangeText={(e) => onHandleChange("department", e)}
               value={employees.department}
             />
             <TextInput
-              style={styles.textInput}
+              style={styles.TextInput}
+              textColor="#0F1A4D"
               label="Position"
               name="position"
               onChangeText={(e) => onHandleChange("position", e)}
               value={employees.position}
             />
             <TextInput
-              style={styles.textInput}
+              style={styles.TextInput}
+              textColor="#0F1A4D"
               label="Employment Date"
               name="employmentDate"
               onChangeText={(e) => onHandleChange("employmentDate", e)}
               value={employees.employmentDate}
             />
             <TextInput
-              style={styles.textInput}
+              style={styles.TextInput}
+              textColor="#0F1A4D"
               label="Dependents"
               name="dependents"
               onChangeText={(e) => onHandleChange("dependents", e)}
               value={employees.dependents}
             />
             <TextInput
-              style={styles.textInput}
+              style={styles.TextInput}
               label="Mobile"
+              textColor="#0F1A4D"
               name="mobile"
               onChangeText={(e) => onHandleChange("mobile", e)}
               value={employees.mobile}
             />
             <TextInput
-              style={styles.textInput}
+              style={styles.TextInput}
+              textColor="#0F1A4D"
               label="Street"
               name="street"
               onChangeText={(e) => onHandleChange("street", e)}
               value={employees.street}
             />
             <TextInput
-              style={styles.textInput}
+              style={styles.TextInput}
+              textColor="#0F1A4D"
               label="Postal Code"
               name="postalCode"
               onChangeText={(e) => onHandleChange("postalCode", e)}
               value={employees.postalCode}
             />
             <TextInput
-              style={styles.textInput}
+              textColor="#0F1A4D"
+              style={styles.TextInput}
               label="City"
               name="city"
               onChangeText={(e) => onHandleChange("city", e)}
               value={employees.city}
             />
+
             <TextInput
-              style={styles.textInput}
+              textColor="#0F1A4D"
+              style={styles.TextInput}
               label="Province"
               name="province"
               onChangeText={(e) => onHandleChange("province", e)}
@@ -132,12 +143,13 @@ const UpdateEmployeeProfile = ({ navigation }) => {
 
             <Button
               style={styles.button}
+              labelStyle={{ color: "white", fontSize: 16, fontWeight: "bold" }}
               title="Register"
               onPress={() => {
                 handleSubmit();
               }}
             >
-              <Text style={styles.text}>Update Profile</Text>
+              <Text>Update Profile</Text>
             </Button>
           </View>
         )}
@@ -147,64 +159,39 @@ const UpdateEmployeeProfile = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingVertical: 10,
-    paddingHorizontal: 10,
-    backgroundColor: "#e1705d",
+  Container: {
+    paddingVertical: 0,
+    paddingHorizontal: 0,
+    backgroundColor: "#FAF5F3",
     position: "relative",
-    padding: 20,
   },
+
   button: {
+    color: "white",
     borderWidth: 3,
     borderColor: "white",
     height: 60,
     borderRadius: 20,
-    backgroundColor: "white",
+    backgroundColor: "#E1705D",
     paddingHorizontal: 0,
-    marginVertical: 20,
-    borderColor: "white",
+    marginVertical: 30,
+    borderColor: "#E1705D",
     elevation: 4,
     shadowColor: "white",
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 6,
-    shadowOpacity: 0.5,
+    shadowOpacity: 1,
     justifyContent: "center",
   },
-  textInput: {
-    borderWidth: 0,
-    borderColor: "white",
-    height: 0,
-    borderRadius: 8,
-    backgroundColor: "white",
-    paddingHorizontal: 6,
-    marginVertical: 2,
-    borderColor: "white",
-    elevation: 20,
-    shadowColor: "white",
-    shadowOffset: { width: 0, height: 0 },
-    shadowRadius: 0,
-    shadowOpacity: 0,
-    justifyContent: "center",
+
+  TextInput: {
+    backgroundColor: "#FAF5F3",
+    marginVertical: 1,
+    borderColor: "#0F1A4D",
+    borderWidth: 1.5,
     fontSize: 16,
-    fontWeight: "bold",
-  },
-  text: {
-    fontSize: 16,
-    fontWeight: "bold",
-    color: "black",
-  },
-  formContainer: {
-    backgroundColor: "#fff",
-    padding: 0,
-    borderWidth: 0,
-    borderRadius: 5,
-    borderColor: "#ccc",
-    shadowColor: "#000",
-    shadowOpacity: 0.2,
-    shadowRadius: 5,
-    shadowOffset: { width: 0, height: 2 },
-    backgroundColor: "#9AC6DF",
+    
+    
   },
 });
 export default UpdateEmployeeProfile;
