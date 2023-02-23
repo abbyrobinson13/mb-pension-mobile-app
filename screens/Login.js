@@ -90,7 +90,6 @@ export default function Login({ navigation }) {
           <InlineTextButton 
             text=" Reset"
             // color="#FAF5F3"
-            // fontSize= "16"
             onPress={() => navigation.navigate("Reset Password")}
           />
         </View>
