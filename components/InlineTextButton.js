@@ -6,7 +6,7 @@ export default function InlineTextButton(props) {
   if (props.color) {
     style.color = props.color
   };
-  style.fontSize = 18;
+  // style.fontSize = 18;
   return (
     <Pressable onPress={props.onPress}>
       {({ pressed }) => (

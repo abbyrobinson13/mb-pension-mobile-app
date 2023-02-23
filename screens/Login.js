@@ -80,7 +80,7 @@ export default function Login({ navigation }) {
           <Text style={AppStyles.darkText18}>Don't have a password, yet?</Text>
           <InlineTextButton
             text=" Create password"
-            color="#FAF5F3"
+            // color="#FAF5F3"
             fontSize="16"
             onPress={() => navigation.navigate("Create Password")}
           />
